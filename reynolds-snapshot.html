@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Visibility Snapshot: Reynolds &amp; Co (Sample)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0A0F1E; color: #F9FAFB; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+
+  .sample-ribbon { background: rgba(99,102,241,0.12); border-bottom: 1px solid rgba(99,102,241,0.3); color: #A5B4FC; text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 8px 16px; }
+  .sample-ribbon a { color: #F9FAFB; text-decoration: underline; }
+
+  .header { background: linear-gradient(135deg, #111827 0%, #1a1f35 100%); border-bottom: 1px solid #1F2937; padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 20px; font-weight: 700; color: #6366F1; letter-spacing: -0.5px; }
+  .logo span { color: #F9FAFB; }
+  .header-meta { text-align: right; font-size: 13px; color: #9CA3AF; }
+  .header-meta strong { display: block; color: #F9FAFB; font-size: 15px; }
+
+  .hero { padding: 64px 48px 48px; text-align: center; max-width: 800px; margin: 0 auto; }
+  .hero-label { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #6366F1; margin-bottom: 16px; }
+  .hero h1 { font-size: 40px; font-weight: 800; line-height: 1.2; margin-bottom: 12px; }
+  .hero h1 span { color: #6366F1; }
+  .hero-sub { font-size: 16px; color: #9CA3AF; max-width: 560px; margin: 0 auto; }
+
+  .score-section { padding: 0 48px 48px; max-width: 900px; margin: 0 auto; }
+  .score-card { background: #111827; border: 1px solid #1F2937; border-radius: 16px; padding: 40px; text-align: center; position: relative; overflow: hidden; }
+  .score-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .score-partial::before { background: #F59E0B; }
+  .score-badge { display: inline-block; padding: 8px 24px; border-radius: 100px; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
+  .badge-partial { background: rgba(245,158,11,0.15); color: #F59E0B; border: 1px solid rgba(245,158,11,0.3); }
+  .score-headline { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+  .score-desc { font-size: 15px; color: #9CA3AF; max-width: 580px; margin: 0 auto; }
+
+  .comparison { padding: 0 48px 48px; max-width: 900px; margin: 0 auto; }
+  .section-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #6366F1; margin-bottom: 24px; }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .compare-card { background: #111827; border: 1px solid #1F2937; border-radius: 12px; padding: 28px; }
+  .compare-card.client { border-color: rgba(99,102,241,0.4); }
+  .compare-card.competitor { border-color: rgba(16,185,129,0.3); }
+  .compare-label { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+  .label-client { color: #6366F1; }
+  .label-competitor { color: #10B981; }
+  .compare-name { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+  .check-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 14px; color: #D1D5DB; }
+  .check-icon { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+  .check-yes { background: rgba(16,185,129,0.2); color: #10B981; }
+  .check-no { background: rgba(239,68,68,0.2); color: #EF4444; }
+  .check-partial { background: rgba(245,158,11,0.2); color: #F59E0B; }
+
+  .queries { padding: 0 48px 48px; max-width: 900px; margin: 0 auto; }
+  .query-block { background: #111827; border: 1px solid #1F2937; border-radius: 12px; padding: 24px; margin-bottom: 12px; }
+  .query-text { font-size: 13px; color: #9CA3AF; margin-bottom: 12px; font-style: italic; }
+  .query-text::before { content: '\201C'; }
+  .query-text::after { content: '\201D'; }
+  .query-results { display: flex; gap: 12px; flex-wrap: wrap; }
+  .query-result { display: flex; align-items: center; gap: 6px; font-size: 13px; padding: 6px 12px; border-radius: 6px; }
+  .result-client { background: rgba(99,102,241,0.1); color: #A5B4FC; border: 1px solid rgba(99,102,241,0.2); }
+  .result-competitor { background: rgba(16,185,129,0.1); color: #6EE7B7; border: 1px solid rgba(16,185,129,0.2); }
+  .result-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .dot-yes { background: #10B981; }
+  .dot-no { background: #EF4444; }
+  .dot-partial { background: #F59E0B; }
+
+  .gap-summary { padding: 0 48px 48px; max-width: 900px; margin: 0 auto; }
+  .gap-card { background: linear-gradient(135deg, rgba(239,68,68,0.08) 0%, rgba(99,102,241,0.08) 100%); border: 1px solid rgba(239,68,68,0.2); border-radius: 12px; padding: 32px; }
+  .gap-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 16px; }
+  .gap-point { display: flex; gap: 12px; margin-bottom: 14px; font-size: 14px; color: #D1D5DB; }
+  .gap-bullet { color: #EF4444; font-weight: 700; flex-shrink: 0; }
+
+  .locked { padding: 0 48px 48px; max-width: 900px; margin: 0 auto; }
+  .locked-card { background: #111827; border: 1px solid #1F2937; border-radius: 12px; padding: 32px; position: relative; }
+  .locked-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .locked-sub { font-size: 14px; color: #9CA3AF; margin-bottom: 24px; }
+  .locked-items { display: flex; flex-direction: column; gap: 10px; }
+  .locked-item { background: #0A0F1E; border: 1px solid #1F2937; border-radius: 8px; padding: 16px; display: flex; align-items: center; gap: 12px; filter: blur(3px); user-select: none; pointer-events: none; }
+  .phase-tag { font-size: 11px; font-weight: 700; color: #6366F1; text-transform: uppercase; letter-spacing: 1px; flex-shrink: 0; min-width: 78px; }
+  .locked-text { font-size: 14px; color: #9CA3AF; }
+  .locked-overlay { position: absolute; inset: 0; border-radius: 12px; background: linear-gradient(to bottom, transparent 20%, rgba(17,24,39,0.97) 68%); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 32px; }
+  .locked-overlay span { font-size: 13px; color: #6B7280; }
+
+  .cta { padding: 0 48px 80px; max-width: 900px; margin: 0 auto; }
+  .cta-card { background: linear-gradient(135deg, #1e1b4b 0%, #1a1f35 100%); border: 1px solid rgba(99,102,241,0.4); border-radius: 16px; padding: 48px; text-align: center; }
+  .cta-card h2 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+  .cta-card p { font-size: 15px; color: #9CA3AF; max-width: 520px; margin: 0 auto 32px; }
+  .cta-button { display: inline-block; background: #6366F1; color: white; font-size: 15px; font-weight: 700; padding: 16px 40px; border-radius: 8px; text-decoration: none; letter-spacing: 0.3px; transition: background 0.2s; }
+  .cta-button:hover { background: #4F46E5; }
+  .cta-note { margin-top: 16px; font-size: 13px; color: #6B7280; }
+
+  .footer { border-top: 1px solid #1F2937; padding: 24px 48px; text-align: center; font-size: 12px; color: #4B5563; }
+
+  @media (max-width: 640px) {
+    .header, .hero, .score-section, .comparison, .queries, .gap-summary, .locked, .cta { padding-left: 20px; padding-right: 20px; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 28px; }
+    .header { flex-direction: column; gap: 12px; text-align: center; }
+    .header-meta { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sample-ribbon">
+  Sample Snapshot · Reynolds &amp; Co and Meridian are fictional · <a href="ai-visibility.html">← Back to AI Visibility</a>
+</div>
+
+<div class="header">
+  <div class="logo">ai<span>gentic</span></div>
+  <div class="header-meta">
+    <strong>AI Visibility Snapshot</strong>
+    Reynolds &amp; Co · Sample
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-label">Free AI Visibility Report</div>
+  <h1>How <span>Reynolds &amp; Co</span> appears<br>in AI answers right now</h1>
+  <p class="hero-sub">Aigentic tested ChatGPT and Perplexity on the questions Reynolds' buyers are actually asking. Here is what the AI systems returned.</p>
+</div>
+
+<div class="score-section">
+  <div class="score-card score-partial">
+    <div class="score-badge badge-partial">Partially Visible</div>
+    <div class="score-headline">Visibility Score: 4 / 9</div>
+    <p class="score-desc">AI knows Reynolds &amp; Co exists and can describe it correctly — but only when asked about "Reynolds &amp; Co" by name. When buyers ask for the best steel structure contractors, Reynolds appears on ChatGPT but not Perplexity. When they ask for alternatives to the big fabricators, Reynolds appears on neither. Meridian appears in all three.</p>
+  </div>
+</div>
+
+<div class="comparison">
+  <div class="section-title">Side-by-side comparison</div>
+  <div class="compare-grid">
+    <div class="compare-card client">
+      <div class="compare-label label-client">Client</div>
+      <div class="compare-name">Reynolds &amp; Co</div>
+      <div class="check-row"><div class="check-icon check-partial">~</div>Appears in "best steel contractors" queries</div>
+      <div class="check-row"><div class="check-icon check-no">✗</div>Structured knowledge-base entry (Wikidata / Wikipedia)</div>
+      <div class="check-row"><div class="check-icon check-no">✗</div>Cited by third-party trade sources</div>
+      <div class="check-row"><div class="check-icon check-yes">✓</div>Clear, correct description of what they do</div>
+    </div>
+    <div class="compare-card competitor">
+      <div class="compare-label label-competitor">Named competitor</div>
+      <div class="compare-name">Meridian Structures</div>
+      <div class="check-row"><div class="check-icon check-yes">✓</div>Appears in "best steel contractors" queries</div>
+      <div class="check-row"><div class="check-icon check-yes">✓</div>Structured knowledge-base entry (Wikidata / Wikipedia)</div>
+      <div class="check-row"><div class="check-icon check-yes">✓</div>Cited by third-party trade sources</div>
+      <div class="check-row"><div class="check-icon check-yes">✓</div>Clear, correct description of what they do</div>
+    </div>
+  </div>
+</div>
+
+<div class="queries">
+  <div class="section-title">What AI systems say when asked</div>
+  <div class="query-block">
+    <div class="query-text">best steel structure contractors UK 2026</div>
+    <div class="query-results">
+      <div class="query-result result-client"><div class="result-dot dot-partial"></div>Reynolds &amp; Co: Listed on ChatGPT (position 5 of 8) but absent from Perplexity</div>
+      <div class="query-result result-competitor"><div class="result-dot dot-yes"></div>Meridian: Featured on ChatGPT at position 2 with citations, and named by Perplexity</div>
+    </div>
+  </div>
+  <div class="query-block">
+    <div class="query-text">alternatives to the large steel fabricators for civil engineering</div>
+    <div class="query-results">
+      <div class="query-result result-client"><div class="result-dot dot-no"></div>Reynolds &amp; Co: Not mentioned on either platform. Both list 5–8 other firms instead.</div>
+      <div class="query-result result-competitor"><div class="result-dot dot-yes"></div>Meridian: Named on both as a specialist alternative</div>
+    </div>
+  </div>
+  <div class="query-block">
+    <div class="query-text">what does Reynolds &amp; Co do</div>
+    <div class="query-results">
+      <div class="query-result result-client"><div class="result-dot dot-partial"></div>Reynolds &amp; Co: Both platforms describe a steel structures contractor correctly — but sources are almost entirely Reynolds' own website, with no third-party validation</div>
+      <div class="query-result result-competitor"><div class="result-dot dot-yes"></div>Meridian: Described from trade press, directories and a Wikipedia entry</div>
+    </div>
+  </div>
+</div>
+
+<div class="gap-summary">
+  <div class="section-title">The gap in plain English</div>
+  <div class="gap-card">
+    <h3>Why Meridian appears and Reynolds &amp; Co doesn't</h3>
+    <div class="gap-point"><span class="gap-bullet">→</span> AI can't place Reynolds in the market. There's no structured entry (Wikidata, Wikipedia, a complete Companies profile) that tells a model what Reynolds is and where it fits. Meridian has that scaffolding, so every platform can resolve them cleanly and confidently list them.</div>
+    <div class="gap-point"><span class="gap-bullet">→</span> Reynolds shows up on ChatGPT's "best contractors" list but is invisible to Perplexity, which many engineers and buyers now use. The difference is citations: the only sites linking to Reynolds are Reynolds' own. Meridian is referenced by trade publications and directories, so every AI platform finds them.</div>
+    <div class="gap-point"><span class="gap-bullet">→</span> When a buyer asks for alternatives, Reynolds does not appear anywhere — despite being exactly the kind of specialist those buyers want. Their genuine strengths only surface when someone already knows to ask for "Reynolds &amp; Co" by name.</div>
+  </div>
+</div>
+
+<div class="locked">
+  <div class="section-title">The last page of your Snapshot</div>
+  <div class="locked-card">
+    <div class="locked-title">Your 90-day visibility plan</div>
+    <p class="locked-sub">The full AI Search Audit turns this Snapshot into a dated, step-by-step plan to close the gap — this is the page it unlocks.</p>
+    <div class="locked-items">
+      <div class="locked-item"><span class="phase-tag">Weeks 1–2</span><span class="locked-text">Fix the entity base so AI can resolve you: schema, a structured knowledge-base entry, a tightened About page. The cheapest, highest-leverage move.</span></div>
+      <div class="locked-item"><span class="phase-tag">Weeks 3–6</span><span class="locked-text">Publish answer-shaped content for the eight buying-intent questions your customers actually ask, built so a model will lift and cite it.</span></div>
+      <div class="locked-item"><span class="phase-tag">Weeks 7–10</span><span class="locked-text">Earn third-party citations — the trade titles, directories and mentions the AI platforms already trust in your sector.</span></div>
+      <div class="locked-item"><span class="phase-tag">Weeks 11–12</span><span class="locked-text">Re-test the same questions and measure the before/after, so the movement is proven, not assumed.</span></div>
+    </div>
+    <div class="locked-overlay"><span>Unlocked with the full AI Search Audit</span></div>
+  </div>
+</div>
+
+<div class="cta">
+  <div class="cta-card">
+    <h2>This is a sample. Yours uses your real numbers.</h2>
+    <p>We run this on your actual brand against a competitor you name — then the full AI Search Audit delivers the 90-day plan to make you the name AI recommends.</p>
+    <a href="ai-visibility.html#book" class="cta-button">Get your free Snapshot</a>
+    <p class="cta-note">Reynolds &amp; Co and Meridian Structures are fictional. The format is exactly what you receive.</p>
+  </div>
+</div>
+
+<div class="footer">
+  <p style="margin-bottom:8px;">Sample AI Visibility Snapshot · Aigentic runs live testing across ChatGPT, Claude, Gemini and Perplexity with a structured prompt set.</p>
+  © 2026 Aigentic · rq@aigentic.co.uk · aigentic.co.uk
+</div>
+
+</body>
+</html>

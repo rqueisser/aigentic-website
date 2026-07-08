@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aigentic · Are you the answer when buyers ask AI?</title>
+<meta name="description" content="Your customers ask ChatGPT, Claude, Gemini and Perplexity who's best — and act on the answer. The free AI Visibility Snapshot shows exactly where you stand against a named competitor, then we make you the name AI recommends.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter','sans-serif'], serif: ['Instrument Serif','serif'], display: ['Space Grotesk','sans-serif'], mono: ['JetBrains Mono','monospace'] },
+      colors: { ink: { 950:'#050505',900:'#0a0a0a',850:'#111827',800:'#1A2035' }, accent: { DEFAULT:'#4F46E5',light:'#6366F1',glow:'rgba(79,70,229,0.35)' } }
+    }
+  }
+}
+</script>
+
+<style>
+:root { --mouse-x: 0px; --mouse-y: 0px; }
+body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+.glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+.glass-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); transition: all 0.5s cubic-bezier(0.16,1,0.3,1); }
+.glass-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(79,70,229,0.35); transform: translateY(-2px); }
+.spotlight { position: relative; overflow: hidden; }
+.spotlight::before { content: ''; position: absolute; inset: 0; background: radial-gradient(500px circle at var(--mouse-x) var(--mouse-y), rgba(99,102,241,0.12), transparent 40%); opacity: 0; transition: opacity 0.5s; pointer-events: none; z-index: 2; }
+.spotlight:hover::before { opacity: 1; }
+.section-grid { position: absolute; inset: 0; pointer-events: none; opacity: 0.18; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 75%); }
+.glow-orb { position: absolute; border-radius: 9999px; filter: blur(120px); mix-blend-mode: screen; pointer-events: none; z-index: 0; }
+@keyframes grain { 0%,100% { transform: translate(0,0);} 10%{transform:translate(-5%,-10%);} 30%{transform:translate(7%,-25%);} 50%{transform:translate(-15%,10%);} 70%{transform:translate(0%,15%);} 90%{transform:translate(-10%,10%);} }
+.bg-grain::after { content:""; background-image:url("https://upload.wikimedia.org/wikipedia/commons/7/76/Noise.png"); height:300%; width:300%; position:fixed; top:-100%; left:-100%; opacity:0.04; animation:grain 8s steps(10) infinite; pointer-events:none; z-index:9998; }
+.reveal { opacity:0; filter:blur(4px); transform:translateY(20px); transition:all 0.9s cubic-bezier(0.16,1,0.3,1); }
+.reveal.active { opacity:1; filter:blur(0); transform:translateY(0); }
+.mono-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+.pill { display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:9999px; border:1px solid rgba(79,70,229,0.3); background:rgba(79,70,229,0.08); color:#A5B4FC; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; }
+.pill-dot { width:6px; height:6px; border-radius:9999px; background:#6366F1; box-shadow:0 0 8px #6366F1; animation:pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(0.8);} }
+.btn-primary { display:inline-flex; align-items:center; gap:12px; padding:16px 28px; border-radius:9999px; background:linear-gradient(135deg,#4F46E5,#6366F1); color:#fff; font-weight:600; font-size:15px; letter-spacing:-0.01em; box-shadow:0 18px 40px rgba(79,70,229,0.35), inset 0 1px 0 rgba(255,255,255,0.2); transition:all 0.3s cubic-bezier(0.16,1,0.3,1); }
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 24px 50px rgba(79,70,229,0.5), inset 0 1px 0 rgba(255,255,255,0.3); }
+.btn-ghost { display:inline-flex; align-items:center; gap:10px; padding:16px 24px; border-radius:9999px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.02); color:rgba(255,255,255,0.85); font-weight:500; font-size:14px; transition:all 0.3s ease; }
+.btn-ghost:hover { background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.25); color:#fff; }
+.tag-free { background:rgba(5,150,105,0.15); color:#34D399; border:1px solid rgba(5,150,105,0.35); }
+.tag-paid { background:rgba(79,70,229,0.15); color:#A5B4FC; border:1px solid rgba(79,70,229,0.4); }
+.tag-deliv { background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.7); border:1px solid rgba(255,255,255,0.12); }
+.tag { display:inline-flex; align-items:center; padding:4px 10px; border-radius:9999px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; }
+.deco-num { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:80px; line-height:1; color:rgba(255,255,255,0.08); letter-spacing:-0.04em; }
+.divider-hairline { height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); }
+::selection { background:#4F46E5; color:#fff; }
+/* Snapshot comparison rows */
+.snap-row { display:grid; grid-template-columns: 96px 1fr; gap:14px; align-items:center; padding:11px 0; border-top:1px solid #EceFf4; }
+.snap-row:first-of-type { border-top:none; }
+.snap-engine { font-weight:600; font-size:13px; color:#111827; display:flex; align-items:center; gap:7px; }
+.snap-bars { display:flex; flex-direction:column; gap:6px; }
+.snap-bar { display:flex; align-items:center; gap:9px; }
+.snap-bar .who { font-size:10px; width:74px; color:#6b7280; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.snap-track { flex:1; height:8px; border-radius:99px; background:#EEF0F5; overflow:hidden; }
+.snap-track > span { display:block; height:100%; border-radius:99px; }
+.snap-fill-you { background:linear-gradient(90deg,#d23b3b,#ef6a6a); }
+.snap-fill-comp { background:linear-gradient(90deg,#1e9e5a,#36c97e); }
+.snap-val { font-size:11px; font-weight:700; min-width:64px; text-align:right; }
+.snap-val.bad { color:#d23b3b; } .snap-val.ok { color:#cf8a00; } .snap-val.good { color:#1e9e5a; }
+</style>
+</head>
+
+<body class="bg-grain antialiased">
+
+<!-- ===== NAV ===== -->
+<header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
+  <div class="glass rounded-full px-5 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 font-display font-bold text-lg tracking-tight">
+      <span class="w-2.5 h-2.5 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span><span>Aigentic</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm text-white/70">
+      <a href="index.html" class="hover:text-white transition">Home</a>
+      <a href="ai-visibility.html" class="text-white transition">AI Visibility</a>
+      <a href="blueprint.html" class="hover:text-white transition">How it works</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#book" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-[1.02] transition">Get your Snapshot<iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></a>
+      <button id="menuBtn" class="md:hidden text-white/80 hover:text-white" aria-label="Open menu">
+        <iconify-icon icon="solar:hamburger-menu-linear" width="24"></iconify-icon>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="md:hidden hidden mt-2 glass rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm text-white/80">
+    <a href="index.html" class="hover:text-white transition">Home</a>
+    <a href="ai-visibility.html" class="text-white transition">AI Visibility</a>
+    <a href="blueprint.html" class="hover:text-white transition">How it works</a>
+    <a href="#book" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Get your Snapshot</a>
+  </div>
+</header>
+<script>(function(){var b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.add('hidden');});});}})();</script>
+
+<!-- ===== HERO ===== -->
+<section class="relative min-h-screen flex items-center pt-32 pb-24 px-6 overflow-hidden">
+  <div class="section-grid"></div>
+  <div class="glow-orb" style="width:600px;height:600px;background:#4F46E5;opacity:0.18;top:-200px;left:50%;transform:translateX(-50%);"></div>
+  <div class="glow-orb" style="width:400px;height:400px;background:#1A2035;opacity:0.5;bottom:-100px;right:-100px;"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto w-full">
+    <div class="flex justify-center mb-8 reveal"><span class="pill"><span class="pill-dot"></span>Free AI Visibility Snapshot</span></div>
+    <h1 class="font-display font-semibold tracking-tighter leading-[0.95] text-center text-[clamp(44px,7.5vw,90px)] reveal" style="transition-delay:100ms;">
+      Is your brand showing up<br><span class="font-display font-light text-white/70">in AI search?</span>
+    </h1>
+    <p class="mt-8 text-center text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed reveal" style="transition-delay:200ms;">
+      Your customers have stopped Googling. They ask ChatGPT, Claude, Gemini and Perplexity — and act on the answer. If AI doesn't name you, those buyers never reach you, and you never even see them go.
+    </p>
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal" style="transition-delay:300ms;">
+      <a href="#book" class="btn-primary">Get your free Snapshot<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
+      <a href="#snapshot" class="btn-ghost"><iconify-icon icon="solar:chart-2-linear" width="18"></iconify-icon>See a sample Snapshot</a>
+    </div>
+    <div class="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mono-label reveal" style="transition-delay:400ms;">
+      <span>No prep work</span><span class="opacity-30">·</span><span>Against a named competitor</span><span class="opacity-30">·</span><span>Yours to keep</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== THE PROBLEM ===== -->
+<section id="problem" class="relative py-24 px-6 overflow-hidden">
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <p class="font-display text-3xl md:text-5xl font-semibold tracking-tighter leading-tight text-white/90 reveal">
+      Search has a new front door.
+      <span class="font-display font-light text-white/60">Most businesses aren't behind it.</span>
+    </p>
+    <p class="mt-6 text-white/55 text-base md:text-lg leading-relaxed max-w-2xl mx-auto reveal" style="transition-delay:100ms;">
+      AI recommendations are becoming how people choose who to buy from. Whoever the model names gets the call. It's a channel you're either in or invisible in — and almost nobody has checked which.
+    </p>
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+      <div class="glass-card spotlight rounded-2xl p-6 reveal"><iconify-icon icon="solar:eye-closed-linear" width="26" class="text-accent-light"></iconify-icon><div class="font-display font-semibold text-white mt-4 mb-1.5">Invisible, not second</div><p class="text-sm text-white/55 leading-relaxed">If AI doesn't mention you, you're not in second place — you're simply not in the room.</p></div>
+      <div class="glass-card spotlight rounded-2xl p-6 reveal" style="transition-delay:80ms;"><iconify-icon icon="solar:ghost-linear" width="26" class="text-accent-light"></iconify-icon><div class="font-display font-semibold text-white mt-4 mb-1.5">Lost in silence</div><p class="text-sm text-white/55 leading-relaxed">You never see these buyers. They ask, they hear a competitor's name, they go. No bounce, no trace.</p></div>
+      <div class="glass-card spotlight rounded-2xl p-6 reveal" style="transition-delay:160ms;"><iconify-icon icon="solar:hourglass-linear" width="26" class="text-accent-light"></iconify-icon><div class="font-display font-semibold text-white mt-4 mb-1.5">A head start, going</div><p class="text-sm text-white/55 leading-relaxed">The models are forming their answers now. The names they learn to trust first are the ones that stick.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== THE SNAPSHOT ===== -->
+<section id="snapshot" class="relative py-28 px-6 overflow-hidden">
+  <div class="glow-orb" style="width:500px;height:500px;background:#6366F1;opacity:0.12;top:30%;left:-200px;"></div>
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-5">
+        <div class="flex items-center gap-3 mb-6 reveal"><span class="mono-label">The free Snapshot</span><div class="h-px flex-1 bg-white/10 max-w-[120px]"></div></div>
+        <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-5xl leading-[0.95] reveal">See exactly where you <span class="font-display font-light text-white/60">stand.</span></h2>
+        <p class="mt-6 text-white/55 text-base leading-relaxed reveal">We run your business through the major AI tools against a competitor you name, and show you the result in black and white: where you're mentioned, where you're not, and where they are instead. It's the demo, the wake-up call, and the starting line — free, and yours to keep.</p>
+        <ul class="mt-8 space-y-4 reveal">
+          <li class="flex gap-3 text-sm text-white/70"><span class="text-accent-light mt-0.5">·</span><span>Your visibility across ChatGPT, Claude, Gemini and Perplexity</span></li>
+          <li class="flex gap-3 text-sm text-white/70"><span class="text-accent-light mt-0.5">·</span><span>Head-to-head against a named competitor</span></li>
+          <li class="flex gap-3 text-sm text-white/70"><span class="text-accent-light mt-0.5">·</span><span>The specific gaps that are costing you mentions</span></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-7 reveal">
+        <div class="rounded-2xl overflow-hidden spotlight border border-white/10" style="box-shadow:0 30px 80px rgba(0,0,0,0.55);background:#0d1120;">
+          <div class="px-6 py-4 flex items-center justify-between border-b border-white/8">
+            <div class="font-display font-bold text-accent-light">ai<span class="text-white">gentic</span></div>
+            <div class="text-right text-[11px] text-white/40"><span class="text-white/80 font-semibold block">AI Visibility Snapshot</span>Reynolds &amp; Co · Sample</div>
+          </div>
+          <div class="p-6 md:p-7">
+            <div class="text-center">
+              <span class="inline-block px-4 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase" style="background:rgba(245,158,11,0.15);color:#F59E0B;border:1px solid rgba(245,158,11,0.3);">Partially Visible</span>
+              <div class="font-display text-3xl font-bold mt-4">Visibility Score: 4 <span class="text-white/40 text-xl">/ 9</span></div>
+              <p class="text-white/50 text-sm mt-2 max-w-md mx-auto">AI describes Reynolds correctly by name — but when buyers ask for the best contractors, or for alternatives, a competitor gets named instead.</p>
+            </div>
+            <div class="mt-6 rounded-xl border border-white/8 p-4 bg-white/[0.02]">
+              <div class="text-xs text-white/40 italic mb-3">"best steel structure contractors UK 2026"</div>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-2.5 py-1.5 rounded-md" style="background:rgba(99,102,241,0.1);color:#A5B4FC;border:1px solid rgba(99,102,241,0.2);">Reynolds: ChatGPT #5, absent on Perplexity</span>
+                <span class="text-xs px-2.5 py-1.5 rounded-md" style="background:rgba(16,185,129,0.1);color:#6EE7B7;border:1px solid rgba(16,185,129,0.2);">Meridian: named on both, with citations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 flex flex-col sm:flex-row gap-3">
+          <a href="reynolds-snapshot.html" target="_blank" rel="noopener" class="btn-ghost flex-1 justify-center"><iconify-icon icon="solar:file-text-linear" width="16"></iconify-icon>Open the Reynolds sample</a>
+          <a href="bodnar-snapshot.html" target="_blank" rel="noopener" class="btn-ghost flex-1 justify-center"><iconify-icon icon="solar:file-text-linear" width="16"></iconify-icon>Open the Bodnar sample</a>
+        </div>
+        <p class="text-xs text-white/40 mt-4 text-center">Two full sample Snapshots. The companies are fictional; the format is exactly what you receive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== WHY NOW ===== -->
+<section class="relative py-24 px-6 overflow-hidden">
+  <div class="glow-orb" style="width:500px;height:500px;background:#4F46E5;opacity:0.1;top:20%;right:-200px;"></div>
+  <div class="relative z-10 max-w-4xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 reveal"><span class="mono-label">Why now</span><div class="h-px flex-1 bg-white/10 max-w-[120px]"></div></div>
+    <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-5xl leading-[0.95] max-w-3xl reveal">Get there <span class="font-display font-light text-white/60">before your competitors wake up.</span></h2>
+    <p class="mt-6 text-white/60 text-lg leading-relaxed max-w-2xl reveal">Becoming the name AI recommends takes a few months to compound — and that's exactly why it's worth starting now. Move first and you become the default answer while everyone else is still invisible. Move late and you're playing catch-up against whoever moved first. The lag isn't a reason to wait; it's the reason not to.</p>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section id="how" class="relative py-28 px-6 overflow-hidden">
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 reveal"><span class="mono-label">How it works</span><div class="h-px flex-1 bg-white/10 max-w-[120px]"></div></div>
+    <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-5xl leading-[0.95] max-w-3xl reveal">Three steps. <span class="font-display font-light text-white/60">The first one's free.</span></h2>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="glass-card spotlight rounded-2xl p-7 reveal">
+        <div class="flex items-center justify-between mb-5"><span class="deco-num text-5xl">01</span><span class="tag tag-free">Free</span></div>
+        <div class="mono-label mb-2">Visibility Snapshot</div>
+        <h3 class="font-display text-xl font-semibold mb-3 leading-snug">See where you stand</h3>
+        <p class="text-white/55 text-sm leading-relaxed">Your brand vs a named competitor across the major AI tools. The wake-up call, free and yours to keep.</p>
+      </div>
+      <div class="glass-card spotlight rounded-2xl p-7 reveal" style="transition-delay:80ms;">
+        <div class="flex items-center justify-between mb-5"><span class="deco-num text-5xl">02</span><span class="tag tag-paid">The fix</span></div>
+        <div class="mono-label mb-2">AI Search Audit</div>
+        <h3 class="font-display text-xl font-semibold mb-3 leading-snug">The full picture, and the 90-day plan</h3>
+        <p class="text-white/55 text-sm leading-relaxed">A complete read on why AI does or doesn't recommend you — and the last page of your Snapshot made real: a dated, prioritised 90-day plan to close the gap.</p>
+      </div>
+      <div class="glass-card spotlight rounded-2xl p-7 reveal" style="transition-delay:160ms;">
+        <div class="flex items-center justify-between mb-5"><span class="deco-num text-5xl">03</span><span class="tag tag-deliv">Ongoing</span></div>
+        <div class="mono-label mb-2">Stay visible</div>
+        <h3 class="font-display text-xl font-semibold mb-3 leading-snug">Keep your place at the front</h3>
+        <p class="text-white/55 text-sm leading-relaxed">Monitor your visibility month to month — and, if you want, we produce the content that does the work of keeping you there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOOKING CTA ===== -->
+<section id="book" class="relative py-28 px-6 overflow-hidden">
+  <div class="glow-orb" style="width:800px;height:800px;background:#4F46E5;opacity:0.2;bottom:-400px;left:50%;transform:translateX(-50%);"></div>
+  <div class="relative z-10 max-w-2xl mx-auto text-center">
+    <div class="flex justify-center mb-6 reveal"><span class="pill"><span class="pill-dot"></span>Free · no commitment</span></div>
+    <h2 class="font-display font-semibold tracking-tighter text-5xl md:text-7xl leading-[0.95] reveal">Find out if<br><span class="font-display font-light text-white/60">AI recommends you.</span></h2>
+    <p class="mt-8 text-white/55 text-lg max-w-xl mx-auto reveal">Tell me your business and the competitor you'd most like to beat. I'll run your Snapshot and send it over.</p>
+
+    <form id="contact-form" class="mt-12 text-left glass rounded-2xl p-7 reveal" onsubmit="return submitContact(event)">
+      <div class="space-y-5">
+        <div><label for="cf-name" class="block mono-label mb-2">Your name</label><input id="cf-name" name="name" type="text" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition" placeholder="e.g. Jane Reynolds"></div>
+        <div><label for="cf-company" class="block mono-label mb-2">Company</label><input id="cf-company" name="company" type="text" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition" placeholder="e.g. Reynolds & Co"></div>
+        <div><label for="cf-context" class="block mono-label mb-2">In one line, what does the company do?</label><textarea id="cf-context" name="context" required rows="2" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none" placeholder="e.g. We design and build steel structures for civil engineering projects."></textarea></div>
+        <div><label for="cf-competitor" class="block mono-label mb-2">A competitor you'd like to beat <span class="ml-1 text-white/30 normal-case tracking-normal">(optional)</span></label><input id="cf-competitor" name="competitor" type="text" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition" placeholder="e.g. Meridian Structures"></div>
+      </div>
+      <div class="mt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span class="mono-label text-white/35">Sends to rq@aigentic.co.uk</span>
+        <button type="submit" class="btn-primary">Request my Snapshot<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></button>
+      </div>
+      <div id="cf-status" class="mt-4 text-sm text-center hidden"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="relative border-t border-white/8 py-12 px-6 mt-12">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2 font-display font-bold tracking-tight"><span class="w-2 h-2 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span><span>Aigentic</span></div>
+    <div class="mono-label text-center">© 2026 Aigentic · Business first, AI second</div>
+    <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-white/55">
+      <a href="index.html" class="hover:text-white transition">For founders</a><span class="opacity-30">·</span><a href="mailto:rq@aigentic.co.uk" class="hover:text-white transition">rq@aigentic.co.uk</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.spotlight').forEach(card => {
+  card.addEventListener('mousemove', (e) => { const rect = card.getBoundingClientRect(); card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`); });
+});
+const io = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); io.unobserve(entry.target); } }); }, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+function submitContact(e) {
+  e.preventDefault();
+  const name = document.getElementById('cf-name').value.trim();
+  const company = document.getElementById('cf-company').value.trim();
+  const context = document.getElementById('cf-context').value.trim();
+  const competitor = document.getElementById('cf-competitor').value.trim();
+  const subject = `AI Visibility Snapshot request: ${company}`;
+  const lines = [`Hi Raph,`, ``, `I'd like a free AI Visibility Snapshot.`, ``, `Name: ${name}`, `Company: ${company}`, `What we do: ${context}`];
+  if (competitor) lines.push(`Competitor to beat: ${competitor}`);
+  lines.push(``, `Thanks,`, name);
+  const url = `https://mail.google.com/mail/?view=cm&fs=1&to=rq@aigentic.co.uk&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+  window.open(url, '_blank');
+  const status = document.getElementById('cf-status');
+  status.textContent = 'Gmail opened in a new tab. Hit send and I\'ll send your Snapshot over within a couple of days.';
+  status.className = 'mt-4 text-sm text-center text-emerald-400';
+  status.classList.remove('hidden');
+  return false;
+}
+</script>
+
+</body>
+</html>

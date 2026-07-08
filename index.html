@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aigentic · More customers. More time. More control.</title>
+<meta name="description" content="One AI that knows your business inside out — then goes to work: winning the customers who now ask AI who's best, handing you your time back, and keeping you ahead of the numbers. Starts with a free Strategy Blueprint you keep.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Instrument Serif', 'serif'],
+        display: ['Space Grotesk', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+      colors: {
+        ink: { 950: '#050505', 900: '#0a0a0a', 850: '#111827', 800: '#1A2035' },
+        accent: { DEFAULT: '#4F46E5', light: '#6366F1', glow: 'rgba(79, 70, 229, 0.35)' }
+      }
+    }
+  }
+}
+</script>
+
+<style>
+:root { --mouse-x: 0px; --mouse-y: 0px; }
+
+body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+.glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+.glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.glass-card:hover { background: rgba(255, 255, 255, 0.04); border-color: rgba(79, 70, 229, 0.35); transform: translateY(-2px); }
+
+.spotlight { position: relative; overflow: hidden; }
+.spotlight::before { content: ''; position: absolute; inset: 0; background: radial-gradient(500px circle at var(--mouse-x) var(--mouse-y), rgba(99, 102, 241, 0.12), transparent 40%); opacity: 0; transition: opacity 0.5s; pointer-events: none; z-index: 2; }
+.spotlight:hover::before { opacity: 1; }
+
+.section-grid { position: absolute; inset: 0; pointer-events: none; opacity: 0.18;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 72px 72px; mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 75%); }
+
+.glow-orb { position: absolute; border-radius: 9999px; filter: blur(120px); mix-blend-mode: screen; pointer-events: none; z-index: 0; }
+
+@keyframes grain { 0%, 100% { transform: translate(0, 0); } 10% { transform: translate(-5%, -10%); } 30% { transform: translate(7%, -25%); } 50% { transform: translate(-15%, 10%); } 70% { transform: translate(0%, 15%); } 90% { transform: translate(-10%, 10%); } }
+.bg-grain::after { content: ""; background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/Noise.png"); height: 300%; width: 300%; position: fixed; top: -100%; left: -100%; opacity: 0.04; animation: grain 8s steps(10) infinite; pointer-events: none; z-index: 9998; }
+
+.reveal { opacity: 0; filter: blur(4px); transform: translateY(20px); transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.active { opacity: 1; filter: blur(0); transform: translateY(0); }
+
+.mono-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255, 255, 255, 0.4); }
+
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 9999px; border: 1px solid rgba(79, 70, 229, 0.3); background: rgba(79, 70, 229, 0.08); color: #A5B4FC; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+.pill-dot { width: 6px; height: 6px; border-radius: 9999px; background: #6366F1; box-shadow: 0 0 8px #6366F1; animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+
+.btn-primary { display: inline-flex; align-items: center; gap: 12px; padding: 16px 28px; border-radius: 9999px; background: linear-gradient(135deg, #4F46E5, #6366F1); color: #fff; font-weight: 600; font-size: 15px; letter-spacing: -0.01em; box-shadow: 0 18px 40px rgba(79, 70, 229, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 24px 50px rgba(79, 70, 229, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 10px; padding: 16px 24px; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.12); background: rgba(255, 255, 255, 0.02); color: rgba(255, 255, 255, 0.85); font-weight: 500; font-size: 14px; transition: all 0.3s ease; }
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.25); color: #fff; }
+
+.tag-free  { background: rgba(5,150,105,0.15); color: #34D399; border: 1px solid rgba(5,150,105,0.35); }
+.tag-paid  { background: rgba(79,70,229,0.15); color: #A5B4FC; border: 1px solid rgba(79,70,229,0.4); }
+.tag-deliv { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.12); }
+.tag { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 9999px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; }
+
+.deco-num { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; font-size: 80px; line-height: 1; color: rgba(255, 255, 255, 0.08); letter-spacing: -0.04em; }
+.divider-hairline { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); }
+::selection { background: #4F46E5; color: #fff; }
+
+/* Browser-framed live demo preview */
+.browser-frame { border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #0d0f14; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+.browser-bar { display: flex; align-items: center; gap: 10px; padding: 11px 16px; background: #15181f; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.browser-bar .dots { display: flex; gap: 6px; }
+.browser-bar .dots span { width: 11px; height: 11px; border-radius: 9999px; background: rgba(255,255,255,0.16); }
+.browser-bar .url { flex: 1; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.04em; }
+.browser-viewport { position: relative; height: 460px; overflow: hidden; }
+.browser-viewport iframe { width: 100%; height: 1100px; border: 0; pointer-events: none; background: #fff; }
+.frame-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 130px; background: linear-gradient(transparent, #0d0f14); pointer-events: none; }
+.frame-open { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 9999px; background: rgba(255,255,255,0.95); color: #0a0a0a; font-weight: 600; font-size: 13px; white-space: nowrap; transition: all 0.25s; }
+.frame-open:hover { background: #fff; transform: translateX(-50%) translateY(-2px); }
+</style>
+</head>
+
+<body class="bg-grain antialiased">
+
+<!-- ===== NAV ===== -->
+<header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
+  <div class="glass rounded-full px-5 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 font-display font-bold text-lg tracking-tight">
+      <span class="w-2.5 h-2.5 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span>
+      <span>Aigentic</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm text-white/70">
+      <a href="index.html" class="text-white transition">Home</a>
+      <a href="ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
+      <a href="blueprint.html" class="hover:text-white transition">How it works</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#book" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-[1.02] transition">
+        Get your free AI plan
+        <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+      </a>
+      <button id="menuBtn" class="md:hidden text-white/80 hover:text-white" aria-label="Open menu">
+        <iconify-icon icon="solar:hamburger-menu-linear" width="24"></iconify-icon>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="md:hidden hidden mt-2 glass rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm text-white/80">
+    <a href="index.html" class="text-white transition">Home</a>
+    <a href="ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
+    <a href="blueprint.html" class="hover:text-white transition">How it works</a>
+    <a href="#book" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Get your free AI plan</a>
+  </div>
+</header>
+<script>(function(){var b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.add('hidden');});});}})();</script>
+
+<!-- ===== HERO ===== -->
+<section class="relative min-h-screen flex items-center pt-32 pb-24 px-6 overflow-hidden">
+  <div class="section-grid"></div>
+  <div class="glow-orb" style="width: 600px; height: 600px; background: #4F46E5; opacity: 0.18; top: -200px; left: 50%; transform: translateX(-50%);"></div>
+  <div class="glow-orb" style="width: 400px; height: 400px; background: #1A2035; opacity: 0.5; bottom: -100px; right: -100px;"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto w-full">
+    <div class="flex justify-center mb-8 reveal">
+      <span class="pill"><span class="pill-dot"></span>Free Strategy Blueprint · no call needed</span>
+    </div>
+
+    <h1 class="font-display font-semibold tracking-tighter leading-[0.95] text-center text-[clamp(40px,7vw,84px)] reveal" style="transition-delay: 100ms;">
+      More customers. More time.<br>
+      <span class="font-display font-light text-white/70">More control.</span>
+    </h1>
+
+    <p class="mt-8 text-center text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed reveal" style="transition-delay: 200ms;">
+      One AI that knows your business inside out — then goes to work: winning the customers who now ask AI who's best, handing you your time back, and keeping you ahead of the numbers. So you can finally work <em>on</em> the business, not buried <em>in</em> it.
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal" style="transition-delay: 300ms;">
+      <a href="#book" class="btn-primary">Get your free AI plan<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
+      <a href="blueprint.html" class="btn-ghost"><iconify-icon icon="solar:compass-linear" width="18"></iconify-icon>See how it works</a>
+    </div>
+
+    <div class="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mono-label reveal" style="transition-delay: 400ms;">
+      <span>No prep work</span><span class="opacity-30">·</span><span>No pitch deck</span><span class="opacity-30">·</span><span>Yours to keep</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== POSITIONING CALLOUT ===== -->
+<section class="relative py-20 px-6 overflow-hidden">
+  <div class="relative z-10 max-w-3xl mx-auto text-center">
+    <p class="font-display text-3xl md:text-4xl font-semibold tracking-tighter leading-tight text-white/90 reveal">
+      Business first, <span class="font-display font-light text-white/60">AI second.</span>
+    </p>
+    <p class="mt-4 text-white/55 text-base md:text-lg leading-relaxed reveal" style="transition-delay: 100ms;">
+      AI doesn't fix a business. It amplifies one that's working, and exposes one that isn't. So we start with how your business actually runs — then put AI exactly where it earns its place.
+    </p>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== THE THREE PRODUCTS ===== -->
+<section id="products" class="relative py-28 px-6 overflow-hidden">
+  <div class="glow-orb" style="width: 500px; height: 500px; background: #4F46E5; opacity: 0.1; top: 10%; right: -200px;"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 reveal">
+      <span class="mono-label">01 / What you get</span>
+      <div class="h-px flex-1 bg-white/10 max-w-[120px]"></div>
+    </div>
+    <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-6xl leading-[0.95] max-w-3xl reveal">
+      One AI, three ways it
+      <span class="font-display font-light text-white/60">grows the business.</span>
+    </h2>
+    <p class="mt-6 text-white/55 text-lg max-w-2xl reveal">
+      Not three tools bolted on. It's one AI that already knows your business, pointed at the three things that decide whether it grows — winning customers, freeing your time, and controlling the numbers. Start where it hurts most; add the rest when they earn it.
+    </p>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-5">
+
+      <!-- Product 1 — AI Visibility -->
+      <div class="glass-card spotlight rounded-2xl p-7 reveal flex flex-col">
+        <div class="flex items-start justify-between mb-5">
+          <iconify-icon icon="solar:magnifer-linear" width="28" class="text-accent-light"></iconify-icon>
+          <span class="mono-label">Win customers</span>
+        </div>
+        <h3 class="font-display text-2xl font-semibold mb-3">AI Visibility</h3>
+        <p class="text-white/60 text-sm leading-relaxed flex-1">
+          Your customers ask ChatGPT, Claude, Gemini and Perplexity who's best — and act on the answer. If AI doesn't name you, you never even see the buyer go. We make you the name it recommends.
+        </p>
+        <a href="ai-visibility.html" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-light hover:gap-3 transition-all">
+          See a live Snapshot<iconify-icon icon="solar:arrow-right-linear" width="15"></iconify-icon>
+        </a>
+      </div>
+
+      <!-- Product 2 — Chief of Staff -->
+      <div class="glass-card spotlight rounded-2xl p-7 reveal flex flex-col" style="transition-delay: 80ms;">
+        <div class="flex items-start justify-between mb-5">
+          <iconify-icon icon="solar:user-circle-linear" width="28" class="text-accent-light"></iconify-icon>
+          <span class="mono-label">Your time back</span>
+        </div>
+        <h3 class="font-display text-2xl font-semibold mb-3">Chief of Staff</h3>
+        <p class="text-white/60 text-sm leading-relaxed flex-1">
+          Every promise, priority and decision runs through your head, so you can't switch off. The Chief of Staff holds it all — your week, your inbox, your commitments — and hands you a daily brief. Step away and nothing falls apart.
+        </p>
+        <a href="reynolds-cos-dashboard.html" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-light hover:gap-3 transition-all">
+          Open the live dashboard<iconify-icon icon="solar:arrow-right-up-linear" width="15"></iconify-icon>
+        </a>
+      </div>
+
+      <!-- Product 3 — Board Pack -->
+      <div class="glass-card spotlight rounded-2xl p-7 reveal flex flex-col" style="transition-delay: 160ms;">
+        <div class="flex items-start justify-between mb-5">
+          <iconify-icon icon="solar:chart-square-linear" width="28" class="text-accent-light"></iconify-icon>
+          <span class="mono-label">Control the numbers</span>
+        </div>
+        <h3 class="font-display text-2xl font-semibold mb-3">Board Pack</h3>
+        <p class="text-white/60 text-sm leading-relaxed flex-1">
+          Your P&amp;L tells you what happened, not why or what to do next. The Board Pack gives you the numbers, the why behind every move, and early-warning signals in week two, not quarter three. Proactive, not reactive.
+        </p>
+        <a href="reynolds-board-dashboard.html" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-light hover:gap-3 transition-all">
+          Open the live sample<iconify-icon icon="solar:arrow-right-up-linear" width="15"></iconify-icon>
+        </a>
+      </div>
+
+    </div>
+
+    <p class="mt-8 text-white/45 text-sm reveal flex items-center gap-2">
+      <iconify-icon icon="solar:layers-minimalistic-linear" width="16" class="text-accent-light/70"></iconify-icon>
+      Start with one. Add the others when they earn their place.
+      <a href="blueprint.html" class="text-white/70 hover:text-white underline underline-offset-2 ml-1">See how it works →</a>
+    </p>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== THE FOUNDATION ===== -->
+<section id="foundation" class="relative py-28 px-6 overflow-hidden">
+  <div class="glow-orb" style="width: 500px; height: 500px; background: #4F46E5; opacity: 0.12; top: 30%; left: -200px;"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 reveal">
+      <span class="mono-label">02 / The AI Foundation</span>
+      <div class="h-px flex-1 bg-white/10 max-w-[120px]"></div>
+    </div>
+
+    <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-6xl leading-[0.95] max-w-3xl reveal">
+      The Foundation.
+      <span class="font-display font-light text-white/60">Your AI strategic partner — the brain all three share.</span>
+    </h2>
+
+    <p class="mt-6 text-white/55 text-lg max-w-2xl reveal">
+      This is the product under everything else — and a strategic partner in its own right, before a single module. <span class="text-white/80">Ask it anything and get an answer grounded in your real numbers, not generic advice.</span> And because all three products read from it, they act as one brain, not three disconnected tools.
+    </p>
+
+    <div class="mt-14 reveal">
+      <div class="glass spotlight rounded-3xl p-8 md:p-10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div class="md:col-span-7">
+            <div class="flex items-center gap-3 mb-5">
+              <iconify-icon icon="solar:database-linear" width="28" class="text-accent-light"></iconify-icon>
+              <div class="mono-label">What it is</div>
+            </div>
+            <p class="text-white/75 text-base leading-relaxed">
+              We build it from a structured set of <span class="text-white">36 specific questions</span> about your business — strategy, customers, team, the numbers, how work actually flows. We turn your answers into a knowledge layer your AI reads before it does anything. The platform every module plugs into, and a powerful thinking partner all on its own.
+            </p>
+          </div>
+          <div class="md:col-span-5 md:border-l md:border-white/8 md:pl-8">
+            <div class="flex items-center gap-3 mb-5">
+              <iconify-icon icon="solar:chat-round-line-linear" width="20" class="text-accent-light"></iconify-icon>
+              <div class="mono-label">Ask it anything that matters</div>
+            </div>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li class="flex gap-3"><span class="text-accent-light mt-0.5">›</span><span class="italic">"Should I take this job at this margin, or hold my price?"</span></li>
+              <li class="flex gap-3"><span class="text-accent-light mt-0.5">›</span><span class="italic">"Where is my cash actually going, and what should I cut?"</span></li>
+              <li class="flex gap-3"><span class="text-accent-light mt-0.5">›</span><span class="italic">"What are the three things to fix first to hit plan?"</span></li>
+              <li class="flex gap-3"><span class="text-accent-light mt-0.5">›</span><span class="italic">"What's the one decision I keep putting off?"</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-col md:flex-row items-stretch gap-4">
+        <div class="flex-1 glass rounded-2xl p-6 flex items-center gap-5">
+          <div class="shrink-0">
+            <div class="font-display text-3xl md:text-4xl font-semibold text-accent-light leading-none">2 hours</div>
+            <div class="mono-label text-[9px] mt-1.5 text-white/40">Without the Foundation</div>
+          </div>
+          <iconify-icon icon="solar:alt-arrow-right-linear" width="22" class="text-white/30 shrink-0"></iconify-icon>
+          <div class="shrink-0">
+            <div class="font-display text-3xl md:text-4xl font-semibold text-white leading-none">5 minutes</div>
+            <div class="mono-label text-[9px] mt-1.5 text-white/40">With it set up</div>
+          </div>
+          <div class="ml-auto text-xs text-white/55 leading-relaxed hidden md:block max-w-[280px]">
+            A strategic question that used to mean two hours of digging through files and forming a view — answered in minutes, grounded in your real numbers. Multiply that across a year.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== START FREE — THE BLUEPRINT ===== -->
+<section id="blueprint" class="relative py-24 px-6 overflow-hidden">
+  <div class="glow-orb" style="width: 500px; height: 500px; background: #6366F1; opacity: 0.12; top: 30%; right: -200px;"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto">
+    <div class="glass spotlight rounded-3xl p-8 md:p-12 text-center reveal">
+      <div class="flex justify-center mb-5"><span class="mono-label">How you start — free</span></div>
+      <h2 class="font-display font-semibold tracking-tighter text-3xl md:text-5xl leading-[0.98]">
+        Begin with a free Strategy Blueprint.
+        <span class="font-display font-light text-white/60">No cost, no pitch, yours to keep.</span>
+      </h2>
+      <p class="mt-6 text-white/60 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+        Answer seven quick questions and I'll send back your Blueprint — a short, sharp read on exactly where AI fits in your business and where it doesn't, including an honest "don't invest yet" if that's the real answer. No call to schedule. Act on it with us, or without us.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#book" class="btn-primary">Get your free AI plan<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
+        <a href="sample-blueprint.html" target="_blank" rel="noopener" class="btn-ghost"><iconify-icon icon="solar:document-text-linear" width="16"></iconify-icon>Open the Reynolds sample</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== WHO RUNS IT ===== -->
+<section class="relative py-28 px-6 overflow-hidden">
+  <div class="relative z-10 max-w-4xl mx-auto">
+    <div class="flex items-center gap-3 mb-8 reveal">
+      <span class="mono-label">03 / Who runs it</span>
+      <div class="h-px flex-1 bg-white/10 max-w-[120px]"></div>
+    </div>
+    <div class="max-w-3xl reveal">
+      <p class="font-display text-2xl md:text-3xl leading-[1.25] text-white/85">
+        "I co-founded Dianomi in 2003 and grew it from zero to forty people, through to IPO. This is the AI I wish I'd had running my own business — built on that experience, and the questions I'd ask if I were advising you."
+      </p>
+      <div class="mt-6 flex items-center gap-3 text-sm text-white/55"><span class="font-display font-semibold text-white">Raphael</span><span class="opacity-40">·</span><span>Founder, Aigentic</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== BOOKING CTA ===== -->
+<section id="book" class="relative py-28 px-6 overflow-hidden">
+  <div class="glow-orb" style="width: 800px; height: 800px; background: #4F46E5; opacity: 0.2; bottom: -400px; left: 50%; transform: translateX(-50%);"></div>
+
+  <div class="relative z-10 max-w-2xl mx-auto text-center">
+    <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-6xl leading-[0.98] reveal">
+      Seven questions.
+      <span class="font-display font-light text-white/60">Your free AI plan.</span>
+    </h2>
+    <p class="mt-8 text-white/60 text-lg max-w-xl mx-auto reveal">
+      Answer these in your own words — a few minutes, no call to schedule. I read every one personally and send back your Blueprint: a plain-English plan for where AI fits, what to fix first, and what's honestly not worth doing.
+    </p>
+
+    <form id="contact-form" class="mt-12 text-left glass rounded-2xl p-7 reveal" onsubmit="return submitContact(event)">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div><label for="cf-name" class="block mono-label mb-2">Your name</label><input id="cf-name" name="name" type="text" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition" placeholder="e.g. Jane Reynolds"></div>
+        <div><label for="cf-email" class="block mono-label mb-2">Email</label><input id="cf-email" name="email" type="email" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition" placeholder="you@company.com"></div>
+      </div>
+      <div class="mt-5"><label for="cf-company" class="block mono-label mb-2">Company</label><input id="cf-company" name="company" type="text" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition" placeholder="e.g. Reynolds & Co"></div>
+      <div class="mt-5"><label for="cf-context" class="block mono-label mb-2">In one line, what does the company do?</label><input id="cf-context" name="context" type="text" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition" placeholder="e.g. We design and build steel structures for civil engineering projects."></div>
+
+      <div class="mt-8 mb-5 flex items-center gap-3"><span class="mono-label text-accent-light/70">The seven questions</span><div class="h-px flex-1 bg-white/10"></div></div>
+      <div class="space-y-5">
+        <div><label for="cf-q1" class="block text-sm text-white/80 mb-2">1. What are the three biggest challenges in the business right now — the ones that, if solved, would change the most?</label><textarea id="cf-q1" name="q1" rows="3" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
+        <div><label for="cf-q2" class="block text-sm text-white/80 mb-2">2. Of those, which is costing you the most — in money, time, stress or missed opportunity — and how long has it been that way?</label><textarea id="cf-q2" name="q2" rows="3" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
+        <div><label for="cf-q3" class="block text-sm text-white/80 mb-2">3. How do you measure success in your role today? Which numbers, reports or KPIs actually matter to you? <span class="text-white/30 normal-case">(optional)</span></label><textarea id="cf-q3" name="q3" rows="2" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
+        <div><label for="cf-q4" class="block text-sm text-white/80 mb-2">4. How does work flow through the business, start to finish? Flag the steps that drive your best results, and the ones that slow things down. <span class="text-white/30 normal-case">(optional)</span></label><textarea id="cf-q4" name="q4" rows="3" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
+        <div><label for="cf-q5" class="block text-sm text-white/80 mb-2">5. Where does work get stuck or eat time it shouldn't — bottlenecks, repetitive manual tasks, anything that leans too heavily on one person? <span class="text-white/30 normal-case">(optional)</span></label><textarea id="cf-q5" name="q5" rows="3" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
+        <div><label for="cf-q6" class="block text-sm text-white/80 mb-2">6. If you change nothing — same systems, same team — where's the business in 6 to 12 months? <span class="text-white/30 normal-case">(optional)</span></label><textarea id="cf-q6" name="q6" rows="2" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
+        <div><label for="cf-q7" class="block text-sm text-white/80 mb-2">7. If you could wave a magic wand and build the perfect fix for all of it, what would it look like? Describe the outcome, not the how. <span class="text-white/30 normal-case">(optional)</span></label><textarea id="cf-q7" name="q7" rows="2" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
+      </div>
+      <div class="mt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span class="mono-label text-white/35">Opens your email · goes to rq@aigentic.co.uk</span>
+        <button type="submit" class="btn-primary">Get your free AI plan<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></button>
+      </div>
+      <div id="cf-status" class="mt-4 text-sm text-center hidden"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="relative border-t border-white/8 py-12 px-6 mt-12">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2 font-display font-bold tracking-tight"><span class="w-2 h-2 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span><span>Aigentic</span></div>
+    <div class="mono-label text-center">© 2026 Aigentic · Business first, AI second</div>
+    <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-white/55">
+      <a href="ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
+      <span class="opacity-30">·</span>
+      <a href="mailto:rq@aigentic.co.uk" class="hover:text-white transition">rq@aigentic.co.uk</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.spotlight').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+  });
+});
+
+(function setBookingWindow() {
+  const el = document.getElementById('booking-window');
+  if (!el) return;
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const now = new Date();
+  el.textContent = `Late ${months[now.getMonth()]} / Early ${months[(now.getMonth() + 1) % 12]}`;
+})();
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); io.unobserve(entry.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+function submitContact(e) {
+  e.preventDefault();
+  const g = id => (document.getElementById(id)?.value || '').trim();
+  const name = g('cf-name'), email = g('cf-email'), company = g('cf-company'), context = g('cf-context');
+  const qs = [
+    ['The three biggest challenges', g('cf-q1')],
+    ['What it\'s costing, and how long', g('cf-q2')],
+    ['How success is measured today', g('cf-q3')],
+    ['How work flows, start to finish', g('cf-q4')],
+    ['Where it breaks / repetitive load / key-person risk', g('cf-q5')],
+    ['Do nothing — where it lands in 6–12 months', g('cf-q6')],
+    ['The magic-wand fix', g('cf-q7')],
+  ];
+  const subject = `Free AI plan request: ${company}`;
+  const lines = [`Hi Raph,`, ``, `Here are my answers for a Strategy Blueprint.`, ``, `Name: ${name}`, `Email: ${email}`, `Company: ${company}`, `What we do: ${context}`, ``, `— The seven questions —`];
+  qs.forEach(([q, a], i) => { lines.push(``, `${i + 1}. ${q}`, a || '(skipped)'); });
+  lines.push(``, `Thanks,`, name);
+  const url = `https://mail.google.com/mail/?view=cm&fs=1&to=rq@aigentic.co.uk&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+  window.open(url, '_blank');
+  const status = document.getElementById('cf-status');
+  status.textContent = 'Your email opened in a new tab, pre-filled. Hit send and I\'ll get your Blueprint back to you within a couple of days.';
+  status.className = 'mt-4 text-sm text-center text-emerald-400';
+  status.classList.remove('hidden');
+  return false;
+}
+</script>
+
+</body>
+</html>

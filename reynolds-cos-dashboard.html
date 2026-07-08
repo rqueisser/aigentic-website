@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chief of Staff Dashboard — Reynolds &amp; Co (Sample)</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: #f3f1ec; color: #1a1a1a; margin: 0; padding: 20px 30px 28px;
+  font-size: 13.5px; line-height: 1.5; -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1160px; margin: 0 auto; }
+.demobar { background: #eef0ff; border: 1px solid #dce0ff; border-radius: 10px; padding: 9px 16px;
+  font-size: 12.5px; color: #3a3f80; margin-bottom: 14px; }
+.demobar b { color: #4F46E5; }
+header { display: flex; justify-content: space-between; align-items: flex-end; background: #1c1f26;
+  border-bottom: 3px solid #0d9488; padding: 16px 20px; border-radius: 6px; margin-bottom: 16px; gap: 16px; flex-wrap: wrap; }
+h1 { font-family: Georgia, 'Times New Roman', serif; font-size: 22px; font-weight: 400; margin: 0 0 4px; color: #fff; }
+.subtitle { color: #b3afa6; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.header-right { display: flex; align-items: center; gap: 10px; }
+.chip { display: inline-flex; align-items: baseline; gap: 6px; padding: 5px 11px;
+  background: rgba(13,148,136,0.16); border: 1px solid #0d9488; border-radius: 5px; }
+.chip .k { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: #5eead4; }
+.chip strong { font-family: Georgia, serif; font-size: 17px; font-weight: 400; color: #fff; }
+.chip .t { font-size: 11px; color: #9aa3af; }
+.theme-toggle { background: transparent; border: 1px solid #4a4f59; color: #b3afa6; font-size: 10px;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 10px; border-radius: 2px; cursor: pointer; font-family: inherit; }
+.theme-toggle:hover { border-color: #14b8a6; color: #2dd4bf; }
+.banner { background: #fff5e6; border-left: 3px solid #c97b00; padding: 10px 14px; margin-bottom: 16px;
+  font-size: 12.5px; color: #5a4520; border-radius: 2px; }
+.banner strong { color: #1a1a1a; }
+section h2 { font-family: Georgia, serif; font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.16em; color: #2f2b26; margin: 0 0 10px; padding-bottom: 6px; border-bottom: 1px solid #d8d2c4;
+  display: flex; justify-content: space-between; align-items: baseline; }
+section h2 .h2-meta { font-family: -apple-system, system-ui, sans-serif; font-size: 10px; letter-spacing: 0.06em;
+  text-transform: none; color: #999; font-weight: 400; }
+.row-week { margin-bottom: 18px; }
+.row-2col { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 24px; margin-bottom: 18px; }
+.row-bottom { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 24px; margin-bottom: 18px; }
+.row-priorities { margin-bottom: 18px; }
+@media (max-width: 1000px) { .row-2col, .row-bottom { grid-template-columns: 1fr; } }
+.item { padding: 8px 0; border-bottom: 1px solid #ece7d8; }
+.item:last-child { border-bottom: none; padding-bottom: 0; }
+.item-title { font-weight: 500; color: #1a1a1a; font-size: 13px; }
+.item-sub { color: #6b6b6b; font-size: 12px; margin-top: 2px; }
+.item-action { color: #1a1a1a; font-size: 12px; margin-top: 3px; font-style: italic; }
+.biz-pill { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 2px; margin-right: 6px; vertical-align: 1px; white-space: nowrap; }
+.biz-pill.work { background: #e0ecf7; color: #3a78c8; }
+.biz-pill.personal { background: #ece4f6; color: #6e4a9e; }
+.tag-due { display: inline-block; color: #fff; font-size: 9.5px; font-weight: 600; padding: 2px 6px; border-radius: 2px;
+  letter-spacing: 0.08em; text-transform: uppercase; margin-left: 6px; vertical-align: 1px; background: #c97b00; }
+.tag-due.today { background: #b80000; }
+.tag-far { color: #999; font-size: 11px; margin-left: 4px; }
+/* week calendar */
+.week-cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.week-day { background: #fbfaf5; border: 1px solid #e6e1d2; border-radius: 3px; padding: 7px 8px; min-height: 92px; }
+.week-day.today { border-color: #2d6a3e; background: #f4f8f4; }
+.week-day.weekend { background: #f3f1ec; }
+.week-day-head { font-size: 10px; color: #6b6b6b; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px;
+  display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e6e1d2; padding-bottom: 4px; }
+.week-day.today .week-day-head { color: #2d6a3e; }
+.week-day-head .dnum { font-family: Georgia, serif; font-weight: 400; font-size: 14px; color: #1a1a1a; }
+.week-day.today .week-day-head .dnum { color: #2d6a3e; font-weight: 600; }
+.week-day-body { font-size: 10.5px; line-height: 1.35; }
+.we-item { color: #1a1a1a; margin-bottom: 3px; }
+.we-item.personal { color: #999; font-style: italic; }
+.we-time { color: #6b6b6b; font-weight: 500; margin-right: 3px; }
+.we-empty { color: #ccc; font-style: italic; }
+/* weekly targets */
+.weekly-legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 0 0 10px; font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.08em; color: #6b6b6b; }
+.weekly-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.weekly-legend i { width: 18px; height: 6px; border-radius: 3px; display: inline-block; }
+.weekly-list { display: flex; flex-direction: column; gap: 8px; }
+.weekly-item { padding: 10px 12px; background: #fbfaf5; border: 1px solid #e6e1d2; border-radius: 3px;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; }
+.weekly-num { font-family: Georgia, serif; font-size: 15px; font-weight: 600; width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center; border-radius: 6px; color: #fff; }
+.weekly-body { font-size: 13px; color: #1a1a1a; line-height: 1.4; }
+.weekly-meta { font-size: 11px; color: #6b6b6b; margin-top: 2px; }
+.weekly-prog { margin-top: 7px; height: 6px; background: rgba(100,116,139,0.22); border-radius: 3px; overflow: hidden; }
+.weekly-prog-fill { height: 100%; border-radius: 3px; }
+.weekly-status { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 2px;
+  white-space: nowrap; font-weight: 600; color: #fff; }
+/* decisions */
+.decisions-list { display: flex; flex-direction: column; gap: 8px; }
+.decision { padding: 10px 12px; background: #fbfaf5; border: 1px solid #e6e1d2; border-left: 3px solid #5d3a78; border-radius: 3px; }
+.decision-title { font-weight: 600; color: #1a1a1a; font-size: 12px; margin-bottom: 4px; }
+.decision-rec { font-size: 11.5px; color: #1a1a1a; margin-bottom: 3px; line-height: 1.4; }
+.decision-tradeoff { font-size: 10.5px; color: #6b6b6b; font-style: italic; line-height: 1.4; }
+.decision b { color: #1a1a1a; }
+/* priorities strip */
+.priorities-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+@media (max-width: 1000px) { .priorities-strip { grid-template-columns: 1fr 1fr; } }
+.pstrip-card { padding: 8px 10px; background: #fbfaf5; border: 1px solid #e6e1d2; border-radius: 3px; border-left: 3px solid #6b6b6b; }
+.pstrip-card.slip { border-left-color: #c97b00; } .pstrip-card.ok { border-left-color: #2d6a3e; } .pstrip-card.hold { border-left-color: #7a7666; }
+.pstrip-title { font-weight: 600; font-size: 11.5px; color: #1a1a1a; margin-bottom: 2px; }
+.pstrip-state { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+.pstrip-card.slip .pstrip-state { color: #c97b00; } .pstrip-card.ok .pstrip-state { color: #2d6a3e; } .pstrip-card.hold .pstrip-state { color: #7a7666; }
+.pstrip-line { font-size: 10.5px; color: #6b6b6b; margin-top: 4px; line-height: 1.35; }
+/* news */
+.news-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+@media (max-width: 800px) { .news-grid { grid-template-columns: 1fr; } }
+.news-col { padding: 10px 12px; background: #fbfaf5; border: 1px solid #e6e1d2; border-radius: 3px; border-top: 3px solid #6b6b6b; }
+.news-col.market { border-top-color: #3a78c8; } .news-col.ops { border-top-color: #2d6a3e; } .news-col.signal { border-top-color: #5d3a78; }
+.news-col-title { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.14em; color: #6b6b6b; margin-bottom: 8px; font-weight: 600; }
+.news-item { font-size: 11px; margin-bottom: 8px; line-height: 1.35; }
+.news-item:last-child { margin-bottom: 0; }
+.news-headline { font-weight: 500; color: #1a1a1a; font-size: 11.5px; }
+.news-note { color: #6b6b6b; font-size: 10.5px; margin-top: 2px; }
+.meta-foot { margin-top: 16px; padding-top: 10px; border-top: 1px solid #e0dccf; font-size: 10.5px; color: #999;
+  letter-spacing: 0.05em; text-transform: uppercase; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+/* dark mode */
+body.dark { background: #14161b; color: #e8e6e0; color-scheme: dark; }
+body.dark header { background: #1d212a; border-bottom-color: #14b8a6; }
+body.dark .demobar { background: #1b2030; border-color: #2a3050; color: #b9c0e8; }
+body.dark section h2 { color: #9aa3af; border-bottom-color: #2a2f3a; }
+body.dark section h2 .h2-meta { color: #6b7280; }
+body.dark .banner { background: #2a2412; border-left-color: #c97b00; color: #e3cf9f; }
+body.dark .banner strong { color: #fff; }
+body.dark .item { border-bottom-color: #262b34; }
+body.dark .item-title, body.dark .weekly-body, body.dark .pstrip-title, body.dark .decision-title, body.dark .news-headline { color: #e8e6e0; }
+body.dark .item-sub, body.dark .item-action, body.dark .weekly-meta, body.dark .pstrip-line, body.dark .decision-tradeoff, body.dark .news-note { color: #9aa3af; }
+body.dark .decision-rec, body.dark .decision b { color: #d8d4ca; }
+body.dark .week-day, body.dark .weekly-item, body.dark .pstrip-card, body.dark .decision, body.dark .news-col {
+  background: #1d212a; border-color: #2a2f3a; }
+body.dark .week-day.today { background: #1e3d2c; border-color: #2d6a3e; }
+body.dark .week-day.weekend { background: #181b22; }
+body.dark .week-day-head { color: #9aa3af; border-bottom-color: #2a2f3a; }
+body.dark .week-day-head .dnum, body.dark .we-item { color: #e8e6e0; }
+body.dark .we-item.personal { color: #777; }
+body.dark .meta-foot { border-top-color: #2a2f3a; color: #6b7280; }
+</style>
+</head>
+<body class="dark">
+<div class="wrap">
+
+  <div class="demobar">🔒 <b>Sample dashboard.</b> Reynolds &amp; Co is fictional and every detail is illustrative — this is the shape of a real Chief of Staff dashboard, built from your calendar, inbox and priorities.</div>
+
+  <header>
+    <div>
+      <h1>Chief of Staff Dashboard</h1>
+      <div class="subtitle">Jane Reynolds · Reynolds &amp; Co · Wednesday, 17 June 2026</div>
+    </div>
+    <div class="header-right">
+      <div class="chip" title="Confirmed order book vs target"><span class="k">Order book</span><strong>£2.1m</strong><span class="t">/ £2.4m</span></div>
+      <button class="theme-toggle" id="tt" onclick="tog()">☀ Light</button>
+    </div>
+  </header>
+
+  <div class="banner"><strong>Margin-first week.</strong> The lever is the <strong>rate card sign-off</strong> — it protects every quote that follows. The <strong>Northbridge tender is due Thursday 11:00</strong>, and the estimating 1:1 is where the 8-point pricing spread gets closed. Hold price on Hartwell; don't open the year's discounting with it.</div>
+
+  <!-- WEEK CALENDAR -->
+  <div class="row-week">
+    <section>
+      <h2>This Week — Calendar <span class="h2-meta">w/c Mon 15 Jun</span></h2>
+      <div class="week-cal">
+        <div class="week-day"><div class="week-day-head"><span>Mon</span><span class="dnum">15</span></div><div class="week-day-body">
+          <div class="we-item"><span class="we-time">09:00</span>Estimating review</div>
+          <div class="we-item"><span class="we-time">14:00</span>Hartwell site visit</div></div></div>
+        <div class="week-day"><div class="week-day-head"><span>Tue</span><span class="dnum">16</span></div><div class="week-day-body">
+          <div class="we-item"><span class="we-time">10:00</span>Steelco — price call</div>
+          <div class="we-item"><span class="we-time">15:00</span>Board prep</div></div></div>
+        <div class="week-day today"><div class="week-day-head"><span>Wed</span><span class="dnum">17</span></div><div class="week-day-body">
+          <div class="we-item"><span class="we-time">09:30</span>Rate card workshop</div>
+          <div class="we-item"><span class="we-time">13:00</span>Lunch — Northbridge PM</div>
+          <div class="we-item"><span class="we-time">16:00</span>Cash flow review</div></div></div>
+        <div class="week-day"><div class="week-day-head"><span>Thu</span><span class="dnum">18</span></div><div class="week-day-body">
+          <div class="we-item"><span class="we-time">11:00</span>Northbridge tender DUE</div>
+          <div class="we-item"><span class="we-time">14:00</span>1:1 estimating lead</div></div></div>
+        <div class="week-day"><div class="week-day-head"><span>Fri</span><span class="dnum">19</span></div><div class="week-day-body">
+          <div class="we-item"><span class="we-time">10:00</span>Monthly board meeting</div></div></div>
+        <div class="week-day weekend"><div class="week-day-head"><span>Sat</span><span class="dnum">20</span></div><div class="week-day-body">
+          <div class="we-item personal"><span class="we-time">—</span>Protected</div></div></div>
+        <div class="week-day weekend"><div class="week-day-head"><span>Sun</span><span class="dnum">21</span></div><div class="week-day-body">
+          <div class="we-empty">—</div></div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TODAY + EMAILS / NON-NEGOTIABLES -->
+  <div class="row-2col">
+    <div>
+      <section>
+        <h2>Today — Calendar</h2>
+        <div class="item"><div class="item-title"><span class="biz-pill work">work</span>09:30 · Rate card workshop (estimating + ops)</div></div>
+        <div class="item"><div class="item-title"><span class="biz-pill work">work</span>13:00 · Lunch — Northbridge PM</div><div class="item-sub">Relationship + tender intel before Thursday's submission</div></div>
+        <div class="item"><div class="item-title"><span class="biz-pill work">work</span>16:00 · Cash flow review</div></div>
+        <div class="item"><div class="item-title" style="color:#888;font-style:italic;"><span class="biz-pill personal">personal</span>19:00 · Family dinner</div></div>
+      </section>
+      <section style="margin-top:14px;">
+        <h2>Today — Emails Needing Action</h2>
+        <div class="item"><div class="item-title">Tomas (Hartwell) — Can you hold the quoted price?</div><div class="item-action">→ Decide before Thursday — hold, don't discount</div></div>
+        <div class="item"><div class="item-title">Steelco — 5% price increase from July</div><div class="item-action">→ Check impact on open quotes; pass through where not committed</div></div>
+        <div class="item"><div class="item-title">Estimating lead — two ways to price the Mersey job</div><div class="item-action">→ Set the rate-card line so it isn't priced twice</div></div>
+        <div class="item-sub" style="margin-top:8px;color:#999;">Filtered 19 noise (newsletters, system mail, receipts).</div>
+      </section>
+    </div>
+    <section>
+      <h2>This Week — Non-negotiables <span class="h2-meta">w/c Mon 15 Jun · locked</span></h2>
+      <div class="weekly-legend">
+        <span><i style="background:#dc2626"></i>Behind</span>
+        <span><i style="background:#f59e0b"></i>Slipping</span>
+        <span><i style="background:#16a34a"></i>On track</span>
+        <span><i style="background:#15803d"></i>Ahead / done</span>
+      </div>
+      <div class="weekly-list">
+        <div class="weekly-item"><div class="weekly-num" style="background:#16a34a">1</div><div>
+          <div class="weekly-body">Rate card v1 — sign off &amp; roll out to estimators</div>
+          <div class="weekly-meta">The margin lever · workshop today, sign-off Fri board</div>
+          <div class="weekly-prog"><div class="weekly-prog-fill" style="width:60%;background:#16a34a"></div></div></div>
+          <div class="weekly-status" style="background:#16a34a">On track 60%</div></div>
+        <div class="weekly-item"><div class="weekly-num" style="background:#f59e0b;color:#1a1a1a">2</div><div>
+          <div class="weekly-body">Northbridge tender — submit Thu 11:00</div>
+          <div class="weekly-meta">Biggest live opportunity · pricing off the new rate card</div>
+          <div class="weekly-prog"><div class="weekly-prog-fill" style="width:45%;background:#f59e0b"></div></div></div>
+          <div class="weekly-status" style="background:#f59e0b;color:#1a1a1a">Slipping 45%</div></div>
+        <div class="weekly-item"><div class="weekly-num" style="background:#16a34a">3</div><div>
+          <div class="weekly-body">Estimating 1:1 — agree a margin floor</div>
+          <div class="weekly-meta">Closes the 8-point spread between estimators · Thu 14:00</div>
+          <div class="weekly-prog"><div class="weekly-prog-fill" style="width:10%;background:#16a34a"></div></div></div>
+          <div class="weekly-status" style="background:#16a34a">On track 10%</div></div>
+        <div class="weekly-item"><div class="weekly-num" style="background:#16a34a">4</div><div>
+          <div class="weekly-body">Cash flow — confirm 6-month runway after Q3 capex</div>
+          <div class="weekly-meta">Review today 16:00 · forecast to the bank next week</div>
+          <div class="weekly-prog"><div class="weekly-prog-fill" style="width:50%;background:#16a34a"></div></div></div>
+          <div class="weekly-status" style="background:#16a34a">On track 50%</div></div>
+        <div class="weekly-item"><div class="weekly-num" style="background:#f59e0b;color:#1a1a1a">5</div><div>
+          <div class="weekly-body">AI estimating pilot — scope it with two estimators</div>
+          <div class="weekly-meta">Quote in hours, priced off the card · slipped from last week</div>
+          <div class="weekly-prog"><div class="weekly-prog-fill" style="width:5%;background:#f59e0b"></div></div></div>
+          <div class="weekly-status" style="background:#f59e0b;color:#1a1a1a">Slipping 5%</div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- DECISIONS + PROMISES -->
+  <div class="row-bottom">
+    <section>
+      <h2>Decisions Pending</h2>
+      <div class="decisions-list">
+        <div class="decision">
+          <div class="decision-title">Hold price on the Hartwell job?</div>
+          <div class="decision-rec"><b>Rec:</b> Hold. Sell the programme certainty and pre-fabrication speed, not a discount. This is exactly the kind of job where the 8-point margin leak starts — protect the precedent.</div>
+          <div class="decision-tradeoff"><b>Trade-off:</b> Some risk of losing it on price — but discounting here sets the rate every later quote gets compared to.</div>
+        </div>
+        <div class="decision">
+          <div class="decision-title">Pass Steelco's 5% rise through to open quotes?</div>
+          <div class="decision-rec"><b>Rec:</b> Yes on anything not yet submitted from July; absorb only where you're contractually committed. Update the rate card the same day so it's automatic, not a judgement call.</div>
+          <div class="decision-tradeoff"><b>Trade-off:</b> A touch less competitive on price vs protecting a margin already thin at 26%.</div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Open Promises <span class="h2-meta">Future commitments</span></h2>
+      <div class="item"><div class="item-title">Northbridge PM <span class="tag-due">Thu 18 Jun</span></div><div class="item-sub">Tender submitted by 11:00, priced off the new rate card</div></div>
+      <div class="item"><div class="item-title">The Board <span class="tag-due">Fri 19 Jun</span></div><div class="item-sub">Rate card + margin-recovery plan presented at the monthly meeting</div></div>
+      <div class="item"><div class="item-title">Tomas (Hartwell) <span class="tag-due today">Thu 18 Jun</span></div><div class="item-sub">Price decision back to him before he chases</div></div>
+      <div class="item"><div class="item-title">Estimating lead <span class="tag-far">18 Jun</span></div><div class="item-sub">Margin floor agreed and written into the card</div></div>
+      <div class="item"><div class="item-title">The bank <span class="tag-far">25 Jun</span></div><div class="item-sub">Updated 6-month cash forecast after Q3 capex</div></div>
+    </section>
+  </div>
+
+  <!-- 90-DAY PRIORITIES -->
+  <div class="row-priorities">
+    <section>
+      <h2>90-day Priorities <span class="h2-meta">Period to 31 Aug</span></h2>
+      <div class="priorities-strip">
+        <div class="pstrip-card ok"><div class="pstrip-title">P1 · Rate card live</div><div class="pstrip-state">ON TRACK</div><div class="pstrip-line">Standardise pricing; recover ~£170k margin/yr.</div></div>
+        <div class="pstrip-card slip"><div class="pstrip-title">P2 · AI estimating pilot</div><div class="pstrip-state">SLIPPING</div><div class="pstrip-line">Quote in hours, priced off the card. Scope this week.</div></div>
+        <div class="pstrip-card ok"><div class="pstrip-title">P3 · Margin reporting</div><div class="pstrip-state">ON TRACK</div><div class="pstrip-line">Win rate + margin by estimator, every month.</div></div>
+        <div class="pstrip-card hold"><div class="pstrip-title">P4 · Order book £2.4m</div><div class="pstrip-state">HOLDING</div><div class="pstrip-line">Keep the pipeline full; Northbridge is the next brick.</div></div>
+        <div class="pstrip-card hold"><div class="pstrip-title">P5 · Protected time</div><div class="pstrip-state">ONGOING</div><div class="pstrip-line">≥1 day off each weekend; don't let the week bleed in.</div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MORNING BRIEFING -->
+  <div class="row-week">
+    <section>
+      <h2>Morning Briefing <span class="h2-meta">Sector + signals, picked for you</span></h2>
+      <div class="news-grid">
+        <div class="news-col market">
+          <div class="news-col-title">Market</div>
+          <div class="news-item"><div class="news-headline">Steel prices up ~5% into July</div><div class="news-note">Hits every open quote — reflect it in the rate card today, not next month.</div></div>
+          <div class="news-item"><div class="news-headline">Regional infrastructure pipeline strong</div><div class="news-note">More specified, design-stage work coming — the bigger jobs you want.</div></div>
+        </div>
+        <div class="news-col ops">
+          <div class="news-col-title">Operations</div>
+          <div class="news-item"><div class="news-headline">Quote turnaround sitting at 3 days</div><div class="news-note">Two fast-turnaround bids lapsed last month — the case for the estimating pilot.</div></div>
+          <div class="news-item"><div class="news-headline">Hartwell site visit went well</div><div class="news-note">Programme certainty is your edge there — sell it instead of price.</div></div>
+        </div>
+        <div class="news-col signal">
+          <div class="news-col-title">Watch</div>
+          <div class="news-item"><div class="news-headline">A competitor is undercutting on small jobs</div><div class="news-note">Don't chase the bottom — it's the discounting trap your margin already shows.</div></div>
+          <div class="news-item"><div class="news-headline">8-point margin spread between estimators</div><div class="news-note">Closing it is worth more than any single tender this week.</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="meta-foot">
+    <span>Sample · illustrative data · Reynolds &amp; Co is fictional</span>
+    <span>Built on the AI Foundation · Aigentic</span>
+  </div>
+
+</div>
+<script>
+function tog(){
+  var dark = !document.body.classList.contains('dark');
+  document.body.classList.toggle('dark', dark);
+  document.getElementById('tt').textContent = dark ? '☀ Light' : '🌙 Dark';
+}
+</script>
+</body>
+</html>
