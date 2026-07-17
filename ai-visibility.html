@@ -290,7 +290,7 @@ function submitContact(e) {
   const url = `https://mail.google.com/mail/?view=cm&fs=1&to=rq@aigentic.co.uk&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
   window.open(url, '_blank');
   const status = document.getElementById('cf-status');
-  status.textContent = 'Gmail opened in a new tab. Hit send and I\'ll send your Snapshot over within a couple of days.';
+  status.textContent = 'Gmail opened in a new tab. Hit send and I\'ll have your Snapshot back to you within 24 hours.';
   status.className = 'mt-4 text-sm text-center text-emerald-400';
   status.classList.remove('hidden');
   return false;
