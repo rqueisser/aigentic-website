@@ -133,6 +133,10 @@
     font-size: 11pt; font-weight: 700; color: var(--accent);
     margin-top: 5.5mm; margin-bottom: 2mm; page-break-after: avoid;
   }
+  h3.rec {
+    font-size: 11.5pt; font-weight: 700; color: var(--heading);
+    margin-top: 5mm; margin-bottom: 1.5mm; page-break-after: avoid;
+  }
   p { margin-bottom: 3mm; }
   strong { color: var(--heading); }
   em { color: var(--body-text); }
@@ -195,19 +199,20 @@
   .card p, .card .field { font-size: 9.5pt; margin-bottom: 2mm; }
   .card .field b { color: var(--heading); }
 
+  .verdict-lead {
+    font-size: 15pt; font-weight: 700; color: var(--heading);
+    line-height: 1.3; margin-bottom: 4mm;
+  }
   .verdict {
     display: inline-block; background: #ECFDF5; color: #065F46;
     border: 0.75pt solid #A7F3D0; border-radius: 4px;
     font-size: 8.5pt; font-weight: 700; padding: 2mm 3.5mm; margin-bottom: 3mm;
   }
 
-  .module { margin-bottom: 5mm; page-break-inside: avoid; }
-  .module .pos {
-    font-size: 7.5pt; font-weight: 700; letter-spacing: 0.6px;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 1mm;
+  .rec-meta {
+    font-size: 8.5pt; font-weight: 700; letter-spacing: 0.6px;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 2mm;
   }
-  .module h3 { font-size: 11.5pt; color: var(--heading); margin-bottom: 1.5mm; }
-  .module p { font-size: 9.5pt; }
 
   .callout {
     background: var(--card-navy); color: var(--text-light);
@@ -219,6 +224,7 @@
     text-transform: uppercase; color: var(--accent-lt); margin-bottom: 1.5mm;
   }
   .callout strong { color: var(--white); }
+  .callout em { color: var(--text-muted); }
 
   .pp-label { font-weight: 700; color: var(--heading); }
   .page-break { page-break-before: always; }
@@ -229,7 +235,7 @@
 
 <div class="ribbon">
   <span>Sample Strategy Blueprint · fictional client, real format</span>
-  <a href="strategy-blueprint-landing.html">← Back to Aigentic</a>
+  <a href="blueprint.html">← Back to Aigentic</a>
 </div>
 
 <!-- ============ COVER ============ -->
@@ -242,7 +248,7 @@
   <div class="cover-mid">
     <div class="cover-label">Strategy Blueprint</div>
     <div class="cover-title">Reynolds &amp; Co</div>
-    <div class="cover-sub">Where work is genuinely stuck, the priorities that override everything else, and the AI Modules that would fix it.</div>
+    <div class="cover-sub">What the MD's own answers reveal about where the business is losing money &mdash; and the retirement clock running underneath it.</div>
     <div class="cover-bar"></div>
     <div class="cover-meta">
       <div><div class="m-label">Prepared for</div><div class="m-value">Jane Reynolds, MD</div></div>
@@ -264,6 +270,20 @@
 <!-- ============ PAGE 1 ============ -->
 <div class="sheet">
 
+<!-- THE VERDICT -->
+<div class="section">
+  <h1 class="sec">The verdict &mdash; does AI fit Reynolds &amp; Co?</h1>
+  <div class="sec-bar"></div>
+
+  <div class="verdict-lead">Yes &mdash; but not where you think.</div>
+
+  <p>You told us the problem is <strong>the pipeline</strong>: too much work coming from too few contractors, and not enough of it. Your own answers describe something different. Quotes take two to three days to build when the contractor gives you forty-eight hours. Two estimators price the same job eight per cent apart. Nobody logs which bids land, or why. <strong>You are losing work you already have in the door, and giving away margin on the work you win.</strong> That is a pricing and conversion problem, not a demand problem, and it is cheaper and faster to fix than finding new customers.</p>
+
+  <p>The highest-value thing AI can do for Reynolds this year is <strong>get the pricing judgement out of two estimators' heads and into an estimator that drafts the quote</strong> &mdash; so a price goes back inside the window, and the same job costs the same whoever picks it up. Everything else follows from that.</p>
+
+  <p><em>You already have the enquiries. AI is what stops you losing them, and what stops you underpricing the ones you win.</em></p>
+</div>
+
 <!-- 1. EXECUTIVE SUMMARY -->
 <div class="section">
   <h1 class="sec"><span class="sec-num">01</span>&nbsp;&nbsp;Executive Summary</h1>
@@ -271,85 +291,24 @@
 
   <div class="exec-item">
     <div class="exec-num">1</div>
-    <div class="exec-text"><strong>Pricing is where the money leaks, not the workshop.</strong> Reynolds runs a tight fabrication floor, but every quote is built by hand from the drawings and priced on the estimator's judgement. Two estimators price the same job differently, and nobody tracks which quotes win. Margin is being given away one bid at a time, invisibly.</div>
+    <div class="exec-text"><strong>The headline finding: your diagnosis and your evidence disagree.</strong> You named the referral-only pipeline as the thing to fix. But across the rest of your answers you described two-to-three-day quotes against a forty-eight-hour window, an eight per cent spread between two estimators on the same job, and no record of which bids win. Those are pricing and conversion failures downstream of an enquiry you already won &mdash; not a shortage of enquiries.</div>
   </div>
   <div class="exec-item">
     <div class="exec-num">2</div>
-    <div class="exec-text"><strong>One strategic priority is triggered: margin erosion.</strong> On a business turning over £8.5M at a thin reinforcement-supply margin, a few points of pricing drift across the year is the difference between a good year and a worrying one. This overrides normal sequencing.</div>
+    <div class="exec-text"><strong>The urgency: margin is leaking where nobody can see it.</strong> On £8.5M of turnover at a thin reinforcement-supply margin, a couple of points of pricing drift across a year of bids is the difference between a good year and a worrying one. It compounds quietly, because nothing measures it. This is the only strategic priority we've tagged.</div>
   </div>
   <div class="exec-item">
     <div class="exec-num">3</div>
-    <div class="exec-text"><strong>The biggest single-point risk is Dave.</strong> The works manager holds the entire production schedule in his head. He is 61 and has talked about winding down. If he goes, on planned notice or not, the floor loses its sequencing brain overnight.</div>
+    <div class="exec-text"><strong>The risks you carry today.</strong> Dave holds the entire production schedule in his head, he is sixty-one, and he has already raised winding down. No record exists of why you lose the jobs you lose, or to whom, so every decision below is currently made blind. Your top three contractors are a large share of revenue. And retentions get chased late, sometimes a year late.</div>
   </div>
   <div class="exec-item">
     <div class="exec-num">4</div>
-    <div class="exec-text"><strong>The decisive move is visibility, then a funnel.</strong> Install the Board Pack so Jane sees margin by job, by month, before the year-end accounts tell her. Add the Sales Module so the bid pipeline stops living in Priya's inbox. A custom estimating assistant is the bigger prize, and it sits outside the standard Modules today.</div>
+    <div class="exec-text"><strong>What AI should do here, in order.</strong> Capture the pricing judgement into a working estimator, so a quote goes back same-day and the same job prices the same whoever builds it. Make the margin tell you the truth every month, in time to act on it. Put a system behind the bid, so every quote is chased and every outcome recorded. Then get found when a contractor asks an AI who supplies reinforcement.</div>
   </div>
   <div class="exec-item">
     <div class="exec-num">5</div>
-    <div class="exec-text"><strong>Recommended path.</strong> Build the AI Foundation first, the base every Module sits on, then Board Pack, then Sales, with Marketing once the funnel is visible. Two process fixes Jane can start this week cost nothing. Honest verdict: yes, AI helps here, and the highest-value piece is one Aigentic would need to build.</div>
+    <div class="exec-text"><strong>And three things that need no AI at all.</strong> Write one rate card and one quote template. Put someone's name against logging every bid, won or lost. Get Dave's scheduling logic on paper while he is still here to correct it. All three are free, and you can start them this week.</div>
   </div>
-</div>
-
-<!-- 2. PATTERNS -->
-<div class="section">
-  <h1 class="sec"><span class="sec-num">02</span>&nbsp;&nbsp;Patterns Across the Business</h1>
-  <div class="sec-bar"></div>
-  <p class="muted-line">Single-interview engagement (MD only). The founder's view, not a triangulated cross-role synthesis.</p>
-
-  <h2 class="sub">Bottlenecks</h2>
-
-  <div class="card">
-    <div class="card-head"><span class="tag tag-crit">Critical</span><span class="card-title">1. Estimating is slow and inconsistent</span></div>
-    <div class="field"><b>Source.</b> Discovery Meeting Q1, Q2, Q4.</div>
-    <div class="field"><b>Symptoms.</b></div>
-    <ul style="margin-top:-1mm;">
-      <li>Each quote takes two to three days to build by hand from the drawings and the bar bending schedule.</li>
-      <li>Two estimators, two pricing styles. The same job comes out 8% apart depending on who picks it up.</li>
-      <li>Win rate is unknown. Quotes go out, some land, nobody logs which or why.</li>
-      <li>Bigger contractors expect a price in 48 hours. Reynolds sometimes misses the window and the bid dies before it is read.</li>
-    </ul>
-    <div class="field"><b>Root cause.</b> Pricing knowledge lives in two people's heads and a folder of old spreadsheets. There is no rate card, no standard template, and no record that turns won and lost bids into a feedback loop.</div>
-    <div class="field"><b>Cost of not fixing.</b> Direct margin. On Jane's own estimate, mispriced jobs cost "a few points" across the year. At this turnover, two points is roughly £170K of margin, most of it avoidable.</div>
-    <div class="field"><b>Fix.</b> Two layers. Short term, a standard quote template and a single rate card so pricing stops depending on who is at the desk (process, this week). Medium term, an AI estimating assistant that reads the schedule and produces a first-pass take-off (a build, see Section 04C).</div>
-  </div>
-
-  <div class="card">
-    <div class="card-head"><span class="tag tag-high">High</span><span class="card-title">2. The schedule lives in one person's head</span></div>
-    <div class="field"><b>Source.</b> Discovery Meeting Q3, Q5.</div>
-    <div class="field"><b>Symptoms.</b></div>
-    <ul style="margin-top:-1mm;">
-      <li>Dave sequences every job on the floor from memory and a whiteboard. No system holds it.</li>
-      <li>Rush jobs get slotted reactively, which pushes planned work and triggers weekend overtime.</li>
-      <li>When Dave is off, sequencing decisions wait for him or get made badly.</li>
-    </ul>
-    <div class="field"><b>Root cause.</b> Twenty-five years of tacit scheduling judgement that was never written down, because for twenty-five years it did not need to be.</div>
-    <div class="field"><b>Cost of not fixing.</b> Overtime and a concentration risk that turns into a crisis the day Dave retires. He has already raised winding down.</div>
-    <div class="field"><b>Fix.</b> Not a Module. Document the scheduling logic as a runbook while Dave is still here (process, see Section 04D). A scheduling tool can come later, once the logic is on paper.</div>
-  </div>
-
-  <div class="card">
-    <div class="card-head"><span class="tag tag-high">High</span><span class="card-title">3. Cash is tied up in slow applications and retentions</span></div>
-    <div class="field">Applications for payment and retention release are tracked on a spreadsheet that only the bookkeeper fully understands. Retentions get forgotten and chased late, sometimes a year late. <b>Fix:</b> the Board Pack surfaces a live receivables and retention view each month, so nothing falls off the spreadsheet unseen.</div>
-  </div>
-
-  <div class="card">
-    <div class="card-head"><span class="tag tag-med">Medium</span><span class="card-title">4. The pipeline is referral-only</span></div>
-    <div class="field">New work comes almost entirely from a handful of repeat contractors. When they go quiet, the floor goes quiet, and there is no inbound to fall back on. <b>Fix:</b> Marketing Module once the funnel is visible, to build a predictable second channel rather than depend on the same five relationships.</div>
-  </div>
-
-  <h2 class="sub">Risk</h2>
-  <ul>
-    <li><strong>Key-person concentration on the works manager.</strong> The schedule, supplier relationships and floor judgement run through Dave.</li>
-    <li><strong>Customer concentration.</strong> The top three contractors are a large share of revenue. Losing one would hurt.</li>
-    <li><strong>Pricing knowledge undocumented.</strong> If an estimator leaves, a chunk of margin judgement leaves with them.</li>
-  </ul>
-
-  <h2 class="sub">Opportunities</h2>
-  <ul>
-    <li><strong>Turn estimating from a cost into an edge.</strong> Faster, consistent quotes win the 48-hour bids competitors miss.</li>
-    <li><strong>Make margin visible monthly.</strong> Seeing job-level margin in week two, not at year-end, changes which work Reynolds chases.</li>
-  </ul>
 </div>
 
 </div>
@@ -357,84 +316,81 @@
 <!-- ============ PAGE 2 ============ -->
 <div class="sheet">
 
-<!-- 3. STRATEGIC PRIORITIES -->
+<!-- 2. THE NEXT THREE YEARS -->
 <div class="section">
-  <h1 class="sec"><span class="sec-num">03</span>&nbsp;&nbsp;Strategic Priorities &nbsp;&mdash;&nbsp; <span style="color:#6B7280;font-weight:600;">why act now</span></h1>
+  <h1 class="sec"><span class="sec-num">02</span>&nbsp;&nbsp;The Next Three Years &mdash; AI moves into structural supply</h1>
   <div class="sec-bar"></div>
-  <p>One triggered (the hard cap is two). This is an urgency override, the kind of thing mechanical task-scoring would miss.</p>
 
-  <div class="card">
-    <div class="card-head"><span class="tag tag-crit">Priority 1</span><span class="card-title">Margin erosion from inconsistent pricing</span></div>
-    <div class="field"><b>Trigger:</b> direct profit leak on a thin-margin business. Pricing drift of a couple of points across a year of bids is real money at £8.5M turnover, and it compounds quietly because nobody measures it.</div>
-    <div class="field"><b>Response:</b> make margin visible by job and by month, and standardise how quotes are priced, before chasing more volume through a leaky funnel.</div>
-    <div class="field"><b>Expected outcome:</b> Jane sees which jobs make money and which do not, in time to do something about it.</div>
-    <div class="field" style="color:#4F46E5;"><b>Addressed by:</b> Recommendation B (Board Pack, install first) + Recommendation D (rate card and standard quote template, this week).</div>
-  </div>
+  <p><strong>1. Specification moves upstream, into AI, before you are ever called.</strong><br>
+  Contractors and structural engineers are already using AI assistants to scope reinforcement options and shortlist suppliers before anyone picks up a phone. If the AI doesn't name Reynolds when someone asks who supplies cut-and-bent reinforcement in your region, you are not on the shortlist &mdash; and you never find out you were dropped. A buyer arriving pre-briefed by an AI also expects a price back at AI speed. Your forty-eight-hour window is already tight. Within three years it is same-day, and that is the entry ticket rather than an edge.</p>
+
+  <p><strong>2. Estimating stops being a craft and becomes a system.</strong><br>
+  The judgement in an experienced estimator's head &mdash; how a bar bending schedule really prices, what steel movement does to a quote signed today and delivered in six weeks, which tenders are quietly unprofitable &mdash; is exactly what AI is now good at encoding. The firms that come through this intact are the ones that captured it before the estimator walked. You have two people holding that judgement and an eight per cent spread between them, which tells you it was never written down. Your larger competitors have the scale to absorb a departure. Your edge is responsiveness, and responsiveness is precisely what an encoded estimator protects.</p>
+
+  <p><strong>3. Take-off and detailing collapse toward zero marginal cost.</strong><br>
+  Reading a drawing and a bar bending schedule to produce a first-pass take-off is about to get radically cheaper. That changes the economics of bidding: when a take-off costs minutes rather than two days of a scarce estimator, you can price every serious enquiry and still return it inside the window. It also changes which work is worth chasing, because the jobs you currently decline on capacity grounds stop being expensive to quote.</p>
 
   <div class="note-box">
-    <span class="nb-tag">Decision behind the priority</span>
-    Reynolds has to decide whether estimating becomes a documented, system-supported function or stays two people's craft. The Board Pack makes the cost of inconsistency visible. The estimating assistant in Section 04C would fix the cause. Doing neither means hoping the next mispriced job is the last one, which it will not be.
+    <span class="nb-tag">Where you fit</span>
+    Where Reynolds sits inside each of these shifts &mdash; and the specific moves that follow &mdash; is exactly what the AI Foundation maps in detail.
   </div>
 </div>
 
-<!-- 4. RECOMMENDATION -->
+<!-- 3. WHAT WE FOUND -->
 <div class="section">
-  <h1 class="sec"><span class="sec-num">04</span>&nbsp;&nbsp;Recommendation &nbsp;&mdash;&nbsp; <span style="color:#6B7280;font-weight:600;">what to do</span></h1>
+  <h1 class="sec"><span class="sec-num">03</span>&nbsp;&nbsp;What We Found</h1>
   <div class="sec-bar"></div>
-  <div class="verdict">Does Reynolds &amp; Co need AI? &nbsp; Yes, and here is where.</div>
-  <p>The evidence supports a clear recommendation <strong>(Verdict A)</strong>. It starts with the base every Module needs, the AI Foundation, then sequences from there: <strong>B</strong> (Modules to install, in order), <strong>C</strong> (the high-value item outside the current Modules), and <strong>D</strong> (non-AI process changes worth making this week). The mechanical "tasks to automate now" inventory is light here, because the Discovery Meeting was a strategic interview, not a stopwatch walk of the floor.</p>
+  <p class="muted-line">Drawn from your Discovery Meeting. Single-interview engagement (MD only) &mdash; the founder's view, not a triangulated cross-role synthesis. Where a figure is inferred rather than something you told us, we say so.</p>
 
-  <h2 class="sub">The base &mdash; your AI Foundation</h2>
-  <div class="card" style="border-left:3pt solid var(--accent);">
-    <div class="field"><b>Install this before any Module.</b> Everything below sits on the AI Foundation: a structured layer holding how Reynolds actually works, its numbers, its customers, the way a job flows from enquiry to paid. Without it, an AI Module is guessing at the business. With it, every Module starts already knowing Reynolds.</div>
-    <div class="field">It earns its place on its own, as a thinking partner Jane can ask anything about the business, before a single Module is added. The Modules below are sequenced on top of it.</div>
-  </div>
-
-  <h2 class="sub">B. AI Modules to install on the Foundation</h2>
-
-  <div class="module">
-    <div class="pos">Module 1 · Primary · Install first</div>
-    <h3>Board Pack</h3>
-    <p><strong>Addresses:</strong> Strategic Priority 1 (margin erosion) + Bottleneck 3 (cash tied up).</p>
-    <p><strong>Rationale.</strong> Margin is leaking where Jane cannot see it. A monthly pack that shows job-level margin, receivables and retention status turns a year-end surprise into a monthly decision.</p>
-    <p><strong>Why AI.</strong> It pulls the numbers from the accounts and job records on a fixed day, builds the pack, and flags the retentions falling due. What a part-time finance manager assembles in a couple of days, the Module assembles in minutes, and it never forgets a retention.</p>
-    <p style="color:#6B7280;font-size:9pt;">Cohort pricing: £4K Build + £1.5K/month Optimise. Standard £5K + £2K/month.</p>
-  </div>
-
-  <div class="module">
-    <div class="pos">Module 2 · Secondary · Once margin is visible</div>
-    <h3>Sales</h3>
-    <p><strong>Addresses:</strong> Bottleneck 1 (the funnel side) + Bottleneck 4 (referral-only pipeline).</p>
-    <p><strong>Rationale.</strong> Bids go out and nobody tracks what happens. A pipeline view turns won and lost quotes into a record Reynolds can actually learn from.</p>
-    <p><strong>Why AI.</strong> It logs every bid, tracks win and loss, drafts the follow-up nobody has time to send, and shows where quotes stall. The repetitive chasing that falls through the cracks is exactly what the Module keeps doing without tiring.</p>
-  </div>
-
-  <div class="module">
-    <div class="pos">Module 3 · Later · When the funnel is visible</div>
-    <h3>Marketing (incl. AEO)</h3>
-    <p><strong>Addresses:</strong> Bottleneck 4 (referral-only pipeline).</p>
-    <p><strong>Rationale.</strong> A predictable second channel matters, but only once Reynolds can see and handle the bids it already gets. Build the pipeline before pouring more into the top of it.</p>
-    <p><strong>Why AI.</strong> It plans the content, writes in Reynolds' voice, and tracks how the firm shows up when contractors and specifiers ask AI assistants for reinforcement suppliers. That last piece (AEO) is new ground most competitors are not watching yet.</p>
-  </div>
-
-  <h2 class="sub">C. Outside our Modules &mdash; the bigger prize</h2>
-  <p style="font-size:9.5pt;">Surfaced honestly. This is a real opportunity where AI would help but no current Aigentic Module fits, which means it is a build, not an install. Recurring items like this are also Aigentic's product radar.</p>
+  <h2 class="sub">Where work gets stuck</h2>
 
   <div class="card">
-    <div class="card-head"><span class="tag tag-med">Product radar</span><span class="card-title">AI estimating assistant</span></div>
-    <div class="field"><b>What it would do.</b> Read the bar bending schedule and drawings, produce a first-pass take-off and a priced quote against a single rate card, and hand the estimator a draft to check rather than a blank sheet.</div>
-    <div class="field"><b>What it would help with.</b> The headline bottleneck. It attacks both the speed problem (two to three days down to a same-day draft) and the consistency problem (one rate card, not two estimators' habits).</div>
-    <div class="field"><b>Current status.</b> A custom build, scoped separately from the standard Modules. Flagged as the highest-value piece for Reynolds, and a candidate for a future Aigentic Module.</div>
+    <div class="card-head"><span class="tag tag-crit">Critical</span><span class="card-title">1. Quote speed and pricing consistency</span></div>
+    <div class="field"><b>What's happening.</b> Every quote is built by hand from the drawings and the bar bending schedule, and it takes two to three days. The bigger contractors expect a price in forty-eight hours, so some bids die before they are read. Worse, the two estimators price the same job about eight per cent apart, because pricing depends on who happens to be at the desk.</div>
+    <div class="field"><b>Root cause.</b> Pricing knowledge lives in two people's heads and a folder of old spreadsheets. No rate card, no standard template, and no record that turns won and lost bids into a feedback loop.</div>
+    <div class="field"><b>Cost of leaving it.</b> Two ways at once. You lose winnable work you already paid to acquire, which is the most expensive kind of loss there is. And you underprice some of what you win, invisibly, one bid at a time.</div>
   </div>
 
-  <h2 class="sub">D. Process changes &mdash; non-AI fixes worth making</h2>
-  <p style="font-size:9.5pt;">Things to act on that are not a Module, not AI, and not billable. Some of the fastest moves available.</p>
+  <div class="card">
+    <div class="card-head"><span class="tag tag-crit">Critical</span><span class="card-title">2. No bid follow-up &mdash; and no record of why you lose</span></div>
+    <div class="field"><b>What's happening.</b> Bids go out and live in Priya's inbox. Nobody owns the chase, and no outcome is recorded. Reynolds cannot say why it lost any job, or who won it.</div>
+    <div class="field"><b>Root cause.</b> No owner, no cadence, no system of record. The win rate is not a figure anyone can produce.</div>
+    <div class="field"><b>Cost of leaving it.</b> Beyond the bids that die of neglect: <b>you are about to make large decisions blind.</b> Whether the pipeline is really the problem, whether the premium holds, which contractors are worth the effort &mdash; every one of those is answerable from a win/loss log, and unanswerable without it.</div>
+  </div>
 
-  <ol>
-    <li><strong>Write one rate card and one quote template.</strong> <em>Why:</em> it removes most of the 8% pricing spread immediately, with no software at all. <em>Effort:</em> a day with both estimators in a room.</li>
-    <li><strong>Document Dave's scheduling logic while he is still here.</strong> <em>Why:</em> the High concentration risk turns into a runbook the floor can follow without him. <em>Effort:</em> a few short sessions, recorded, over a fortnight.</li>
-    <li><strong>Log every bid, won or lost, in one place.</strong> <em>Why:</em> you cannot fix a win rate you have never measured. Even a shared sheet starts the feedback loop the Sales Module later automates. <em>Effort:</em> set up once, two minutes per bid after.</li>
-  </ol>
+  <div class="card">
+    <div class="card-head"><span class="tag tag-high">High</span><span class="card-title">3. The schedule lives in one person's head</span></div>
+    <div class="field">Dave sequences every job on the floor from memory and a whiteboard. Rush jobs get slotted reactively, which pushes planned work and triggers weekend overtime. When he is off, sequencing waits for him or gets made badly. Twenty-five years of tacit judgement that was never written down, because for twenty-five years it did not need to be. He is sixty-one and has raised winding down.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="tag tag-high">High</span><span class="card-title">4. Cash is tied up in slow applications and retentions</span></div>
+    <div class="field">Applications for payment and retention release are tracked on a spreadsheet only the bookkeeper fully understands. Retentions get forgotten and chased late, sometimes a year late. That is your own money, sitting unclaimed, on a business where a couple of margin points matter.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="tag tag-med">Medium</span><span class="card-title">5. The pipeline is referral-only</span></div>
+    <div class="field">New work comes almost entirely from a handful of repeat contractors. When they go quiet, the floor goes quiet, and there is no inbound to fall back on. Worth fixing &mdash; but after you can see and handle the bids you already get, not before.</div>
+  </div>
+
+  <h2 class="sub">Repetitive Load</h2>
+  <p>Your enquiry-to-despatch chain is full of repetitive, rules-based work: screening enquiries, rekeying schedules, chasing drawings, logging bids, raising applications, chasing retentions. Every one is a candidate for removal. <strong>But we can't size it yet.</strong> The Discovery Meeting was a strategic interview, not a stopwatch walk of the floor, so nobody asked "roughly how many hours a week does that eat?" &mdash; and we won't invent the number. Half an hour on the floor fixes this permanently.</p>
+
+  <h2 class="sub">Risk</h2>
+  <ul>
+    <li><strong>Key-person concentration on Dave.</strong> The schedule, the supplier relationships and the floor judgement all run through one man who has raised retirement. No date has been confirmed.</li>
+    <li><strong>Decisions made blind.</strong> No win/loss record exists, so the pipeline question you most want answered cannot currently be answered.</li>
+    <li><strong>Pricing knowledge undocumented.</strong> If either estimator leaves, a chunk of margin judgement leaves with them &mdash; and the eight per cent spread says nobody could reconstruct it.</li>
+    <li><strong>Customer concentration.</strong> The top three contractors are a large share of revenue. Losing one would hurt more than the pipeline problem you named.</li>
+  </ul>
+
+  <h2 class="sub">Opportunities</h2>
+  <ul>
+    <li><strong>The forty-eight-hour window is winnable.</strong> Competitors miss it too. Same-day pricing turns your slowest step into the reason you get the call.</li>
+    <li><strong>One rate card removes most of the spread immediately.</strong> A decision, not a build.</li>
+    <li><strong>Monthly margin visibility changes which work you chase</strong> &mdash; away from busy-but-thin, toward jobs that actually pay.</li>
+    <li><strong>Retentions are cash you have already earned.</strong> Claiming them on time needs a list and a date, not a strategy.</li>
+  </ul>
 </div>
 
 </div>
@@ -442,40 +398,132 @@
 <!-- ============ PAGE 3 ============ -->
 <div class="sheet">
 
-<!-- 5. EXPECTED IMPACT -->
+<!-- 4. WHY ACT NOW -->
 <div class="section">
-  <h1 class="sec"><span class="sec-num">05</span>&nbsp;&nbsp;Expected Impact</h1>
+  <h1 class="sec"><span class="sec-num">04</span>&nbsp;&nbsp;Why Act Now</h1>
   <div class="sec-bar"></div>
-  <p>Directional. The Discovery Meeting captured enough to size the pricing leak roughly; the rest is qualitative until the numbers are wired in.</p>
+  <p class="muted-line">One priority passed the test. We looked hard for a second and did not find one that met the bar &mdash; padding this section would waste your attention.</p>
+
+  <div class="card">
+    <div class="card-head"><span class="tag tag-crit">Priority 1</span><span class="card-title">Margin erosion from inconsistent pricing</span></div>
+    <div class="field"><b>The trigger: a direct profit leak on a thin-margin business.</b> Pricing drift of a couple of points across a year of bids is real money at £8.5M of turnover, and it compounds quietly because nothing measures it. You told us you suspect you are losing "a few points". Two points is roughly £170K.</div>
+    <div class="field"><b>Why scoring alone would miss it.</b> Mechanical scoring ranks tasks by hours and repeatability. Estimating looks unremarkable on that basis: two people, a few days a week, nothing alarming. It cannot see that the same task is silently setting the price of every job in the business.</div>
+    <div class="field"><b>Cadence.</b> The rate card this week, because it costs a day and removes most of the spread on its own. The estimator build starts alongside it, and the monthly margin view lands before the next quarter closes.</div>
+    <div class="field"><b>The decision behind it.</b> Reynolds has to decide whether estimating becomes a documented, system-supported function, or stays two people's craft. Doing neither means hoping the next mispriced job is the last one, which it will not be.</div>
+  </div>
+
+  <div class="callout">
+    <div class="co-label">From the operator &mdash; 20 years running an SME</div>
+    <p>I have watched pricing drift eat a business from the inside, and it never announces itself. In the company I co-founded, we let each salesperson price their own deals. Everyone was experienced, everyone was trusted, and every one of them was quietly a little different. No single deal looked wrong. It took us two years to notice that our average price had walked several points downhill, because nobody was comparing like with like &mdash; there was nothing to compare against. <strong>The damage isn't the one bad quote. It's that without a rate card you cannot even see the pattern, so it runs for years before anyone names it.</strong> Reynolds has two estimators eight per cent apart on the same job. You already have the evidence I didn't have. <em>That is worth more than it sounds. Use it.</em></p>
+  </div>
+
+  <p class="muted-line">Addressed by Recommendation A (the estimator) and Recommendation E1 (the rate card, which you can write this week without us).</p>
+</div>
+
+</div>
+
+<!-- ============ PAGE 4 ============ -->
+<div class="sheet">
+
+<!-- 5. WHAT TO DO -->
+<div class="section">
+  <h1 class="sec"><span class="sec-num">05</span>&nbsp;&nbsp;What To Do</h1>
+  <div class="sec-bar"></div>
+
+  <div class="verdict">Verdict: YES &mdash; and the fastest return is on work you already have.</div>
+
+  <p>Four things, in the order they matter to Reynolds. The first is the one that sets the price of everything else.</p>
+
+  <h2 class="sub">The base &mdash; your AI Foundation</h2>
+  <div class="card" style="border-left:3pt solid var(--accent);">
+    <div class="field">The AI Foundation is simply <b>the business, written down in a form AI can use</b> &mdash; your strategy, your numbers, your customers, how a job actually flows from enquiry to paid. Without it, every AI answer is generic. With it, the answers are <em>yours</em>. Everything below sits on top of it, and it earns its place on its own as a thinking partner you can ask anything about the business, before a single thing is installed. <em>(~30 days, kickoff to handover.)</em></div>
+  </div>
+
+  <h3 class="rec">A. Get the pricing out of two heads and into an estimator</h3>
+  <div class="rec-meta">Start now · the biggest single move available</div>
+  <p><b>What it is.</b> Schedule in, priced quote out, same day. Two layers: a <b>calculator</b> that reads the bar bending schedule and produces the take-off (rules and arithmetic), and a <b>quote engine</b> that holds the pricing judgement your estimators currently carry in their heads, made explicit and applied the same way every time.</p>
+  <p><b>Why it's first.</b> It solves both of your problems with one build. It closes the forty-eight-hour gap that is losing you winnable bids, and it ends the eight per cent spread that is quietly setting your margin. Every other recommendation here measures or reports the problem. This one removes the cause.</p>
+  <p><b>What we don't know yet.</b> Whether the quote engine can be fully automated, or only assisted. <b>Nobody has ever written down how your estimators build a price</b> &mdash; the eight per cent spread is the proof. That is why the first month is capture and the second is build. We don't start building before we know what it has to do. This is a genuine bet, and we would rather say so now than discover it in month three.</p>
+
+  <h3 class="rec">B. See the margin while you can still act on it</h3>
+  <div class="rec-meta">Monthly P&amp;L, job margin and cash &mdash; an AI finance director</div>
+  <p><b>What it is.</b> Margin by job and by month, the drivers underneath the numbers, a pack built automatically on a fixed date, and a live view of what you're owed &mdash; including which retentions fall due.</p>
+  <p><b>What it fixes.</b> You currently learn which jobs made money when the year-end accounts arrive, which is far too late to do anything about it. It also stops retentions ageing quietly on a spreadsheet only one person understands.</p>
+  <p><b>Why AI does this better than a person.</b> The pack isn't late through incompetence &mdash; assembling it is a manual job that always loses to whatever is on fire. AI produces it on the same date every month whether anyone chases it or not, and tracks the drivers, so a job running thin surfaces while you can still act on it rather than after year-end when you can only regret it. It is not cleverer than your bookkeeper. It is simply never too busy.</p>
+
+  <h3 class="rec">C. Put a system behind the bid</h3>
+  <div class="rec-meta">Pipeline, follow-up and win/loss &mdash; an AI sales manager</div>
+  <p><b>What it is.</b> It tracks the pipeline, chases every bid that goes out, and records the outcome of each one: won, lost, why, and to whom.</p>
+  <p><b>What it fixes.</b> Bids currently live in an inbox and die of neglect. It also gives you, for the first time, a reason on every lost job &mdash; the evidence base for the pipeline question you actually want answered.</p>
+  <p><b>Why AI does this better than a person.</b> Bid follow-up fails in every small business for the same reason: it's nobody's favourite job, it's invisible when skipped, and there is always something more urgent. Someone promises to chase, then a live job blows up. AI reads every bid as it's issued, chases on a fixed cadence no matter how busy the week is, and captures the reason in the customer's own words. It never feels awkward about the third follow-up. It is simply incapable of forgetting.</p>
+
+  <h3 class="rec">D. Get found when buyers ask an AI</h3>
+  <div class="rec-meta">Content and AI visibility &mdash; an AI marketing manager · starts quietly now</div>
+  <p><b>What it is.</b> Plans and writes content in your voice on a schedule, and runs <b>AEO (Answer Engine Optimisation)</b>: making sure Reynolds is named when a contractor asks an AI assistant who supplies cut-and-bent reinforcement in your region. The new version of showing up first on Google, except the buyer now asks an AI and acts on the two or three names it returns.</p>
+  <p><b>The reframe.</b> You called this the main problem &mdash; not enough people know about us. But your best work comes from four or five contractor relationships you can name. That's not a brand-awareness problem, it's a targeting problem, and a much easier one.</p>
+  <p><b>Why not first.</b> AI visibility takes months to move, so the baseline starts now. But it does not fix this quarter, and it shouldn't take your attention while your pricing is eight per cent apart from itself.</p>
+
+  <h3 class="rec">E. Changes worth making that need no AI at all</h3>
+  <div class="rec-meta">Fast, free, and yours to act on this month</div>
+  <ol>
+    <li><strong>Write one rate card and one quote template.</strong> It removes most of the eight per cent spread immediately, with no software at all, and it is the thing the estimator gets built from. <em>A day with both estimators in a room.</em></li>
+    <li><strong>Name the person who logs every bid, won or lost.</strong> Every result recorded: won, lost, why, who got it. The cheapest data Reynolds will ever collect, and the evidence base for everything else here. It needs a name against it or it won't happen. <em>One decision, then two minutes per bid.</em></li>
+    <li><strong>Get Dave's scheduling logic on paper while he is still here.</strong> A few recorded sessions turn twenty-five years of judgement into a runbook the floor can follow. <em>A few short sessions over a fortnight.</em></li>
+    <li><strong>Confirm Dave's actual intentions.</strong> He has raised winding down; nobody has asked him for a date. Everything about the floor's next two years depends on the answer. <em>One conversation.</em></li>
+    <li><strong>List the open retentions and put a date against each.</strong> That is your own cash, already earned. <em>Half a day, once.</em></li>
+  </ol>
+
+  <p><strong>Parked, not forgotten:</strong> a scheduling tool for the floor is a real opportunity, but it can only be built once Dave's logic is on paper. Do the runbook first (E3). The tool is the natural follow-on, not the starting point.</p>
+</div>
+
+</div>
+
+<!-- ============ PAGE 5 ============ -->
+<div class="sheet">
+
+<!-- 6. EXPECTED IMPACT -->
+<div class="section">
+  <h1 class="sec"><span class="sec-num">06</span>&nbsp;&nbsp;Expected Impact</h1>
+  <div class="sec-bar"></div>
+
+  <p>This section would normally put a number of hours a week against each recommendation. <strong>We can't do that yet, so we haven't.</strong></p>
+
   <ul>
-    <li>Pricing consistency alone, through the rate card, recovers a meaningful slice of the "few points" Jane already suspects she is losing. At two points, that is roughly £170K of margin in play.</li>
-    <li>Monthly margin visibility changes which jobs Reynolds chases, away from busy-but-thin work toward jobs that actually pay.</li>
-    <li>Retentions stop being forgotten, which pulls cash forward that is currently sitting unclaimed.</li>
-    <li>Two process changes (rate card, bid log) cost nothing and can start this week.</li>
+    <li><strong>Why not.</strong> The Discovery Meeting was a strategic interview, not a stopwatch walk of the floor. You gave us per-job timings &mdash; two to three days to build a quote &mdash; but not how many quotes a week, so any hours-per-week figure here would be invented. <b>Half an hour on the floor fixes it permanently.</b></li>
+    <li><strong>What we can say, from your own numbers.</strong> At £8.5M of turnover, the couple of points you suspect you're losing is roughly £170K a year. Most of it is avoidable, and the rate card alone &mdash; which costs you a day and nothing else &mdash; recovers a meaningful slice of it.</li>
+    <li><strong>Quote turnaround.</strong> Directionally the highest-leverage change available, because it acts on demand you have already won and paid to acquire.</li>
+    <li><strong>The estimator.</strong> Ends the dependence on two people's habits and makes a same-day quote the default rather than an aspiration.</li>
+    <li><strong>Retentions.</strong> Cash you have already earned, currently ageing on a spreadsheet. Claiming it on time is a list and a date, not a project.</li>
   </ul>
-  <p class="muted-line">Figures are directional and use Reynolds' own estimates where the Discovery Meeting captured them.</p>
+
+  <p class="muted-line">Figures are directional and use Reynolds' own estimates where the Discovery Meeting captured them. Where hours could not be captured, we have said so rather than estimated.</p>
+
   <div class="callout">
     <div class="co-label">Recommended next step</div>
-    <p>Build the <strong>AI Foundation</strong> first, the base every Module needs, then install the <strong>Board Pack</strong> and run it on the next month's numbers, so margin by job becomes visible before the year-end accounts. Write the rate card this week in parallel, it needs no AI at all. A proposal scoping the estimating assistant is the natural follow-on once the Board Pack proves the margin story.</p>
+    <p>Three things, in this order. <strong>One:</strong> write the rate card &mdash; a day with both estimators, no AI, and it removes most of the spread on its own. <strong>Two:</strong> give us half an hour on the floor about volumes, so the next version of this document puts real numbers where the gaps currently are. <strong>Three:</strong> name the person who logs every bid from this week, because it costs nothing and it is the foundation of every decision above. Then the Foundation and the estimator build run on our side.</p>
   </div>
 </div>
 
-<!-- 6. PER-PERSON SNAPSHOT -->
+<!-- 7. SNAPSHOT -->
 <div class="section">
-  <h1 class="sec"><span class="sec-num">06</span>&nbsp;&nbsp;Per-Person Snapshot</h1>
+  <h1 class="sec"><span class="sec-num">07</span>&nbsp;&nbsp;Snapshot</h1>
   <div class="sec-bar"></div>
+
   <div class="card">
-    <div class="card-head"><span class="card-title">Jane Reynolds — Managing Director</span></div>
-    <div class="field"><b>Bottlenecks:</b> can't see job-level margin until year-end; carries the commercial decisions alone.</div>
-    <div class="field"><b>Risk:</b> margin leaking through inconsistent pricing she can't currently measure.</div>
-    <div class="field"><b>Opportunities:</b> Board Pack gives her a monthly margin view; later, the Chief of Staff Module to take the daily load off her desk.</div>
+    <div class="card-head"><span class="card-title">Jane Reynolds &mdash; Managing Director</span></div>
+    <div class="field"><b>Where it's stuck:</b> quotes going back in two to three days against a forty-eight-hour window; two estimators eight per cent apart on the same job; no idea which bids land or why.</div>
+    <div class="field"><b>Risk:</b> margin leaking through pricing she cannot currently measure, on a business where a couple of points is £170K. Every commercial decision sits with her, and none of them is currently evidenced.</div>
+    <div class="field"><b>Opportunity:</b> she is losing work she already has in the door, and underpricing some of what she wins. Both are cheaper to fix than finding new customers &mdash; and one of them costs a day and a rate card.</div>
   </div>
+
   <div class="card">
-    <div class="card-head"><span class="card-title">Dave — Works Manager</span></div>
-    <div class="field"><b>Bottlenecks:</b> holds the entire production schedule himself; rush jobs disrupt the plan.</div>
-    <div class="field"><b>Risk:</b> single point of failure on the floor; has raised winding down.</div>
-    <div class="field"><b>Opportunities:</b> document the scheduling logic now, so his judgement survives his retirement.</div>
+    <div class="card-head"><span class="card-title">Dave &mdash; Works Manager</span></div>
+    <div class="field"><b>Where it's stuck:</b> holds the entire production schedule himself, from memory and a whiteboard; rush jobs disrupt the plan and trigger weekend overtime.</div>
+    <div class="field"><b>Risk:</b> single point of failure on the floor. Sixty-one, has raised winding down, and no date has been confirmed by anyone.</div>
+    <div class="field"><b>Opportunity:</b> he is still here. Twenty-five years of sequencing judgement can be written down while there is someone to correct it, which is a luxury most businesses discover they didn't have.</div>
   </div>
+
+  <p class="muted-line">One interview (MD). Single-voice engagement &mdash; no cross-checking against other roles was possible, and no cross-cutting themes have been invented from one account. Where Jane's diagnosis and her evidence disagree, we have surfaced the disagreement rather than resolved it: that is her call, and it is the first question we would like her to answer.</p>
 </div>
 
 <!-- APPENDIX -->
@@ -483,7 +531,7 @@
   <h1 class="sec">Appendix &mdash; About this sample</h1>
   <div class="sec-bar"></div>
   <p>Reynolds &amp; Co is invented. The numbers, the names and the situation are illustrative, chosen to show a typical SME shape: a sound operation with money leaking through processes nobody has had time to fix.</p>
-  <p>What is real is the format. Every Blueprint follows this structure, an Executive Summary, the patterns across the business, the strategic priorities, an honest recommendation with a straight verdict, the expected impact, and a per-person view. It is built entirely from your own 30-minute Discovery Meeting, and it is yours to keep whether or not you go further.</p>
+  <p>What is real is the format. Every Blueprint follows this structure &mdash; a straight verdict, an executive summary, where the industry is heading, what we found, why to act now, what to do in the order that matters to you, the expected impact, and a per-person view. It is built entirely from your own Discovery Meeting, and it is yours to keep whether or not you go further.</p>
   <div class="callout">
     <div class="co-label">Want one for your business?</div>
     <p>A Discovery Meeting takes 30 minutes. You walk away with a Blueprint like this one, built on your business, not a fictional one. <strong>rq@aigentic.co.uk</strong></p>
