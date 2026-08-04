@@ -6,7 +6,9 @@ Public marketing site for Aigentic, served by a small Flask app on Railway (Path
 - `index.html` — Home (three products: AI Visibility, Chief of Staff, Board Pack)
 - `blueprint.html` — How it works
 - `ai-visibility.html` — AI Visibility (free Snapshot)
-- Samples: `sample-blueprint.html`, `reynolds-snapshot.html`, `reynolds-cos-dashboard.html`, `reynolds-board-dashboard.html`
+- Samples: `sample-blueprint.html`, `reynolds-snapshot.html`, `reynolds-visibility-report.html`, `reynolds-cos-dashboard.html`, `reynolds-board-dashboard.html`
+
+`reynolds-visibility-report.html` is the sample AI Search Audit deliverable: the Summary and the Scoreboard, then a gate before Layer 1. It mirrors the client report produced by `generate_exploris_aeo_method_report_pdf.py` in the Exploris Health client folder, but nothing generates it. Change the report format and this file will not follow, so update it by hand in the same pass.
 
 ## Deploy
 Railway → New Project → Deploy from GitHub repo → this repo. Then Networking → Custom Domain → Generate a Railway domain. No env vars needed (public).
