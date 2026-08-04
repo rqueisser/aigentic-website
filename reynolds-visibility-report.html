@@ -1,363 +1,499 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Visibility Report: Reynolds &amp; Co (Sample)</title>
-<meta name="description" content="A sample AI Visibility Report and 90-day plan, the deliverable from the Aigentic AI Search Audit. Reynolds &amp; Co is fictional; the format is exactly what you receive.">
+<title>Sample AI Visibility Report · Reynolds &amp; Co</title>
+<meta name="description" content="A real-format sample of the AI Visibility Report and 90-day plan delivered with the AI Search Audit. Fictional client, genuine structure.">
 <style>
+  :root {
+    --navy:       #1A2035;
+    --card-navy:  #111827;
+    --accent:     #4F46E5;
+    --accent-lt:  #6366F1;
+    --text-light: #F9FAFB;
+    --text-muted: #9CA3AF;
+    --white:      #FFFFFF;
+    --body-text:  #374151;
+    --heading:    #111827;
+    --light-bg:   #F9FAFB;
+    --border-lt:  #E5E7EB;
+    --green:      #059669;
+    --amber:      #D97706;
+    --red:        #DC2626;
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #0A0F1E; color: #F9FAFB; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
 
-  /* ---------- site chrome (dark) ---------- */
-  .sample-ribbon { background: rgba(99,102,241,0.12); border-bottom: 1px solid rgba(99,102,241,0.3); color: #A5B4FC; text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 8px 16px; }
-  .sample-ribbon a { color: #F9FAFB; text-decoration: underline; }
+  @page {
+    size: A4;
+    margin: 17mm 15mm 16mm 15mm;
+    @bottom-left  { content: "Sample · Aigentic · aigentic.co.uk"; font-size: 7.5pt; color: #9CA3AF; }
+    @bottom-right { content: "Page " counter(page); font-size: 7.5pt; color: #9CA3AF; }
+  }
+  @page cover {
+    margin: 0;
+    @bottom-left { content: ""; }
+    @bottom-right { content: ""; }
+  }
 
-  /* ---------- the cover, matching the PDF ---------- */
-  .cover { background: #1A2035; padding: 30px 48px 44px; }
-  .cover-inner { max-width: 880px; margin: 0 auto; }
-  .cover-top { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 40px; }
-  .logo { font-size: 19px; font-weight: 700; color: #6366F1; letter-spacing: -0.5px; }
-  .logo span { color: #F9FAFB; }
-  .cover-date { font-size: 12px; color: #9CA3AF; }
-  .cover-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.4px; text-transform: uppercase; color: #9CA3AF; margin-bottom: 14px; }
-  .cover h1 { font-size: 46px; font-weight: 800; letter-spacing: -1px; line-height: 1.1; color: #F9FAFB; margin-bottom: 14px; }
-  .cover-sub { font-size: 16px; color: #D1D5DB; max-width: 560px; }
-  .cover-accent { width: 56px; height: 3px; background: #4F46E5; margin: 26px 0 30px; }
-  .meta-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
-  .meta-cell { background: #111827; padding: 16px 20px; }
-  .meta-cell .k { font-size: 9.5px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: #6B7280; margin-bottom: 6px; }
-  .meta-cell .v { font-size: 14px; color: #F9FAFB; font-weight: 600; }
-  .cover-foot { margin-top: 26px; font-size: 11.5px; color: #6B7280; }
+  /* Screen reading: centre the A4 pages on a grey backdrop so it reads as a document */
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--body-text);
+    font-size: 10pt;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    background: #6B7280;
+  }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-  /* ---------- the paper ---------- */
-  .paper { background: #FFFFFF; color: #374151; max-width: 880px; margin: 0 auto; padding: 0 0 8px; }
-  .runhead { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #E5E7EB; padding: 12px 52px; font-size: 10.5px; color: #9CA3AF; }
-  .runhead .brand { font-weight: 700; color: #4F46E5; }
-  .sheet { padding: 40px 52px 48px; }
+  .sheet {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 8mm auto;
+    background: var(--white);
+    padding: 17mm 15mm 16mm 15mm;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+  }
+  .sheet.cover-sheet { padding: 0; }
 
-  h2.chapter { font-size: 27px; font-weight: 800; color: #111827; letter-spacing: -0.4px; line-height: 1.2; margin-bottom: 6px; }
-  .chapter-accent { width: 44px; height: 3px; background: #4F46E5; margin: 12px 0 22px; }
-  h3.sub { font-size: 17px; font-weight: 700; color: #111827; margin: 30px 0 10px; }
-  h4.mini { font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: #6B7280; margin: 28px 0 12px; }
-  p.body { font-size: 14.5px; color: #374151; margin-bottom: 13px; }
-  p.body.lead { font-size: 15.5px; color: #1F2937; }
-  p.small { font-size: 12.5px; color: #6B7280; margin-top: 10px; line-height: 1.55; }
-  p.small strong { color: #4B5563; }
+  @media print {
+    body { background: var(--white); }
+    .sheet { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
+    .ribbon { display: none; }
+  }
 
-  ul.list { list-style: none; margin: 4px 0 13px; }
-  ul.list li { font-size: 14.5px; color: #374151; padding-left: 20px; position: relative; margin-bottom: 9px; }
-  ul.list li::before { content: '›'; position: absolute; left: 2px; top: -1px; color: #4F46E5; font-weight: 700; font-size: 17px; }
-  ol.list { margin: 4px 0 13px 20px; }
-  ol.list li { font-size: 14.5px; color: #374151; margin-bottom: 9px; padding-left: 4px; }
-  ol.list li::marker { color: #4F46E5; font-weight: 700; }
+  /* A small return-to-site ribbon, screen only */
+  .ribbon {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: var(--navy); color: var(--text-light);
+    font-size: 9pt; padding: 8px 16px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .ribbon a { color: #A5B4FC; text-decoration: none; font-weight: 600; }
+  .ribbon a:hover { text-decoration: underline; }
+  body { padding-top: 38px; }
+  @media print { body { padding-top: 0; } }
 
-  .important { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 18px 22px; margin-bottom: 22px; }
-  .important .t { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: #111827; margin-bottom: 8px; }
-  .important p { font-size: 12.5px; color: #6B7280; line-height: 1.6; }
+  /* ---------- COVER ---------- */
+  .cover {
+    page: cover;
+    background: var(--navy);
+    color: var(--text-light);
+    width: 210mm; height: 297mm;
+    padding: 26mm 22mm;
+    display: flex; flex-direction: column;
+    page-break-after: always;
+  }
+  .cover-top { display: flex; justify-content: space-between; align-items: baseline; }
+  .cover-logo { font-size: 19pt; font-weight: 700; color: var(--white); }
+  .cover-date { font-size: 10pt; color: var(--text-muted); }
+  .cover-mid { margin-top: auto; margin-bottom: auto; }
+  .cover-label {
+    font-size: 9pt; font-weight: 700; letter-spacing: 3.4px;
+    color: var(--text-muted); text-transform: uppercase;
+  }
+  .cover-title {
+    margin-top: 16mm; font-size: 38pt; font-weight: 700;
+    color: var(--white); line-height: 1.1;
+  }
+  .cover-sub {
+    margin-top: 7mm; max-width: 132mm;
+    font-size: 11pt; color: var(--text-muted); line-height: 1.5;
+  }
+  .cover-bar { width: 40mm; height: 2.5pt; background: var(--accent); margin-top: 10mm; }
+  .cover-meta { display: flex; gap: 20mm; margin-top: 12mm; }
+  .cover-meta .m-label {
+    font-size: 7.5pt; font-weight: 700; letter-spacing: 1.8px;
+    color: var(--text-muted); text-transform: uppercase;
+  }
+  .cover-meta .m-value { margin-top: 2.5mm; font-size: 10pt; color: var(--text-light); }
+  .cover-contact .c-name { font-size: 9.5pt; font-weight: 700; color: var(--text-light); }
+  .cover-contact .c-line { margin-top: 1.5mm; font-size: 8.5pt; color: var(--text-muted); }
+  .cover-note {
+    margin-top: 9mm; font-size: 8pt; color: var(--text-muted);
+    border-top: 0.5pt solid rgba(255,255,255,0.15); padding-top: 4mm; max-width: 132mm;
+  }
 
-  .callout { border-left: 3px solid #4F46E5; background: #F9FAFB; border-radius: 0 8px 8px 0; padding: 17px 22px; margin-bottom: 11px; }
-  .callout .lead { font-weight: 700; font-size: 14.5px; color: #111827; margin-bottom: 5px; }
-  .callout p { font-size: 14px; color: #374151; }
-  .callout.amber { border-left-color: #D97706; }
-  .callout.green { border-left-color: #059669; }
+  /* ---------- BODY ---------- */
+  .section { margin-top: 9mm; }
+  .section:first-of-type { margin-top: 0; }
+  h1.sec {
+    font-size: 16pt; font-weight: 700; color: var(--heading);
+    line-height: 1.2; page-break-after: avoid;
+  }
+  .sec-bar {
+    width: 100%; height: 3pt; background: var(--accent);
+    border-radius: 1.5pt; margin-top: 3mm; margin-bottom: 5mm;
+    page-break-after: avoid;
+  }
+  h2.sub {
+    font-size: 11pt; font-weight: 700; color: var(--accent);
+    margin-top: 5.5mm; margin-bottom: 2mm; page-break-after: avoid;
+  }
+  h3.mini {
+    font-size: 8.5pt; font-weight: 700; letter-spacing: 1.4px;
+    text-transform: uppercase; color: var(--text-muted);
+    margin-top: 5mm; margin-bottom: 2.5mm; page-break-after: avoid;
+  }
+  p { margin-bottom: 3mm; }
+  strong { color: var(--heading); }
+  ul, ol { margin: 0 0 3mm 5mm; }
+  li { margin-bottom: 1.8mm; }
+  .lead-para { font-size: 10.6pt; color: #1F2937; }
 
-  .score-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0 22px; }
-  .score-tile { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px 14px; text-align: center; }
-  .score-tile .k { font-size: 9px; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; color: #6B7280; line-height: 1.4; min-height: 36px; }
-  .score-tile .v { font-size: 21px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 1px; }
-  .score-tile .d { font-size: 11px; font-weight: 700; color: #9CA3AF; }
-  .v-red { color: #DC2626; }
-  .v-amber { color: #D97706; }
-  .v-green { color: #059669; }
+  .note-box {
+    background: var(--light-bg); border-left: 3pt solid var(--accent);
+    padding: 4mm 5mm; margin: 1mm 0 3mm; font-size: 9.7pt;
+    page-break-inside: avoid;
+  }
+  .note-box .nb-tag {
+    font-size: 7.5pt; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; color: var(--accent); display: block;
+    margin-bottom: 1.5mm;
+  }
+  .note-box.amber { border-left-color: var(--amber); }
+  .note-box.amber .nb-tag { color: var(--amber); }
+  .note-box.green { border-left-color: var(--green); }
+  .note-box.green .nb-tag { color: var(--green); }
+  .note-box p:last-child { margin-bottom: 0; }
 
-  table.data { width: 100%; border-collapse: collapse; margin-bottom: 6px; font-size: 13px; }
-  table.data th { background: #4F46E5; color: #FFFFFF; text-align: left; font-size: 11px; font-weight: 700; padding: 10px 13px; border: 1px solid #4F46E5; }
-  table.data th.num { text-align: center; }
-  table.data td { padding: 10px 13px; color: #374151; border: 1px solid #E5E7EB; vertical-align: top; }
-  table.data tr:nth-child(even) td { background: #F9FAFB; }
-  table.data td strong { color: #111827; }
-  table.data .num { text-align: center; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; white-space: nowrap; }
-  table.data tr.total td { background: #EEF2FF; font-weight: 700; color: #111827; }
-  .hit { color: #4F46E5; font-weight: 700; }
-  .z { color: #C0C6D0; }
-  .table-scroll { overflow-x: auto; }
+  .important {
+    background: var(--light-bg); border: 0.75pt solid var(--border-lt);
+    border-radius: 5px; padding: 4mm 5mm; margin-bottom: 5mm;
+    font-size: 8.7pt; color: #6B7280; page-break-inside: avoid;
+  }
+  .important b { display: block; color: var(--heading); font-size: 8pt;
+    letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5mm; }
 
-  .end-summary { text-align: center; font-size: 12.5px; color: #6B7280; font-style: italic; padding: 24px 0 4px; border-top: 1px solid #E5E7EB; margin-top: 30px; }
-  .divider { height: 1px; background: #E5E7EB; margin: 40px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 2mm; font-size: 9pt; }
+  th {
+    background: var(--accent); color: var(--white);
+    text-align: left; padding: 3mm 3.5mm; font-weight: 700; font-size: 8.5pt;
+  }
+  th.num { text-align: center; }
+  td { padding: 3mm 3.5mm; border: 0.5pt solid var(--border-lt); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-bg); }
+  td.num { text-align: center; font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; white-space: nowrap; }
+  tr.total td { background: #EEF2FF; font-weight: 700; color: var(--heading); }
+  .hit { color: var(--accent); font-weight: 700; }
+  .z { color: #C7CCD6; }
+
+  .tile-strip { display: flex; gap: 3mm; margin: 4mm 0; page-break-inside: avoid; }
+  .tile {
+    flex: 1; background: var(--light-bg); border: 0.75pt solid var(--border-lt);
+    border-radius: 5px; padding: 4mm 3mm; text-align: center;
+  }
+  .tile .t-label {
+    font-size: 7pt; font-weight: 700; letter-spacing: 0.9px; text-transform: uppercase;
+    color: var(--text-muted); line-height: 1.35; min-height: 9mm;
+  }
+  .tile .t-value { font-size: 15pt; font-weight: 700; line-height: 1.15; }
+  .tile .t-desc { font-size: 8pt; font-weight: 700; color: var(--text-muted); margin-top: 0.5mm; }
+  .v-red { color: var(--red); }
+  .v-amber { color: var(--amber); }
+  .v-green { color: var(--green); }
+
+  .muted-line { font-size: 8.7pt; color: var(--text-muted); margin-top: 2mm; }
+  .end-line {
+    border-top: 0.5pt solid var(--border-lt); margin-top: 6mm; padding-top: 4mm;
+    font-size: 9pt; font-style: italic; color: var(--text-muted); text-align: center;
+  }
+
+  .callout {
+    background: var(--card-navy); color: var(--text-light);
+    border-radius: 6px; padding: 5mm 6mm; margin-top: 4mm;
+    page-break-inside: avoid;
+  }
+  .callout .co-label {
+    font-size: 7.5pt; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--accent-lt); margin-bottom: 1.5mm;
+  }
+  .callout p { color: var(--text-muted); margin-bottom: 0; }
+  .callout strong { color: var(--white); }
 
   /* ---------- the gate ---------- */
-  .gate { position: relative; padding-top: 6px; }
-  .gate-items { display: flex; flex-direction: column; gap: 9px; }
-  .gate-item { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 8px; padding: 15px; display: flex; align-items: center; gap: 14px; filter: blur(3.5px); user-select: none; pointer-events: none; }
-  .gate-tag { font-size: 10px; font-weight: 700; color: #4F46E5; text-transform: uppercase; letter-spacing: 1px; flex-shrink: 0; min-width: 84px; }
-  .gate-text { font-size: 13.5px; color: #6B7280; }
-  .gate-overlay { position: absolute; left: 0; right: 0; bottom: 0; top: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0) 8%, #FFFFFF 62%); display: flex; align-items: flex-end; justify-content: center; }
-  .gate-overlay span { font-size: 13px; font-weight: 600; color: #6B7280; padding-bottom: 6px; }
-
-  /* ---------- back to site chrome ---------- */
-  .cta { padding: 56px 48px 80px; max-width: 900px; margin: 0 auto; }
-  .cta-card { background: linear-gradient(135deg, #1e1b4b 0%, #1a1f35 100%); border: 1px solid rgba(99,102,241,0.4); border-radius: 16px; padding: 48px; text-align: center; }
-  .cta-card h2 { font-size: 28px; font-weight: 800; margin-bottom: 12px; color: #F9FAFB; }
-  .cta-card p { font-size: 15px; color: #9CA3AF; max-width: 540px; margin: 0 auto 32px; }
-  .cta-button { display: inline-block; background: #6366F1; color: white; font-size: 15px; font-weight: 700; padding: 16px 40px; border-radius: 8px; text-decoration: none; letter-spacing: 0.3px; transition: background 0.2s; }
-  .cta-button:hover { background: #4F46E5; }
-  .cta-note { margin-top: 16px; font-size: 13px; color: #6B7280; }
-  .cta-second { display: block; margin-top: 18px; font-size: 13px; color: #A5B4FC; text-decoration: none; }
-  .cta-second:hover { color: #F9FAFB; }
-  .footer { border-top: 1px solid #1F2937; padding: 24px 48px; text-align: center; font-size: 12px; color: #4B5563; }
-
-  @media (max-width: 760px) {
-    .score-strip { grid-template-columns: repeat(2, 1fr); }
-    .meta-strip { grid-template-columns: 1fr; }
-    .cover { padding: 26px 20px 34px; }
-    .cover h1 { font-size: 32px; }
-    .runhead { padding: 10px 22px; font-size: 9.5px; }
-    .runhead .conf { display: none; }
-    .sheet { padding: 30px 22px 36px; }
-    h2.chapter { font-size: 22px; }
-    .cta { padding: 40px 20px 60px; }
-    .cta-card { padding: 32px 22px; }
-    .footer { padding: 24px 20px; }
+  .gate { position: relative; }
+  .gate-item {
+    background: var(--light-bg); border: 0.75pt solid var(--border-lt); border-radius: 5px;
+    padding: 3.5mm 4mm; margin-bottom: 2.5mm; display: flex; gap: 4mm; align-items: center;
+    filter: blur(3.2px); user-select: none; pointer-events: none;
   }
+  .gate-tag {
+    font-size: 7.5pt; font-weight: 700; letter-spacing: 0.9px; text-transform: uppercase;
+    color: var(--accent); flex: 0 0 22mm;
+  }
+  .gate-text { font-size: 9.2pt; color: var(--text-muted); }
+  .gate-overlay {
+    position: absolute; left: 0; right: 0; top: 12mm; bottom: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 6%, var(--white) 62%);
+    display: flex; align-items: flex-end; justify-content: center;
+  }
+  .gate-overlay span { font-size: 9.5pt; font-weight: 700; color: var(--text-muted); padding-bottom: 2mm; }
+
+  .page-break { page-break-before: always; }
 </style>
 </head>
 <body>
 
-<div class="sample-ribbon">
-  Sample Report · Reynolds &amp; Co and Meridian are fictional · <a href="ai-visibility.html">← Back to AI Visibility</a>
+<div class="ribbon">
+  <span>Sample AI Visibility Report · fictional client, real format</span>
+  <a href="ai-visibility.html">← Back to Aigentic</a>
 </div>
 
-<!-- ===== COVER ===== -->
+<!-- ============ COVER ============ -->
+<div class="sheet cover-sheet">
 <div class="cover">
-  <div class="cover-inner">
-    <div class="cover-top">
-      <div class="logo">ai<span>gentic</span></div>
-      <div class="cover-date">August 2026</div>
+  <div class="cover-top">
+    <div class="cover-logo">Aigentic</div>
+    <div class="cover-date">Sample · 2026</div>
+  </div>
+  <div class="cover-mid">
+    <div class="cover-label">AI Visibility Report · 90-Day Plan</div>
+    <div class="cover-title">Reynolds &amp; Co</div>
+    <div class="cover-sub">How a buyer discovers Reynolds &amp; Co through AI today, and a 90-day plan to change it.</div>
+    <div class="cover-bar"></div>
+    <div class="cover-meta">
+      <div><div class="m-label">Prepared for</div><div class="m-value">Reynolds &amp; Co</div></div>
+      <div><div class="m-label">Prepared by</div><div class="m-value">Aigentic</div></div>
+      <div><div class="m-label">Date</div><div class="m-value">August 2026</div></div>
     </div>
-    <div class="cover-eyebrow">AI Visibility Report · 90-Day Plan</div>
-    <h1>Reynolds &amp; Co</h1>
-    <p class="cover-sub">How a buyer discovers Reynolds &amp; Co through AI today, and a 90-day plan to change it.</p>
-    <div class="cover-accent"></div>
-    <div class="meta-strip">
-      <div class="meta-cell"><div class="k">Prepared for</div><div class="v">Reynolds &amp; Co</div></div>
-      <div class="meta-cell"><div class="k">Prepared by</div><div class="v">Aigentic</div></div>
-      <div class="meta-cell"><div class="k">Date</div><div class="v">August 2026</div></div>
-    </div>
-    <div class="cover-foot">Aigentic · rq@aigentic.co.uk · aigentic.co.uk</div>
+  </div>
+  <div class="cover-contact">
+    <div class="c-name">Aigentic</div>
+    <div class="c-line">rq@aigentic.co.uk</div>
+    <div class="c-line">aigentic.co.uk</div>
+  </div>
+  <div class="cover-note">
+    Illustrative sample. Reynolds &amp; Co and Meridian Structures are fictional, used to show the exact format and depth of a real report without exposing a client's numbers. Yours is built entirely from live testing on your own brand.
+  </div>
+</div>
+</div>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="sheet">
+
+<div class="section">
+  <h1 class="sec">Summary</h1>
+  <div class="sec-bar"></div>
+
+  <div class="important">
+    <b>Important note</b>
+    AI assistants are unpredictable and change all the time. Their answers vary between attempts, and the websites they rely on are updated continuously. This report is a picture at one point in time, true to the best of our knowledge on this date. It is not a guarantee of future results. The outcomes described depend on the recommendations being put into practice. Where they are, we expect movement in the direction shown, but the exact result, timing and ranking cannot be promised. Full terms and privacy note are at the end.
+  </div>
+
+  <p class="lead-para">This section is the whole story in three short parts: how we did the analysis, what we found, and what to do about it. If you read only this, you will know what to do next. The rest of the report is the detail behind it, to read at your own pace.</p>
+
+  <h2 class="sub">1. How we did the analysis</h2>
+  <p>We tested how Reynolds &amp; Co shows up when a buyer, rather than an existing customer, asks an AI assistant about placing a steel structures job.</p>
+  <ul>
+    <li>Ten questions that follow a real buying path, from "we need a steel frame for a six-storey office, who can design and install it?" to "what does Reynolds &amp; Co do?"</li>
+    <li>Across the four main AI assistants buyers use: ChatGPT, Claude, Gemini and Perplexity.</li>
+    <li>We typed each question in by hand, the same way a real buyer would, rather than through an automated tool. That is the only way to see exactly what a buyer sees, and to compare the assistants fairly, like for like.</li>
+    <li>Every answer and the websites it relied on were recorded word for word. For your closest named competitor, Meridian Structures, we asked one direct question about it, and noted whether it came up in the buyer questions.</li>
+  </ul>
+  <p class="muted-line">In plain terms: the ten buyer questions for Reynolds &amp; Co (40 runs), plus one direct question about Meridian as a benchmark (4 runs), all live, across four AI assistants.</p>
+
+  <h2 class="sub">2. What we found</h2>
+  <p>When buyers ask AI who should build their steel frame, Reynolds &amp; Co does not come up. When they ask about it by name, AI describes the business accurately. So the problem is being found, not being believed. That is good news, because being found is faster and cheaper to fix than being believed.</p>
+
+  <div class="tile-strip">
+    <div class="tile"><div class="t-label">Shows up for buyers</div><div class="t-value v-red">14 / 80</div><div class="t-desc">almost never</div></div>
+    <div class="tile"><div class="t-label">Recognised by AI</div><div class="t-value v-red">Weak</div><div class="t-desc">today</div></div>
+    <div class="tile"><div class="t-label">Trusted-source citations</div><div class="t-value v-amber">Two</div><div class="t-desc">both listings</div></div>
+    <div class="tile"><div class="t-label">Owns the category</div><div class="t-value v-green">Open</div><div class="t-desc">no owner</div></div>
+  </div>
+
+  <div class="note-box amber">
+    <span class="nb-tag">Found, not believed</span>
+    <p>Of the 14 points Reynolds scored, 8 came from the single question where the buyer already typed the company name. Strip that one out and the score is 6 out of 72. AI can describe the business, but nobody else is telling it that Reynolds is one of the firms worth naming, so it only surfaces for people who already know the name.</p>
+  </div>
+
+  <div class="note-box green">
+    <span class="nb-tag">The category is open</span>
+    <p>Your closest competitor, Meridian Structures, holds no category answer either. On the cost question and the constrained-site question, no assistant named a single contractor, on any platform. All four gave generic advice and moved on. No brand owns "a steel contractor who can work a tight city-centre site" in AI answers. That space is there to be taken.</p>
   </div>
 </div>
 
-<!-- ===== THE PAPER ===== -->
-<div class="paper">
-  <div class="runhead">
-    <span class="brand">Aigentic</span>
-    <span>Reynolds &amp; Co &nbsp;|&nbsp; AI Visibility Report &nbsp;|&nbsp; Aug 2026</span>
-    <span class="conf">Confidential</span>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="sheet">
+
+<div class="section">
+  <h1 class="sec">3. What to do about it: the 90-day plan</h1>
+  <div class="sec-bar"></div>
+  <p>Three steps over about twelve weeks. The first is quick and fully in your control; the later steps build on it.</p>
+  <table>
+    <thead><tr><th style="width:22%">Step</th><th style="width:56%">What happens</th><th style="width:22%">When</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. Make it recognisable</strong></td><td>Put Reynolds &amp; Co into the places AI reads to know a firm exists: a Wikidata entry, company code on your website, the construction databases, a clear services page.</td><td>Weeks 0-3</td></tr>
+      <tr><td><strong>2. Answer and get quoted</strong></td><td>Write the buyer pages that answer those buyer questions, and get your completed projects referenced by the sources AI trusts, starting with the trade titles.</td><td>Weeks 2-8</td></tr>
+      <tr><td><strong>3. Re-measure</strong></td><td>Run the exact same test again and show the before and after, in time for the November check-in.</td><td>Weeks 8-12</td></tr>
+    </tbody>
+  </table>
+  <p class="muted-line">What we need from you: one named owner for the week 0-3 tasks, a 20-minute call to start, and confirmation of a few facts (project values, accreditations, the head-count figure) so nothing published is wrong.</p>
+
+  <div class="end-line">This is the end of the summary. Everything that follows is the detail behind it. If you only need the plan, you can stop here.</div>
+</div>
+
+<div class="section">
+  <h1 class="sec">The Full Analysis</h1>
+  <div class="sec-bar"></div>
+  <p>Everything from here is the detail behind the summary, to read at your own pace. It is organised around the three layers of our method, plus the scoreboard. The three layers are the things we build: Entity, Authority and Content. The scoreboard measures whether the firm actually shows up, and it is what we re-measure to prove progress.</p>
+
+  <table>
+    <thead><tr><th style="width:24%">Part</th><th style="width:50%">The question it answers</th><th style="width:26%">Where in this report</th></tr></thead>
+    <tbody>
+      <tr><td><strong>The scoreboard</strong></td><td>Does the firm actually show up in AI answers?</td><td>Shown first, next</td></tr>
+      <tr><td><strong>Layer 1: Entity</strong></td><td>Does AI recognise the firm as a real, specific thing?</td><td>Layer 1</td></tr>
+      <tr><td><strong>Layer 2: Authority</strong></td><td>Do the websites AI trusts mention it?</td><td>Layer 2</td></tr>
+      <tr><td><strong>Layer 3: Content</strong></td><td>Are the answers people search for there for AI to quote?</td><td>Layer 3</td></tr>
+    </tbody>
+  </table>
+  <p>We show the scoreboard first, because it is where you stand today. Then the three building layers explain it and set out what to fix. The plan then moves those three layers, and we re-measure the scoreboard to prove the change.</p>
+</div>
+
+</div>
+
+<!-- ============ PAGE 3 ============ -->
+<div class="sheet">
+
+<div class="section">
+  <h1 class="sec">A few words we use</h1>
+  <div class="sec-bar"></div>
+  <table>
+    <thead><tr><th style="width:28%">Term</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Visibility</strong></td><td>Whether your firm shows up when people ask an AI a question.</td></tr>
+      <tr><td><strong>Entity</strong></td><td>Whether AI recognises your firm as a real, specific thing it can identify.</td></tr>
+      <tr><td><strong>Authority / citation</strong></td><td>Whether the websites AI trusts and quotes actually mention your firm.</td></tr>
+      <tr><td><strong>Content</strong></td><td>The pages, articles and video that answer people's questions, so AI can quote them.</td></tr>
+      <tr><td><strong>Category ownership</strong></td><td>Whether any brand "owns" the answer to a category question, or whether it is still open.</td></tr>
+      <tr><td><strong>Schema (FAQ markup)</strong></td><td>Invisible code on a web page that labels questions and answers so AI can read and quote them.</td></tr>
+      <tr><td><strong>Discovery question</strong></td><td>A question where the person does not yet know your firm, and describes a need or a constraint.</td></tr>
+      <tr><td><strong>Direct question</strong></td><td>A question where the person already names your firm.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h1 class="sec">The Scoreboard: Where You Stand Today</h1>
+  <div class="sec-bar"></div>
+  <p class="muted-line" style="margin-top:0;">What this is: the measurement of whether the firm actually shows up in AI answers. It is the baseline we re-measure at the end of the plan to prove the change.</p>
+  <p>This is the heart of the analysis: exactly what the four AI assistants said when we asked the ten buyer questions. Most of the score below comes from the one question where the buyer already names the firm. In the questions where they describe a need or a constraint instead, Reynolds &amp; Co almost never appears.</p>
+
+  <h2 class="sub">Why these ten questions</h2>
+  <p>We did not pick them at random. They follow the path a real buyer takes, from a first requirement to naming a firm, and each step is a chance to be found.</p>
+  <ul>
+    <li><strong>Questions 1 to 3.</strong> A buyer with a job to place who does not yet know which firms exist, including the phrase most of them actually type and the one that asks for a specialist rather than a big fabricator.</li>
+    <li><strong>Questions 4 to 6.</strong> A buyer with a real constraint: a tight site, a budget, a sector with its own rules.</li>
+    <li><strong>Questions 7 to 9.</strong> A buyer checking they are shortlisting the right kind of firm, on accreditation, on scope, and on where you are.</li>
+    <li><strong>Question 10.</strong> A buyer who already knows the name.</li>
+  </ul>
+  <p>If the firm is going to be found, it has to appear somewhere along that path. Today it only appears at the very end, once the buyer already knows to ask for it by name.</p>
+</div>
+
+</div>
+
+<!-- ============ PAGE 4 ============ -->
+<div class="sheet">
+
+<div class="section">
+  <h3 class="mini" style="margin-top:0;">The scorecard (each assistant, out of 20)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:48%">Question, asked in English</th>
+        <th class="num">ChatGPT</th><th class="num">Claude</th><th class="num">Gemini</th><th class="num">Perplexity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1. Steel frame for a six-storey office, who can design and install it</td>
+        <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
+      <tr><td>2. Best steel structure contractors UK 2026</td>
+        <td class="num"><span class="hit">1</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="hit">1</span></td><td class="num"><span class="z">0</span></td></tr>
+      <tr><td>3. Alternatives to the large steel fabricators for civil engineering work</td>
+        <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
+      <tr><td>4. Which contractors can work a constrained city-centre site</td>
+        <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
+      <tr><td>5. What a structural steel package should cost on a mid-rise build</td>
+        <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
+      <tr><td>6. Steel erection for schools and public-sector projects in the North</td>
+        <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
+      <tr><td>7. Contractors with BCSA membership and CE marking for structural work</td>
+        <td class="num"><span class="hit">1</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
+      <tr><td>8. Which UK contractors do design-and-build rather than supply only</td>
+        <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
+      <tr><td>9. Specialist steel structure firms in Yorkshire</td>
+        <td class="num"><span class="hit">1</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="hit">1</span></td><td class="num"><span class="hit">1</span></td></tr>
+      <tr><td>10. Tell me about Reynolds &amp; Co</td>
+        <td class="num"><span class="hit">2</span></td><td class="num"><span class="hit">2</span></td><td class="num"><span class="hit">2</span></td><td class="num"><span class="hit">2</span></td></tr>
+      <tr class="total"><td>Total out of 20</td>
+        <td class="num">5</td><td class="num">2</td><td class="num">4</td><td class="num">3</td></tr>
+    </tbody>
+  </table>
+  <p class="muted-line">How to read it: 0 means the firm did not appear, 1 means it was mentioned in passing, 2 means it was named and described. Ten questions across four assistants gives a total of 14 out of 80. Full scoring is in the appendix.</p>
+
+  <h2 class="sub">What the pattern means</h2>
+
+  <div class="note-box">
+    <span class="nb-tag">The problem is being found, not being described</span>
+    <p>Reynolds &amp; Co is absent from every requirement, category, constraint and cost question, and only appears in passing on three of them, always at the bottom of a list. All four assistants described the business accurately once it was named. The buyers most likely to want a specialist are sent straight to the large fabricators that Reynolds competes against.</p>
   </div>
 
-  <div class="sheet">
+  <div class="note-box">
+    <span class="nb-tag">Two listings are doing all the work</span>
+    <p>Across the 36 runs where the buyer did not type the name, Reynolds appeared six times, every one of them in passing. Trace the sources and they come back to two places: a trade directory entry and a regional builders' list. That is the entire visible footprint. It also proves the mechanism, because two citations were enough to put Reynolds in front of three different assistants. The fix is more of them, not a different strategy.</p>
+  </div>
 
-    <!-- SUMMARY -->
-    <h2 class="chapter">Summary</h2>
-    <div class="chapter-accent"></div>
-
-    <div class="important">
-      <div class="t">Important note</div>
-      <p>AI assistants are unpredictable and change all the time. Their answers vary between attempts, and the websites they rely on are updated continuously. This report is a picture at one point in time, true to the best of our knowledge on this date. It is not a guarantee of future results. The outcomes described depend on the recommendations being put into practice. Where they are, we expect movement in the direction shown, but the exact result, timing and ranking cannot be promised. Full terms and privacy note are at the end.</p>
-    </div>
-
-    <p class="body lead">This section is the whole story in three short parts: how we did the analysis, what we found, and what to do about it. If you read only this, you will know what to do next. The rest of the report is the detail behind it, to read at your own pace.</p>
-
-    <h3 class="sub">1. How we did the analysis</h3>
-    <p class="body">We tested how Reynolds &amp; Co shows up when a buyer, rather than an existing customer, asks an AI assistant about placing a steel structures job.</p>
-    <ul class="list">
-      <li>Ten questions that follow a real buying path, from "we need a steel frame for a six-storey office, who can design and install it?" to "what does Reynolds &amp; Co do?"</li>
-      <li>Across the four main AI assistants buyers use: ChatGPT, Claude, Gemini and Perplexity.</li>
-      <li>We typed each question in by hand, the same way a real buyer would, rather than through an automated tool. That is the only way to see exactly what a buyer sees, and to compare the assistants fairly, like for like.</li>
-      <li>Every answer and the websites it relied on were recorded word for word. For your closest named competitor, Meridian Structures, we asked one direct question about it, and noted whether it came up in the buyer questions.</li>
-    </ul>
-    <p class="small"><strong>In plain terms:</strong> the ten buyer questions for Reynolds &amp; Co (40 runs), plus one direct question about Meridian as a benchmark (4 runs), all live, across four AI assistants.</p>
-
-    <h3 class="sub">2. What we found</h3>
-    <p class="body">When buyers ask AI who should build their steel frame, Reynolds &amp; Co does not come up. When they ask about it by name, AI describes the business accurately. So the problem is being found, not being believed. That is good news, because being found is faster and cheaper to fix than being believed.</p>
-
-    <div class="score-strip">
-      <div class="score-tile"><div class="k">Shows up for buyers</div><div class="v v-red">14 / 80</div><div class="d">almost never</div></div>
-      <div class="score-tile"><div class="k">Recognised by AI</div><div class="v v-red">Weak</div><div class="d">today</div></div>
-      <div class="score-tile"><div class="k">Trusted-source citations</div><div class="v v-amber">Two</div><div class="d">both listings</div></div>
-      <div class="score-tile"><div class="k">Owns the category</div><div class="v v-green">Open</div><div class="d">no owner</div></div>
-    </div>
-
-    <div class="callout amber">
-      <div class="lead">Found, not believed</div>
-      <p>Of the 14 points Reynolds scored, 8 came from the single question where the buyer already typed the company name. Strip that one out and the score is 6 out of 72. AI can describe the business, but nobody else is telling it that Reynolds is one of the firms worth naming, so it only surfaces for people who already know the name.</p>
-    </div>
-    <div class="callout green">
-      <div class="lead">The category is open</div>
-      <p>Your closest competitor, Meridian Structures, holds no category answer either. On the cost question and the constrained-site question, no assistant named a single contractor, on any platform. All four gave generic advice and moved on. No brand owns "a steel contractor who can work a tight city-centre site" in AI answers. That space is there to be taken.</p>
-    </div>
-
-    <h3 class="sub">3. What to do about it: the 90-day plan</h3>
-    <p class="body">Three steps over about twelve weeks. The first is quick and fully in your control; the later steps build on it.</p>
-    <div class="table-scroll">
-      <table class="data">
-        <thead><tr><th style="width:22%">Step</th><th style="width:56%">What happens</th><th style="width:22%">When</th></tr></thead>
-        <tbody>
-          <tr><td><strong>1. Make it recognisable</strong></td><td>Put Reynolds &amp; Co into the places AI reads to know a firm exists: a Wikidata entry, company code on your website, the construction databases, a clear services page.</td><td>Weeks 0-3</td></tr>
-          <tr><td><strong>2. Answer and get quoted</strong></td><td>Write the buyer pages that answer those buyer questions, and get your completed projects referenced by the sources AI trusts, starting with the trade titles.</td><td>Weeks 2-8</td></tr>
-          <tr><td><strong>3. Re-measure</strong></td><td>Run the exact same test again and show the before and after, in time for the November check-in.</td><td>Weeks 8-12</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="end-summary">This is the end of the summary. Everything that follows is the detail behind it. If you only need the plan, you can stop here.</div>
-
-    <div class="divider"></div>
-
-    <!-- FULL ANALYSIS -->
-    <h2 class="chapter">The Full Analysis</h2>
-    <div class="chapter-accent"></div>
-    <p class="body">Everything from here is the detail behind the summary, to read at your own pace. It is organised around the three layers of our method, plus the scoreboard. The three layers are the things we build: Entity, Authority and Content. The scoreboard measures whether the firm actually shows up, and it is what we re-measure to prove progress.</p>
-
-    <div class="table-scroll">
-      <table class="data">
-        <thead><tr><th style="width:24%">Part</th><th style="width:50%">The question it answers</th><th style="width:26%">Where in this report</th></tr></thead>
-        <tbody>
-          <tr><td><strong>The scoreboard</strong></td><td>Does the firm actually show up in AI answers?</td><td>Shown first, next</td></tr>
-          <tr><td><strong>Layer 1: Entity</strong></td><td>Does AI recognise the firm as a real, specific thing?</td><td>Layer 1</td></tr>
-          <tr><td><strong>Layer 2: Authority</strong></td><td>Do the websites AI trusts mention it?</td><td>Layer 2</td></tr>
-          <tr><td><strong>Layer 3: Content</strong></td><td>Are the answers people search for there for AI to quote?</td><td>Layer 3</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="body" style="margin-top:14px;">We show the scoreboard first, because it is where you stand today. Then the three building layers explain it and set out what to fix. The plan then moves those three layers, and we re-measure the scoreboard to prove the change.</p>
-
-    <h4 class="mini">A few words we use</h4>
-    <div class="table-scroll">
-      <table class="data">
-        <thead><tr><th style="width:28%">Term</th><th>What it means</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Visibility</strong></td><td>Whether your firm shows up when people ask an AI a question.</td></tr>
-          <tr><td><strong>Entity</strong></td><td>Whether AI recognises your firm as a real, specific thing it can identify.</td></tr>
-          <tr><td><strong>Authority / citation</strong></td><td>Whether the websites AI trusts and quotes actually mention your firm.</td></tr>
-          <tr><td><strong>Content</strong></td><td>The pages, articles and video that answer people's questions, so AI can quote them.</td></tr>
-          <tr><td><strong>Category ownership</strong></td><td>Whether any brand "owns" the answer to a category question, or whether it is still open.</td></tr>
-          <tr><td><strong>Schema (FAQ markup)</strong></td><td>Invisible code on a web page that labels questions and answers so AI can read and quote them.</td></tr>
-          <tr><td><strong>Discovery question</strong></td><td>A question where the person does not yet know your firm, and describes a need or a constraint.</td></tr>
-          <tr><td><strong>Direct question</strong></td><td>A question where the person already names your firm.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- SCOREBOARD -->
-    <h2 class="chapter">The Scoreboard: Where You Stand Today</h2>
-    <div class="chapter-accent"></div>
-    <p class="small" style="margin-top:0;margin-bottom:14px;"><strong>What this is:</strong> the measurement of whether the firm actually shows up in AI answers. It is the baseline we re-measure at the end of the plan to prove the change.</p>
-    <p class="body">This is the heart of the analysis: exactly what the four AI assistants said when we asked the ten buyer questions. Most of the score below comes from the one question where the buyer already names the firm. In the questions where they describe a need or a constraint instead, Reynolds &amp; Co almost never appears.</p>
-
-    <h3 class="sub">Why these ten questions</h3>
-    <p class="body">We did not pick them at random. They follow the path a real buyer takes, from a first requirement to naming a firm, and each step is a chance to be found.</p>
-    <ul class="list">
-      <li><strong>Questions 1 to 3.</strong> A buyer with a job to place who does not yet know which firms exist, including the phrase most of them actually type and the one that asks for a specialist rather than a big fabricator.</li>
-      <li><strong>Questions 4 to 6.</strong> A buyer with a real constraint: a tight site, a budget, a sector with its own rules.</li>
-      <li><strong>Questions 7 to 9.</strong> A buyer checking they are shortlisting the right kind of firm, on accreditation, on scope, and on where you are.</li>
-      <li><strong>Question 10.</strong> A buyer who already knows the name.</li>
-    </ul>
-    <p class="body">If the firm is going to be found, it has to appear somewhere along that path. Today it only appears at the very end, once the buyer already knows to ask for it by name.</p>
-
-    <h4 class="mini">The scorecard (each assistant, out of 20)</h4>
-    <div class="table-scroll">
-      <table class="data">
-        <thead>
-          <tr>
-            <th style="width:48%">Question, asked in English</th>
-            <th class="num">ChatGPT</th><th class="num">Claude</th><th class="num">Gemini</th><th class="num">Perplexity</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1. Steel frame for a six-storey office, who can design and install it</td>
-            <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
-          <tr><td>2. Best steel structure contractors UK 2026</td>
-            <td class="num"><span class="hit">1</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="hit">1</span></td><td class="num"><span class="z">0</span></td></tr>
-          <tr><td>3. Alternatives to the large steel fabricators for civil engineering work</td>
-            <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
-          <tr><td>4. Which contractors can work a constrained city-centre site</td>
-            <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
-          <tr><td>5. What a structural steel package should cost on a mid-rise build</td>
-            <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
-          <tr><td>6. Steel erection for schools and public-sector projects in the North</td>
-            <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
-          <tr><td>7. Contractors with BCSA membership and CE marking for structural work</td>
-            <td class="num"><span class="hit">1</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
-          <tr><td>8. Which UK contractors do design-and-build rather than supply only</td>
-            <td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="z">0</span></td></tr>
-          <tr><td>9. Specialist steel structure firms in Yorkshire</td>
-            <td class="num"><span class="hit">1</span></td><td class="num"><span class="z">0</span></td><td class="num"><span class="hit">1</span></td><td class="num"><span class="hit">1</span></td></tr>
-          <tr><td>10. Tell me about Reynolds &amp; Co</td>
-            <td class="num"><span class="hit">2</span></td><td class="num"><span class="hit">2</span></td><td class="num"><span class="hit">2</span></td><td class="num"><span class="hit">2</span></td></tr>
-          <tr class="total"><td>Total out of 20</td>
-            <td class="num">5</td><td class="num">2</td><td class="num">4</td><td class="num">3</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="small"><strong>How to read it:</strong> 0 means the firm did not appear, 1 means it was mentioned in passing, 2 means it was named and described. Ten questions across four assistants gives a total of <strong>14 out of 80</strong>. Full scoring is in the appendix.</p>
-
-    <h3 class="sub">What the pattern means</h3>
-    <div class="callout">
-      <div class="lead">The problem is being found, not being described</div>
-      <p>Reynolds &amp; Co is absent from every requirement, category, constraint and cost question, and only appears in passing on three of them, always at the bottom of a list. All four assistants described the business accurately once it was named. The buyers most likely to want a specialist are sent straight to the large fabricators that Reynolds competes against.</p>
-    </div>
-    <div class="callout">
-      <div class="lead">Two listings are doing all the work</div>
-      <p>Across the 36 runs where the buyer did not type the name, Reynolds appeared six times, every one of them in passing. Trace the sources and they come back to two places: a trade directory entry and a regional builders' list. That is the entire visible footprint. It also proves the mechanism, because two citations were enough to put Reynolds in front of three different assistants. The fix is more of them, not a different strategy.</p>
-    </div>
-    <div class="callout green">
-      <div class="lead">The one small opening was the regional question</div>
-      <p>The only place Reynolds surfaced on three assistants out of four was question 9, on specialist firms in Yorkshire, and it came from the regional listing rather than from anything on your own site. Local intent is already half working, which makes it the cheapest thing to push. Questions 4 and 5, the constrained site and the cost, returned no contractor names at all from any assistant, so those are uncontested and worth taking next.</p>
-    </div>
-
-    <h3 class="sub">Compared with Meridian</h3>
-    <p class="body">Both firms are described accurately when named, and the descriptions are fair. The difference is what stands behind the name. When an assistant digs into Meridian, it finds two trade titles, a directory profile, a Wikipedia entry and a set of named project case studies. For Reynolds &amp; Co it finds your own website, one trade directory line and a regional listing. On Perplexity, which shows its sources, the Meridian answer carried four citations and the Reynolds answer carried one.</p>
-    <p class="body">The gap is independent coverage, not the quality of the work, where the two are level. Every publication in Meridian's stack is open to Reynolds, which is what makes this fixable inside a quarter.</p>
-
-    <div class="divider"></div>
-
-    <!-- GATE -->
-    <h4 class="mini" style="margin-top:0;">The rest of the report</h4>
-    <h3 class="sub" style="margin-top:0;">Six more sections, twelve more pages</h3>
-    <p class="body">You have read the diagnosis. The rest is the fix: what to build, in what order, who owns each task, and how we prove it moved.</p>
-    <div class="gate">
-      <div class="gate-items">
-        <div class="gate-item"><span class="gate-tag">Layer 1</span><span class="gate-text">Entity: the eight places AI checks to confirm a firm is real, which two Reynolds holds, and the order to fix the other six.</span></div>
-        <div class="gate-item"><span class="gate-tag">Layer 2</span><span class="gate-text">Authority: the named trade titles and directories the assistants quoted in this test, with first-mention and full-effect timings for each.</span></div>
-        <div class="gate-item"><span class="gate-tag">Layer 3</span><span class="gate-text">Content: the buyer questions ranked win first / core / build / later, the pages that answer them, and how to keep them fresh.</span></div>
-        <div class="gate-item"><span class="gate-tag">The plan</span><span class="gate-text">The 90 days in detail: every task with an owner and an effort estimate, plus what we expect to move, split into what is in our control and what depends on other people.</span></div>
-        <div class="gate-item"><span class="gate-tag">Next steps</span><span class="gate-text">What happens now, who owns what, and the facts we need you to confirm so nothing gets published that is not right.</span></div>
-        <div class="gate-item"><span class="gate-tag">Appendix</span><span class="gate-text">The exact questions, how every number was scored, why we chose each directory and publisher, and the terms.</span></div>
-      </div>
-      <div class="gate-overlay"><span>The full report is delivered with the AI Search Audit</span></div>
-    </div>
-
+  <div class="note-box green">
+    <span class="nb-tag">The one small opening was the regional question</span>
+    <p>The only place Reynolds surfaced on three assistants out of four was question 9, on specialist firms in Yorkshire, and it came from the regional listing rather than from anything on your own site. Local intent is already half working, which makes it the cheapest thing to push. Questions 4 and 5, the constrained site and the cost, returned no contractor names at all from any assistant, so those are uncontested and worth taking next.</p>
   </div>
 </div>
 
-<!-- ===== BACK TO THE SITE ===== -->
-<div class="cta">
-  <div class="cta-card">
-    <h2>This is a sample. Yours uses your real numbers.</h2>
-    <p>Start with the free Snapshot on your actual brand against a competitor you name. If the gap is worth closing, the Audit turns it into the report above, with your scorecard and your 90 days.</p>
-    <a href="ai-visibility.html#book" class="cta-button">Get your free Snapshot</a>
-    <a href="reynolds-snapshot.html" class="cta-second">See the free Snapshot sample first →</a>
-    <p class="cta-note">Reynolds &amp; Co and Meridian Structures are fictional, and so are their scores. The format is exactly what you receive.</p>
+</div>
+
+<!-- ============ PAGE 5 ============ -->
+<div class="sheet">
+
+<div class="section">
+  <h1 class="sec">Compared with Meridian</h1>
+  <div class="sec-bar"></div>
+  <p>Both firms are described accurately when named, and the descriptions are fair. The difference is what stands behind the name. When an assistant digs into Meridian, it finds two trade titles, a directory profile, a Wikipedia entry and a set of named project case studies. For Reynolds &amp; Co it finds your own website, one trade directory line and a regional listing. On Perplexity, which shows its sources, the Meridian answer carried four citations and the Reynolds answer carried one.</p>
+  <p>The gap is independent coverage, not the quality of the work, where the two are level. Every publication in Meridian's stack is open to Reynolds, which is what makes this fixable inside a quarter.</p>
+</div>
+
+<div class="section">
+  <h1 class="sec">The rest of the report</h1>
+  <div class="sec-bar"></div>
+  <p>You have read the diagnosis. The remaining six sections, about twelve pages, are the fix: what to build, in what order, who owns each task, and how we prove it moved.</p>
+
+  <div class="gate">
+    <div class="gate-item"><span class="gate-tag">Layer 1</span><span class="gate-text">Entity: the eight places AI checks to confirm a firm is real, which two Reynolds holds, and the order to fix the other six.</span></div>
+    <div class="gate-item"><span class="gate-tag">Layer 2</span><span class="gate-text">Authority: the named trade titles and directories the assistants quoted in this test, with first-mention and full-effect timings for each.</span></div>
+    <div class="gate-item"><span class="gate-tag">Layer 3</span><span class="gate-text">Content: the buyer questions ranked win first, core, build and later, the pages that answer them, and how to keep them fresh.</span></div>
+    <div class="gate-item"><span class="gate-tag">The plan</span><span class="gate-text">The 90 days in detail: every task with an owner and an effort estimate, plus what we expect to move, split into what is in our control and what depends on other people.</span></div>
+    <div class="gate-item"><span class="gate-tag">Next steps</span><span class="gate-text">What happens now, who owns what, and the facts we need you to confirm so nothing gets published that is not right.</span></div>
+    <div class="gate-item"><span class="gate-tag">Appendix</span><span class="gate-text">The exact questions, how every number was scored, why we chose each directory and publisher, and the terms.</span></div>
+    <div class="gate-overlay"><span>The full report is delivered with the AI Search Audit</span></div>
   </div>
 </div>
 
-<div class="footer">
-  <p style="margin-bottom:8px;">Sample AI Visibility Report · Aigentic runs live testing across ChatGPT, Claude, Gemini and Perplexity with a fixed, repeatable question set.</p>
-  © 2026 Aigentic · rq@aigentic.co.uk · aigentic.co.uk
+<div class="section">
+  <h1 class="sec">Appendix: About this sample</h1>
+  <div class="sec-bar"></div>
+  <p>Reynolds &amp; Co and Meridian Structures are invented. The scores, the sources and the situation are illustrative, chosen to show a shape we see constantly: a firm that is described accurately once you name it, and absent everywhere a buyer would actually find it.</p>
+  <p>What is real is the format and the method. Every report follows this structure: how the test was run, what it found, the 90-day plan, then the three layers that produce the change, the plan in detail, and the appendix that shows every number's working. It is built entirely from live testing on your own brand, and the re-test at week 12 uses the identical questions so the before and after is a like-for-like comparison.</p>
+
+  <div class="callout">
+    <div class="co-label">Want one for your business?</div>
+    <p>Start with the free Snapshot: your brand against a competitor you name, back within 24 hours. If the gap is worth closing, the AI Search Audit produces the full report on your business, not a fictional one. <strong>rq@aigentic.co.uk</strong></p>
+  </div>
+</div>
+
 </div>
 
 </body>
