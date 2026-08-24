@@ -315,7 +315,7 @@ body {
       <a href="blueprint.html" class="text-white transition">How it works</a>
     </nav>
     <div class="flex items-center gap-3">
-      <a href="#book" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-[1.02] transition">
+      <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-[1.02] transition">
         Get your free Blueprint
         <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
       </a>
@@ -329,7 +329,7 @@ body {
     <a href="index.html" class="hover:text-white transition">Home</a>
     <a href="ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
     <a href="blueprint.html" class="text-white transition">How it works</a>
-    <a href="#book" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Get your free Blueprint</a>
+    <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Get your free Blueprint</a>
   </div>
 </header>
 <script>(function(){var b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.add('hidden');});});}})();</script>
@@ -358,7 +358,7 @@ body {
     </p>
 
     <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal" style="transition-delay: 300ms;">
-      <a href="#book" class="btn-primary">
+      <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="btn-primary">
         Get your free Blueprint
         <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
       </a>
@@ -799,39 +799,14 @@ body {
     </h2>
 
     <p class="mt-8 text-white/60 text-lg max-w-xl mx-auto reveal">
-      Answer these in your own words. A few minutes, no call to schedule. I read every one personally and send back your Blueprint: what's actually costing you, ranked, and the one thing to do first. If it's honestly not worth doing yet, it says that instead.
+      Seven questions, answered in your own words. A few minutes, no call to schedule. I read every one personally and send back your Blueprint: what's actually costing you, ranked, and the one thing to do first. If it's honestly not worth doing yet, it says that instead.
     </p>
 
     <!-- Blueprint intake form -->
-    <form id="contact-form" class="mt-12 text-left glass rounded-2xl p-7 reveal" onsubmit="return submitContact(event)">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div><label for="cf-name" class="block mono-label mb-2">Your name</label><input id="cf-name" name="name" type="text" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition" placeholder="e.g. Jane Reynolds"></div>
-        <div><label for="cf-email" class="block mono-label mb-2">Email</label><input id="cf-email" name="email" type="email" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition" placeholder="you@company.com"></div>
-      </div>
-      <div class="mt-5"><label for="cf-company" class="block mono-label mb-2">Company</label><input id="cf-company" name="company" type="text" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition" placeholder="e.g. Reynolds & Co"></div>
-      <div class="mt-5"><label for="cf-context" class="block mono-label mb-2">In one line, what does the company do?</label><input id="cf-context" name="context" type="text" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition" placeholder="e.g. We design and build steel structures for civil engineering projects."></div>
-
-      <div class="mt-8 mb-5 flex items-center gap-3"><span class="mono-label text-accent-light/70">The seven questions</span><div class="h-px flex-1 bg-white/10"></div></div>
-      <div class="space-y-5">
-        <div><label for="cf-q1" class="block text-sm text-white/80 mb-2">1. What are the three biggest challenges in the business right now? The ones that, if solved, would change the most.</label><textarea id="cf-q1" name="q1" rows="3" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
-        <div><label for="cf-q2" class="block text-sm text-white/80 mb-2">2. Of those, which is costing you the most (in money, time, stress or missed opportunity), and how long has it been that way?</label><textarea id="cf-q2" name="q2" rows="3" required class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
-        <div><label for="cf-q3" class="block text-sm text-white/80 mb-2">3. How do you measure success in your role today? Which numbers, reports or KPIs actually matter to you? <span class="text-white/30 normal-case">(optional)</span></label><textarea id="cf-q3" name="q3" rows="2" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
-        <div><label for="cf-q4" class="block text-sm text-white/80 mb-2">4. How does work flow through the business, start to finish? Flag the steps that drive your best results, and the ones that slow things down. <span class="text-white/30 normal-case">(optional)</span></label><textarea id="cf-q4" name="q4" rows="3" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
-        <div><label for="cf-q5" class="block text-sm text-white/80 mb-2">5. Where does work get stuck or eat time it shouldn't? Think bottlenecks, repetitive manual tasks, anything that leans too heavily on one person. <span class="text-white/30 normal-case">(optional)</span></label><textarea id="cf-q5" name="q5" rows="3" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
-        <div><label for="cf-q6" class="block text-sm text-white/80 mb-2">6. If you change nothing (same systems, same team), where's the business in 6 to 12 months? <span class="text-white/30 normal-case">(optional)</span></label><textarea id="cf-q6" name="q6" rows="2" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
-        <div><label for="cf-q7" class="block text-sm text-white/80 mb-2">7. If you could wave a magic wand and build the perfect fix for all of it, what would it look like? Describe the outcome, not the how. <span class="text-white/30 normal-case">(optional)</span></label><textarea id="cf-q7" name="q7" rows="2" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-accent-light/60 transition resize-none"></textarea></div>
-      </div>
-
-      <div class="mt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span class="mono-label text-white/35">Opens your email · goes to rq@aigentic.co.uk</span>
-        <button type="submit" class="btn-primary">
-          Get your free Blueprint
-          <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
-        </button>
-      </div>
-
-      <div id="cf-status" class="mt-4 text-sm text-center hidden"></div>
-    </form>
+    <div class="mt-12 flex flex-col items-center gap-4 reveal">
+      <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="btn-primary text-base px-7 py-4">Start the seven questions<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
+      <p class="text-white/40 text-sm">Opens the questionnaire. Your answers save as you type, so you can stop and pick it up later.</p>
+    </div>
 
     <div class="mt-6 reveal">
       <a href="sample-blueprint.html" target="_blank" rel="noopener" class="btn-ghost">
@@ -894,37 +869,6 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // Blueprint intake: opens the visitor's email pre-filled with all answers
-function submitContact(e) {
-  e.preventDefault();
-  const g = id => (document.getElementById(id)?.value || '').trim();
-  const name = g('cf-name'), email = g('cf-email'), company = g('cf-company'), context = g('cf-context');
-  const qs = [
-    ['The three biggest challenges', g('cf-q1')],
-    ['What it\'s costing, and how long', g('cf-q2')],
-    ['How success is measured today', g('cf-q3')],
-    ['How work flows, start to finish', g('cf-q4')],
-    ['Where it breaks / repetitive load / key-person risk', g('cf-q5')],
-    ['Do nothing: where it lands in 6-12 months', g('cf-q6')],
-    ['The magic-wand fix', g('cf-q7')],
-  ];
-  const subject = `Free Blueprint request: ${company}`;
-  const lines = [`Hi Raph,`, ``, `Here are my answers for a Blueprint.`, ``, `Name: ${name}`, `Email: ${email}`, `Company: ${company}`, `What we do: ${context}`, ``, `--- The seven questions ---`];
-  qs.forEach(([q, a], i) => { lines.push(``, `${i + 1}. ${q}`, a || '(skipped)'); });
-  lines.push(``, `Thanks,`, name);
-  const body = lines.join('\n');
-
-  const url = `https://mail.google.com/mail/?view=cm&fs=1&to=rq@aigentic.co.uk`
-            + `&su=${encodeURIComponent(subject)}`
-            + `&body=${encodeURIComponent(body)}`;
-
-  window.open(url, '_blank');
-
-  const status = document.getElementById('cf-status');
-  status.textContent = 'Your email opened in a new tab, pre-filled. Hit send and I\'ll get your Blueprint back to you within a couple of days.';
-  status.className = 'mt-4 text-sm text-center text-emerald-400';
-  status.classList.remove('hidden');
-  return false;
-}
 </script>
 
 </body>
