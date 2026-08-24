@@ -316,7 +316,7 @@ body {
     </nav>
     <div class="flex items-center gap-3">
       <a href="#book" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-[1.02] transition">
-        Get your free AI plan
+        Get your free Blueprint
         <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
       </a>
       <button id="menuBtn" class="md:hidden text-white/80 hover:text-white" aria-label="Open menu">
@@ -329,7 +329,7 @@ body {
     <a href="index.html" class="hover:text-white transition">Home</a>
     <a href="ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
     <a href="blueprint.html" class="text-white transition">How it works</a>
-    <a href="#book" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Get your free AI plan</a>
+    <a href="#book" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Get your free Blueprint</a>
   </div>
 </header>
 <script>(function(){var b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.add('hidden');});});}})();</script>
@@ -359,7 +359,7 @@ body {
 
     <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal" style="transition-delay: 300ms;">
       <a href="#book" class="btn-primary">
-        Get your free AI plan
+        Get your free Blueprint
         <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
       </a>
       <a href="#blueprint" class="btn-ghost">
@@ -566,7 +566,7 @@ body {
       <!-- Copy column -->
       <div class="lg:col-span-5">
         <div class="flex items-center gap-3 mb-6 reveal">
-          <span class="mono-label">03 / The Strategy Blueprint</span>
+          <span class="mono-label">03 / The Blueprint</span>
           <div class="h-px flex-1 bg-white/10 max-w-[120px]"></div>
         </div>
 
@@ -632,7 +632,7 @@ body {
           <!-- mini cover strip -->
           <div class="px-6 py-5 flex items-center justify-between" style="background:#1A2035;">
             <div>
-              <div class="text-[10px] font-semibold tracking-[0.3em] uppercase" style="color:#9CA3AF;">Strategy Blueprint</div>
+              <div class="text-[10px] font-semibold tracking-[0.3em] uppercase" style="color:#9CA3AF;">Blueprint</div>
               <div class="text-white font-display text-xl font-semibold mt-1">Reynolds &amp; Co</div>
             </div>
             <div class="text-right">
@@ -759,7 +759,7 @@ body {
         </div>
         <div class="mono-label mb-2">The Blueprint</div>
         <h3 class="font-display text-xl font-semibold mb-3 leading-snug">The diagnostic</h3>
-        <p class="text-white/55 text-sm leading-relaxed">Answer seven questions online. One Strategy Blueprint, yours to keep. You see the bottlenecks, the issues and the challenges, all named. Nothing to lose.</p>
+        <p class="text-white/55 text-sm leading-relaxed">Answer seven questions online. One Blueprint, yours to keep: the bottlenecks, the issues and the challenges, all named and ranked. Want it deeper? We'll walk it through with you and your team. Nothing to lose either way.</p>
       </div>
 
       <!-- Step 2 -->
@@ -795,11 +795,11 @@ body {
   <div class="relative z-10 max-w-2xl mx-auto text-center">
     <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-6xl leading-[0.98] reveal">
       Seven questions.
-      <span class="font-display font-light text-white/60">Your free AI plan.</span>
+      <span class="font-display font-light text-white/60">Your free Blueprint.</span>
     </h2>
 
     <p class="mt-8 text-white/60 text-lg max-w-xl mx-auto reveal">
-      Answer these in your own words. A few minutes, no call to schedule. I read every one personally and send back your Blueprint: a plain-English plan for where AI fits, what to fix first, and what's honestly not worth doing.
+      Answer these in your own words. A few minutes, no call to schedule. I read every one personally and send back your Blueprint: what's actually costing you, ranked, and the one thing to do first. If it's honestly not worth doing yet, it says that instead.
     </p>
 
     <!-- Blueprint intake form -->
@@ -825,7 +825,7 @@ body {
       <div class="mt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
         <span class="mono-label text-white/35">Opens your email · goes to rq@aigentic.co.uk</span>
         <button type="submit" class="btn-primary">
-          Get your free AI plan
+          Get your free Blueprint
           <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
         </button>
       </div>
@@ -907,8 +907,8 @@ function submitContact(e) {
     ['Do nothing: where it lands in 6-12 months', g('cf-q6')],
     ['The magic-wand fix', g('cf-q7')],
   ];
-  const subject = `Free AI plan request: ${company}`;
-  const lines = [`Hi Raph,`, ``, `Here are my answers for a Strategy Blueprint.`, ``, `Name: ${name}`, `Email: ${email}`, `Company: ${company}`, `What we do: ${context}`, ``, `--- The seven questions ---`];
+  const subject = `Free Blueprint request: ${company}`;
+  const lines = [`Hi Raph,`, ``, `Here are my answers for a Blueprint.`, ``, `Name: ${name}`, `Email: ${email}`, `Company: ${company}`, `What we do: ${context}`, ``, `--- The seven questions ---`];
   qs.forEach(([q, a], i) => { lines.push(``, `${i + 1}. ${q}`, a || '(skipped)'); });
   lines.push(``, `Thanks,`, name);
   const body = lines.join('\n');
