@@ -3,7 +3,7 @@ date: 2026-10-07
 description: A profitable business watched its bank balance halve, and was heading for a miss on budget. The management accounts showed the numbers. They didn't explain them, or say what came next.
 status: published
 cta: blueprint
-section: Finance
+section: AI Finance Director
 ---
 # Your accounts say what happened. AI can tell you why.
 

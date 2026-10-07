@@ -45,7 +45,7 @@ def articles():
     items = [a for a in map(load_article, slugs) if visible(a)]
     items.sort(key=lambda a: a["date"], reverse=True)
     # One heading per section, in a fixed order; any new section goes last.
-    order = ["AI Visibility", "Finance"]
+    order = ["AI Visibility", "AI Finance Director"]
     names = sorted({a["section"] for a in items}, key=lambda n: (order.index(n) if n in order else len(order), n))
     sections = [(n, [a for a in items if a["section"] == n]) for n in names]
     return render_template("articles.html", sections=sections)
