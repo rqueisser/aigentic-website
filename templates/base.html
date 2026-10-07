@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Aigentic{% endblock %}</title>
+<meta name="description" content="{% block description %}{% endblock %}">
+{% block meta %}{% endblock %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Instrument Serif', 'serif'],
+        display: ['Space Grotesk', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+      colors: {
+        ink: { 950: '#050505', 900: '#0a0a0a', 850: '#111827', 800: '#1A2035' },
+        accent: { DEFAULT: '#4F46E5', light: '#6366F1', glow: 'rgba(79, 70, 229, 0.35)' }
+      }
+    }
+  }
+}
+</script>
+
+<style>
+body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+.glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+.glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.glass-card:hover { background: rgba(255, 255, 255, 0.04); border-color: rgba(79, 70, 229, 0.35); transform: translateY(-2px); }
+.mono-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255, 255, 255, 0.4); }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 9999px; border: 1px solid rgba(79, 70, 229, 0.3); background: rgba(79, 70, 229, 0.08); color: #A5B4FC; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+.btn-primary { display: inline-flex; align-items: center; gap: 12px; padding: 16px 28px; border-radius: 9999px; background: linear-gradient(135deg, #4F46E5, #6366F1); color: #fff; font-weight: 600; font-size: 15px; box-shadow: 0 18px 40px rgba(79, 70, 229, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.btn-primary:hover { transform: translateY(-2px); }
+.prose table { display: block; overflow-x: auto; }
+::selection { background: #4F46E5; color: #fff; }
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- ===== NAV (keep in step with index.html) ===== -->
+<header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
+  <div class="glass rounded-full px-5 py-3 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 font-display font-bold text-lg tracking-tight">
+      <span class="w-2.5 h-2.5 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span>
+      <span>Aigentic</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7 text-sm text-white/70">
+      <a href="/" class="hover:text-white transition">Home</a>
+      <a href="/ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
+      <a href="/blueprint.html" class="hover:text-white transition">How it works</a>
+      <a href="/articles" class="text-white transition">Articles</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-[1.02] transition">
+        Get your free Blueprint
+        <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+      </a>
+      <button id="menuBtn" class="md:hidden text-white/80 hover:text-white" aria-label="Open menu">
+        <iconify-icon icon="solar:hamburger-menu-linear" width="24"></iconify-icon>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="md:hidden hidden mt-2 glass rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm text-white/80">
+    <a href="/" class="hover:text-white transition">Home</a>
+    <a href="/ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
+    <a href="/blueprint.html" class="hover:text-white transition">How it works</a>
+    <a href="/articles" class="text-white transition">Articles</a>
+    <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Get your free Blueprint</a>
+  </div>
+</header>
+<script>(function(){var b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();</script>
+
+<main class="px-4 sm:px-6 pt-32 pb-16">
+{% block content %}{% endblock %}
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="relative border-t border-white/10 py-12 px-6 mt-12">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2 font-display font-bold tracking-tight"><span class="w-2 h-2 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span><span>Aigentic</span></div>
+    <div class="mono-label text-center">&copy; 2026 Aigentic &middot; Business first, AI second</div>
+    <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-white/55">
+      <a href="/articles" class="hover:text-white transition">Articles</a>
+      <span class="opacity-30">&middot;</span>
+      <a href="mailto:rq@aigentic.co.uk" class="hover:text-white transition">rq@aigentic.co.uk</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -10,6 +10,22 @@ Public marketing site for Aigentic, served by a small Flask app on Railway (Path
 
 `reynolds-visibility-report.html` is the sample AI Search Audit deliverable: the Summary and the Scoreboard, then a gate before Layer 1. It mirrors the client report produced by `generate_exploris_aeo_method_report_pdf.py` in the Exploris Health client folder, but nothing generates it. Change the report format and this file will not follow, so update it by hand in the same pass.
 
+## Articles
+
+`/articles` lists every post; `/articles/<slug>` shows one. Each post is one file, `articles/<slug>.md`:
+
+```
+title: The headline
+date: 2026-10-07
+description: One or two sentences for the listing and search snippets.
+status: draft
+---
+# The headline
+The article in Markdown. Tables work. Paste the marketing agent's JSON-LD <script> block at the end, unfenced; PAGE-URL and PUBLISH-DATE fill themselves.
+```
+
+`status: draft` is hidden on the live site. Change it to `published`, commit, push. To preview drafts locally: `SHOW_DRAFTS=1 python server.py`, then open localhost:8080/articles. Page layout is in `templates/`; its nav is a copy of `index.html`'s, so change both together.
+
 ## Deploy
 Railway → New Project → Deploy from GitHub repo → this repo. Then Networking → Custom Domain → Generate a Railway domain. No env vars needed (public).
 

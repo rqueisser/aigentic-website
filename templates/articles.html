@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Articles · Aigentic{% endblock %}
+{% block description %}What we see when we ask ChatGPT, Claude, Gemini and Perplexity about real businesses, and what owners can do about it.{% endblock %}
+{% block meta %}<link rel="canonical" href="https://aigentic.co.uk/articles">{% endblock %}
+{% block content %}
+<div class="max-w-3xl mx-auto">
+  <span class="pill">Articles</span>
+  <h1 class="font-display font-bold text-4xl sm:text-5xl tracking-tight text-white mt-6">What we're seeing</h1>
+  <p class="text-white/60 text-lg mt-4 leading-relaxed">Short, evidence-first pieces from our own checks and client work. No hype.</p>
+
+  <div class="mt-12 flex flex-col gap-5">
+  {% for a in articles %}
+    <a href="/articles/{{ a.slug }}" class="glass-card rounded-2xl p-6 sm:p-8 block">
+      <div class="mono-label">{{ a.date_label }}{% if a.status == 'draft' %} &middot; <span class="text-amber-400">Draft, not live</span>{% endif %}</div>
+      <h2 class="font-display font-semibold text-xl sm:text-2xl text-white mt-3 tracking-tight">{{ a.title }}</h2>
+      <p class="text-white/60 mt-3 leading-relaxed">{{ a.description }}</p>
+      <span class="inline-flex items-center gap-2 text-sm text-[#A5B4FC] mt-4">Read <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></span>
+    </a>
+  {% else %}
+    <p class="text-white/50">Nothing published yet.</p>
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}

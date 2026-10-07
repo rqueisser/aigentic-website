@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ a.title }} · Aigentic{% endblock %}
+{% block description %}{{ a.description }}{% endblock %}
+{% block meta %}
+<link rel="canonical" href="https://aigentic.co.uk/articles/{{ a.slug }}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ a.title }}">
+<meta property="og:description" content="{{ a.description }}">
+<meta property="og:url" content="https://aigentic.co.uk/articles/{{ a.slug }}">
+{% if a.status == 'draft' %}<meta name="robots" content="noindex">{% endif %}
+{% endblock %}
+{% block content %}
+<article class="max-w-3xl mx-auto">
+  <a href="/articles" class="mono-label hover:text-white transition">&larr; All articles</a>
+  {% if a.status == 'draft' %}<div class="mt-6 rounded-xl border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-amber-300 text-sm">Draft preview. Not listed or served on the live site.</div>{% endif %}
+  <h1 class="font-display font-bold text-3xl sm:text-5xl tracking-tight text-white mt-8 leading-tight">{{ a.title }}</h1>
+  <div class="mono-label mt-5">{{ a.date_label }} &middot; Raphael Queisser, Aigentic</div>
+  <div class="prose prose-invert prose-lg max-w-none mt-4
+              prose-headings:font-display prose-headings:tracking-tight prose-h1:text-4xl
+              prose-a:text-[#A5B4FC] prose-th:text-white prose-td:text-white/80">
+    {{ a.html | safe }}
+  </div>
+
+  <div class="glass rounded-2xl p-6 sm:p-8 mt-16">
+    <div class="mono-label">Free &middot; no commitment</div>
+    <h2 class="font-display font-semibold text-2xl text-white mt-3">Does AI recommend your business?</h2>
+    <p class="text-white/60 mt-3 leading-relaxed">Tell us your business and the competitor you'd most like to beat. We run your free AI Visibility Snapshot and send it within 24 hours.</p>
+    <a href="/ai-visibility.html#book" class="btn-primary mt-6">Get your free Snapshot <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></a>
+  </div>
+</article>
+{% endblock %}
