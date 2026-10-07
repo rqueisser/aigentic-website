@@ -1,102 +1,80 @@
 title: Why ChatGPT doesn't recommend your company when buyers ask who's best
 date: 2026-10-07
-description: We asked ChatGPT and Gemini 34 buyer questions about six UK specialist firms. When AI named a firm, it had usually read that firm's own website. When it missed one, it never had.
+description: One specialist contractor, three buyer questions. AI left it out of one answer and put it first in another. The difference was what its own website said.
 status: published
 ---
 # Why ChatGPT doesn't recommend your company when buyers ask who's best
 
-ChatGPT recommends the firms whose own website it read while answering the question. Aigentic asked ChatGPT and Gemini 34 buyer questions about six UK geotechnical specialists. The firm was named in 17 answers, and 14 of those cited the firm's own website as a source. In the 17 answers that left the firm out, its website wasn't cited once. If you're missing, the likeliest reason is that nothing on your site matched what the buyer asked. It's rarely that AI rates you poorly.
+ChatGPT recommends the firms whose own website answers the buyer's question. If your site doesn't use the words the buyer uses, for the service and the place, AI picks someone whose site does. It's rarely that AI rates you poorly. More often, it simply never found a page of yours that matched.
 
-Aigentic is a UK AI advisory that measures whether B2B firms come up when their buyers ask ChatGPT who to use. We ran these checks on 29 September 2026.
+Aigentic is a UK AI advisory that checks whether businesses come up when their buyers ask ChatGPT who to use. Here is one firm we checked in September 2026.
 
-## What did we test?
+## The firm
 
-We picked six UK geotechnical specialists: drilling contractors, a soil and rock testing lab, a monitoring firm and a geophysics firm. For each one we wrote three questions a buyer might ask. Some were broad ("who are the best ground investigation drilling contractors in the South West?"). Others described a real job ("we need boreholes drilled on a site with very restricted access, no room for a normal rig").
+A specialist drilling contractor based in the East of England, with a fleet that includes rigs for tight sites. Exactly the kind of firm a buyer in its region should hear about.
 
-Each question went once to ChatGPT (gpt-5-mini) and once to Gemini (gemini-2.5-flash), both with web search switched on. Two engine calls failed and weren't re-run, which left 34 usable answers.
+We asked ChatGPT and Gemini three questions a buyer might ask.
 
-The sample is small: six firms, one sector, one run per question on each engine. Treat the numbers as what we saw in one sector on one day.
+| The buyer asks | ChatGPT | Gemini |
+|---|---|---|
+| "Who are the best ground investigation drilling contractors in the East of England?" | Not named | Not named |
+| "We need boreholes drilled on a site with very restricted access. Which UK contractor can do it?" | Named first | Named |
+| "Compare the main site investigation drilling contractors around [its home city] and [its county]." | Named first | Named first |
 
-## How often did AI name the smaller firms?
+Same firm, same day. Invisible on one question, top of the list on another.
 
-The firms were named in half the answers, 17 of 34. Specific questions did better than broad ones, but broad questions weren't a wall.
+## Why was it first on restricted access?
 
-| Question type | ChatGPT | Gemini | Both |
-|---|---|---|---|
-| Describes a specific job | 4 of 6 | 4 of 6 | 8 of 12 |
-| Broad, national ("leading", "compare the main") | 2 of 6 | 3 of 4 | 5 of 10 |
-| Broad, regional ("best in [region]") | 2 of 6 | 2 of 6 | 4 of 12 |
-| All questions | 8 of 18 | 9 of 16 | 17 of 34 |
+Because it has a page about exactly that. ChatGPT's answer linked straight to the firm's restricted-access drilling page and described the service from it: basements, trackside, low headroom. The buyer's question and the firm's page used the same words, so the engine made the match.
 
-Two small firms came first on broad "who's best" questions, with both engines. So a small firm can win the broad question. Most of the time, though, it didn't.
+## Why was it first when the buyer named its city?
 
-## Where does ChatGPT get its recommendations?
+Because its website says where it is. Both engines opened their comparison with this firm and described it as local. One answer said its summary was "based on their public service pages and local listings."
 
-In Aigentic's checks, mostly from the firms' own websites. Fourteen of the 17 answers that named a firm cited that firm's site. The engines said as much. One ChatGPT answer listed "How I picked these", and the first reason was: "Local presence in Essex / East Anglia and explicit site‑investigation drilling services on their sites." Another said: "The short summaries above are based on public service pages."
+## Why was it missing from "the East of England"?
 
-A few other sources came up again and again across the 34 answers:
-
-- the British Drilling Association's website, in 7 answers
-- gov.uk and British Geological Survey pages, in 4
-- revenuebase.ai, in 4
-- ukas.com, uk.net and Wikipedia, in 3 each
-- construction.co.uk, thegeologistsdirectory.co.uk, scopematch.eu and LinkedIn, in 2 each
-
-When a broad answer left the smaller firm out, the slots mostly went to the big names. Across the 12 broad answers that named other firms but not the one we were checking, Structural Soils or RSK appeared in 7, SOCOTEC in 6, Fugro in 5 and Keller in 4.
-
-## Why does the area named in the question matter?
-
-AI matches the place in the question to the place on your pages. One drilling contractor was left out by both engines when the buyer asked about "the East of England". When the question named its home city and county instead, both engines ranked it first.
+Because other firms matched that phrase better. One competitor that ChatGPT did name has a page for its East of England office, and ChatGPT linked to it. The firm we checked is based in that region, but a buyer who described the area that way never heard about it.
 
 Buyers don't all use the same geography. One asks about a region, another names a town near the site. A page that only says "nationwide" gives the engine nothing to match either way.
 
-## Does a specific question guarantee you're named?
+## Was this one firm a fluke?
 
-No. One drilling contractor wasn't named in any of its six answers, including both answers to a detailed question about cable percussion and rotary coring near Exeter. The two engines also disagreed. One monitoring firm was named in none of ChatGPT's three answers and in two of Gemini's three.
+No. We ran the same kind of check on six specialist firms in the same sector. They were named in 17 of 34 answers. In 14 of those 17, the engine cited the firm's own website. In the 17 answers that left a firm out, its website wasn't cited once.
 
-Checking one engine and assuming the rest agree will mislead you.
+The other pattern: the engines don't always agree. One firm was named in none of ChatGPT's answers and in two of Gemini's three. Checking one engine and assuming the rest agree will mislead you.
 
-## Are the AI answers accurate?
+## Is what AI says about you accurate?
 
-Not reliably. We found errors in answers that sounded confident:
-
-- A question about *independent* UKAS-accredited labs was answered with a list that included Structural Soils, which the same engine described elsewhere as part of RSK Group.
-- A list of site investigation contractors included a firm described as "primarily focuses on installing new water supply boreholes".
-- A question about surveying a site "without drilling lots of boreholes" was answered with a drilling firm.
-- The two engines put one firm in two different Essex towns.
-
-If AI describes your firm wrongly, the buyer reads the wrong version, and you won't hear about it.
+Not reliably. Across those answers we found an engine listing a lab as "independent" that it described elsewhere as part of a larger group, and the two engines placing one firm in two different towns. If AI describes your firm wrongly, the buyer reads the wrong version, and you won't hear about it.
 
 ## What would we change on a website?
 
-This part is our view. We didn't test the fixes in this sample. It follows from what the engines cited:
+This part is our view, drawn from what the engines cited:
 
-1. **One page per service, per area you actually cover**, written in the words a buyer would use in the question. "Cable percussion boreholes in Essex" gives an engine something to lift. "Comprehensive ground engineering solutions" doesn't.
-2. **Say what you are in one plain sentence** near the top of the home page: the service, the place, and what makes you different.
-3. **Keep your listings current** where the engines already look: your trade body, accreditation registers, and the directories that cover your sector.
-4. **Ask the engines about yourself.** Ask the questions your buyers ask, on more than one engine, and read what comes back about you.
+1. **One page per service, per area you actually cover**, written in the words a buyer would use. "Restricted access drilling" gives an engine something to lift. "Comprehensive ground engineering solutions" doesn't.
+2. **Name the places you work**, the region and the towns, not just "nationwide".
+3. **Say what you are in one plain sentence** near the top of the home page: the service, the place, and what makes you different.
+4. **Ask the engines about yourself.** Ask the questions your buyers ask, on more than one engine, and read what comes back.
 
 ## Key facts
 
-- Aigentic's checks: 34 AI answers, six UK geotechnical specialists, ChatGPT and Gemini with web search, 29 September 2026.
-- The firm was named in 17 of 34 answers.
-- 14 of the 17 answers that named a firm cited that firm's own website. None of the 17 that missed it did.
-- Specific-job questions named the firm in 8 of 12 answers; broad questions in 9 of 22.
-- One firm was named in 0 of 6 answers; the engines disagreed on another (ChatGPT 0 of 3, Gemini 2 of 3).
+- One East of England drilling contractor, three buyer questions, ChatGPT and Gemini, September 2026.
+- Not named by either engine for "best in the East of England". Named by both for restricted-access drilling, where it has a dedicated page. Listed first by both when the question named its home city.
+- Across six firms in the same sector: named in 17 of 34 answers; 14 of the 17 cited the firm's own website; none of the 17 misses did.
 
 ## FAQ
 
 **Why doesn't ChatGPT mention my company?**
-In Aigentic's checks of 34 answers about UK geotechnical firms, ChatGPT and Gemini named the firms whose own websites they read for that question. When they left a firm out, they hadn't cited its site at all. The likeliest fix is a page that answers the buyer's question in the buyer's words, including the service and the area.
+Usually because nothing on your website matches the words the buyer used. In Aigentic's checks, a drilling contractor was left out when buyers asked about "the East of England" but listed first when they named its home city, or asked about restricted access, where it has a dedicated page.
 
 **Does ChatGPT only recommend big companies?**
-No. In Aigentic's checks, two small firms ranked first on broad questions on both ChatGPT and Gemini. But when a smaller firm was left out of a broad answer, the space usually went to national names such as Structural Soils, SOCOTEC and Fugro.
+No. In Aigentic's checks, a regional specialist was listed first by both ChatGPT and Gemini when the buyer's question matched a page on its own website. Small firms lose when their site doesn't match the question, not because they're small.
 
 **Do ChatGPT and Gemini give the same recommendations?**
-Not always. In Aigentic's checks of six UK geotechnical firms, one monitoring firm was named in none of ChatGPT's three answers and in two of Gemini's three. Checking one engine and assuming the others agree gives a misleading picture of how buyers see you.
+Not always. In Aigentic's checks of six UK specialist firms, one was named in none of ChatGPT's three answers and in two of Gemini's three. Checking one engine and assuming the others agree gives a misleading picture of how buyers see you.
 
-**Are AI recommendations accurate?**
-Not reliably. In 34 answers Aigentic checked, the engines listed a lab they elsewhere placed inside RSK Group as independent, included a water-well firm among site investigation contractors, and placed one firm in two different towns. It's worth reading what the engines say about your firm, not only whether they name it.
+**How do I get ChatGPT to recommend my business?**
+Give it a page that answers the buyer's question in the buyer's words: one page per service and per area you cover, naming the places you work. In Aigentic's checks, when an engine named a firm, it cited that firm's own website in 14 of 17 answers.
 
 <script type="application/ld+json">
 [
@@ -125,7 +103,7 @@ Not reliably. In 34 answers Aigentic checked, the engines listed a lab they else
         "name": "Why doesn't ChatGPT mention my company?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "In Aigentic's checks of 34 answers about UK geotechnical firms, ChatGPT and Gemini named the firms whose own websites they read for that question. When they left a firm out, they hadn't cited its site at all. The likeliest fix is a page that answers the buyer's question in the buyer's words, including the service and the area."
+          "text": "Usually because nothing on your website matches the words the buyer used. In Aigentic's checks, a drilling contractor was left out when buyers asked about \"the East of England\" but listed first when they named its home city, or asked about restricted access, where it has a dedicated page."
         }
       },
       {
@@ -133,7 +111,7 @@ Not reliably. In 34 answers Aigentic checked, the engines listed a lab they else
         "name": "Does ChatGPT only recommend big companies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. In Aigentic's checks, two small firms ranked first on broad questions on both ChatGPT and Gemini. But when a smaller firm was left out of a broad answer, the space usually went to national names such as Structural Soils, SOCOTEC and Fugro."
+          "text": "No. In Aigentic's checks, a regional specialist was listed first by both ChatGPT and Gemini when the buyer's question matched a page on its own website. Small firms lose when their site doesn't match the question, not because they're small."
         }
       },
       {
@@ -141,15 +119,15 @@ Not reliably. In 34 answers Aigentic checked, the engines listed a lab they else
         "name": "Do ChatGPT and Gemini give the same recommendations?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not always. In Aigentic's checks of six UK geotechnical firms, one monitoring firm was named in none of ChatGPT's three answers and in two of Gemini's three. Checking one engine and assuming the others agree gives a misleading picture of how buyers see you."
+          "text": "Not always. In Aigentic's checks of six UK specialist firms, one was named in none of ChatGPT's three answers and in two of Gemini's three. Checking one engine and assuming the others agree gives a misleading picture of how buyers see you."
         }
       },
       {
         "@type": "Question",
-        "name": "Are AI recommendations accurate?",
+        "name": "How do I get ChatGPT to recommend my business?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not reliably. In 34 answers Aigentic checked, the engines listed a lab they elsewhere placed inside RSK Group as independent, included a water-well firm among site investigation contractors, and placed one firm in two different towns. It's worth reading what the engines say about your firm, not only whether they name it."
+          "text": "Give it a page that answers the buyer's question in the buyer's words: one page per service and per area you cover, naming the places you work. In Aigentic's checks, when an engine named a firm, it cited that firm's own website in 14 of 17 answers."
         }
       }
     ]
