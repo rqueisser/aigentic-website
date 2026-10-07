@@ -26,6 +26,8 @@ def load_article(slug):
         "title": meta["title"],
         "description": meta.get("description", ""),
         "status": meta.get("status", "draft"),
+        "cta": meta.get("cta", "snapshot"),
+        "section": meta.get("section", "Articles"),
         "date": d,
         "date_label": d.strftime("%-d %B %Y") if os.name != "nt" else d.strftime("%#d %B %Y"),
         "body": body,
@@ -42,7 +44,11 @@ def articles():
     slugs = [f[:-3] for f in os.listdir(ARTICLES) if f.endswith(".md")] if os.path.isdir(ARTICLES) else []
     items = [a for a in map(load_article, slugs) if visible(a)]
     items.sort(key=lambda a: a["date"], reverse=True)
-    return render_template("articles.html", articles=items)
+    # One heading per section, in a fixed order; any new section goes last.
+    order = ["AI Visibility", "Finance"]
+    names = sorted({a["section"] for a in items}, key=lambda n: (order.index(n) if n in order else len(order), n))
+    sections = [(n, [a for a in items if a["section"] == n]) for n in names]
+    return render_template("articles.html", sections=sections)
 
 
 @app.route("/articles/<slug>")

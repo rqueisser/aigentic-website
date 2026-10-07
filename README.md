@@ -19,6 +19,7 @@ title: The headline
 date: 2026-10-07
 description: One or two sentences for the listing and search snippets.
 status: draft
+section: AI Visibility
 ---
 # The headline
 The article in Markdown. Tables work. Paste the marketing agent's JSON-LD <script> block at the end, unfenced; PAGE-URL and PUBLISH-DATE fill themselves.

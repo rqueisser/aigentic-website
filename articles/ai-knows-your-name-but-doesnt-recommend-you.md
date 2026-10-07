@@ -1,7 +1,8 @@
 title: AI knows your name. It just doesn't recommend you.
-date: 2026-10-07
+date: 2026-09-23
 description: A medtech company asked if AI knew about its product. Every assistant did. Then we asked the questions its customers actually ask, and AI named it in none of 32 answers.
 status: published
+section: AI Visibility
 ---
 # AI knows your name. It just doesn't recommend you.
 

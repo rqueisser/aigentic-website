@@ -23,9 +23,15 @@
 
   <div class="glass rounded-2xl p-6 sm:p-8 mt-16">
     <div class="mono-label">Free &middot; no commitment</div>
+    {% if a.cta == 'blueprint' %}
+    <h2 class="font-display font-semibold text-2xl text-white mt-3">What is actually costing your business?</h2>
+    <p class="text-white/60 mt-3 leading-relaxed">Answer seven questions and get your free Blueprint: what's costing you, ranked, and the one thing to do first.</p>
+    <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="btn-primary mt-6">Get your free Blueprint <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></a>
+    {% else %}
     <h2 class="font-display font-semibold text-2xl text-white mt-3">Does AI recommend your business?</h2>
     <p class="text-white/60 mt-3 leading-relaxed">Tell us your business and the competitor you'd most like to beat. We run your free AI Visibility Snapshot and send it within 24 hours.</p>
     <a href="/ai-visibility.html#book" class="btn-primary mt-6">Get your free Snapshot <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon></a>
+    {% endif %}
   </div>
 </article>
 {% endblock %}

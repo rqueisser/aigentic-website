@@ -1,7 +1,8 @@
 title: Why ChatGPT doesn't recommend your company when buyers ask who's best
-date: 2026-10-07
+date: 2026-09-30
 description: One specialist contractor, three buyer questions. AI left it out of one answer and put it first in another. The difference was what its own website said.
 status: published
+section: AI Visibility
 ---
 # Why ChatGPT doesn't recommend your company when buyers ask who's best
 
