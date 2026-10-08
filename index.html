@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aigentic · More customers. More time. More control.</title>
-<meta name="description" content="One AI that knows your business inside out, then goes to work: winning the customers who now ask AI who's best, handing you your time back, and keeping you ahead of the numbers. Starts with a free Blueprint you keep.">
+<title>Aigentic · More customers. More control.</title>
+<meta name="description" content="Two things for owner-run businesses: AI Visibility, so you're the name ChatGPT recommends, and an AI Finance Director that explains your numbers and warns you early. Start free.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -92,36 +92,37 @@ body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-ser
 
 <body class="bg-grain antialiased">
 
-<!-- ===== NAV ===== -->
+<!-- ===== NAV (same on every page, and in templates/base.html) ===== -->
 <header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
   <div class="glass rounded-full px-5 py-3 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-2 font-display font-bold text-lg tracking-tight">
+    <a href="/" class="flex items-center gap-2 font-display font-bold text-lg tracking-tight">
       <span class="w-2.5 h-2.5 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span>
       <span>Aigentic</span>
     </a>
-    <nav class="hidden md:flex items-center gap-7 text-sm text-white/70">
-      <a href="index.html" class="text-white transition">Home</a>
-      <a href="ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
-      <a href="blueprint.html" class="hover:text-white transition">How it works</a>
+    <nav class="hidden lg:flex items-center gap-6 text-sm text-white/70">
+      <a href="/" class="text-white transition">Home</a>
+      <a href="/ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
+      <a href="/ai-finance-director.html" class="hover:text-white transition">AI Finance Director</a>
+      <a href="/blueprint.html" class="hover:text-white transition">AI Business Audit</a>
       <a href="/articles" class="hover:text-white transition">Articles</a>
     </nav>
     <div class="flex items-center gap-3">
-      <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-[1.02] transition">
-        Get your free Blueprint
+      <a href="/#start" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-[1.02] transition">
+        Start free
         <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
       </a>
-      <button id="menuBtn" class="md:hidden text-white/80 hover:text-white" aria-label="Open menu">
+      <button id="menuBtn" class="lg:hidden text-white/80 hover:text-white" aria-label="Open menu">
         <iconify-icon icon="solar:hamburger-menu-linear" width="24"></iconify-icon>
       </button>
     </div>
   </div>
-  <!-- Mobile menu -->
-  <div id="mobileMenu" class="md:hidden hidden mt-2 glass rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm text-white/80">
-    <a href="index.html" class="text-white transition">Home</a>
-    <a href="ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
-    <a href="blueprint.html" class="hover:text-white transition">How it works</a>
+  <div id="mobileMenu" class="lg:hidden hidden mt-2 glass rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm text-white/80">
+    <a href="/" class="text-white transition">Home</a>
+    <a href="/ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
+    <a href="/ai-finance-director.html" class="hover:text-white transition">AI Finance Director</a>
+    <a href="/blueprint.html" class="hover:text-white transition">AI Business Audit</a>
     <a href="/articles" class="hover:text-white transition">Articles</a>
-    <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Get your free Blueprint</a>
+    <a href="/#start" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Start free</a>
   </div>
 </header>
 <script>(function(){var b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.add('hidden');});});}})();</script>
@@ -134,25 +135,25 @@ body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-ser
 
   <div class="relative z-10 max-w-6xl mx-auto w-full">
     <div class="flex justify-center mb-8 reveal">
-      <span class="pill"><span class="pill-dot"></span>Free Blueprint · seven questions · no call needed</span>
+      <span class="pill"><span class="pill-dot"></span>For owner-run businesses</span>
     </div>
 
     <h1 class="font-display font-semibold tracking-tighter leading-[0.95] text-center text-[clamp(40px,7vw,84px)] reveal" style="transition-delay: 100ms;">
-      More customers. More time.<br>
+      More customers.<br>
       <span class="font-display font-light text-white/70">More control.</span>
     </h1>
 
     <p class="mt-8 text-center text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed reveal" style="transition-delay: 200ms;">
-      One AI that knows your business inside out, then goes to work: winning the customers who now ask AI who's best, handing you your time back, and keeping you ahead of the numbers. So you can finally work <em>on</em> the business, not buried <em>in</em> it.
+      One brings more of the right customers to your door. The other shows whether that growth is turning into profit and cash, and what to decide next.
     </p>
 
     <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal" style="transition-delay: 300ms;">
-      <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="btn-primary">Get your free Blueprint<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
-      <a href="blueprint.html" class="btn-ghost"><iconify-icon icon="solar:compass-linear" width="18"></iconify-icon>See how it works</a>
+      <a href="#start" class="btn-primary">Start free<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
+      <a href="#products" class="btn-ghost"><iconify-icon icon="solar:compass-linear" width="18"></iconify-icon>See what we do</a>
     </div>
 
     <div class="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mono-label reveal" style="transition-delay: 400ms;">
-      <span>No prep work</span><span class="opacity-30">·</span><span>No pitch deck</span><span class="opacity-30">·</span><span>Yours to keep</span>
+      <span>Free to start</span><span class="opacity-30">·</span><span>No pitch deck</span><span class="opacity-30">·</span><span>Yours to keep</span>
     </div>
   </div>
 </section>
@@ -173,76 +174,61 @@ body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-ser
 
 <div class="divider-hairline max-w-6xl mx-auto"></div>
 
-<!-- ===== THE THREE PRODUCTS ===== -->
+<!-- ===== THE TWO OFFERS ===== -->
 <section id="products" class="relative py-28 px-6 overflow-hidden">
   <div class="glow-orb" style="width: 500px; height: 500px; background: #4F46E5; opacity: 0.1; top: 10%; right: -200px;"></div>
 
   <div class="relative z-10 max-w-6xl mx-auto">
     <div class="flex items-center gap-3 mb-6 reveal">
-      <span class="mono-label">01 / What you get</span>
+      <span class="mono-label">01 / What we do</span>
       <div class="h-px flex-1 bg-white/10 max-w-[120px]"></div>
     </div>
     <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-6xl leading-[0.95] max-w-3xl reveal">
-      One AI, three ways it
-      <span class="font-display font-light text-white/60">grows the business.</span>
+      Two ways we
+      <span class="font-display font-light text-white/60">grow your business.</span>
     </h2>
     <p class="mt-6 text-white/55 text-lg max-w-2xl reveal">
-      Not three tools bolted on. It's one AI that already knows your business, pointed at the three things that decide whether it grows: winning customers, freeing your time, and controlling the numbers. Start where it hurts most; add the rest when they earn it.
+      More customers finding you, and a clear view of the numbers behind every decision. Start with whichever one hurts most.
     </p>
 
-    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-5">
 
-      <!-- Product 1: AI Visibility -->
-      <div class="glass-card spotlight rounded-2xl p-7 reveal flex flex-col">
+      <div class="glass-card spotlight rounded-2xl p-8 reveal flex flex-col">
         <div class="flex items-start justify-between mb-5">
           <iconify-icon icon="solar:magnifer-linear" width="28" class="text-accent-light"></iconify-icon>
           <span class="mono-label">Win customers</span>
         </div>
-        <h3 class="font-display text-2xl font-semibold mb-3">AI Visibility</h3>
-        <p class="text-white/60 text-sm leading-relaxed flex-1">
-          Your customers ask ChatGPT, Claude, Gemini and Perplexity who's best, and act on the answer. If AI doesn't name you, you never even see the buyer go. We make you the name it recommends.
+        <h3 class="font-display text-2xl md:text-3xl font-semibold mb-3">AI Visibility</h3>
+        <p class="text-white/60 leading-relaxed flex-1">
+          Your customers ask ChatGPT, Claude, Gemini and Perplexity who's best, and act on the answer. If AI doesn't name you, you never even see the buyer go. We find out where you stand and make you the name it recommends.
         </p>
-        <a href="ai-visibility.html" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-light hover:gap-3 transition-all">
-          See a live Snapshot<iconify-icon icon="solar:arrow-right-linear" width="15"></iconify-icon>
-        </a>
-      </div>
-
-      <!-- Product 2: Chief of Staff -->
-      <div class="glass-card spotlight rounded-2xl p-7 reveal flex flex-col" style="transition-delay: 80ms;">
-        <div class="flex items-start justify-between mb-5">
-          <iconify-icon icon="solar:user-circle-linear" width="28" class="text-accent-light"></iconify-icon>
-          <span class="mono-label">Your time back</span>
+        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+          <a href="ai-visibility.html" class="inline-flex items-center gap-2 text-sm font-semibold text-accent-light hover:gap-3 transition-all">How it works<iconify-icon icon="solar:arrow-right-linear" width="15"></iconify-icon></a>
+          <a href="ai-visibility.html#book" class="inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white transition">Free Snapshot<iconify-icon icon="solar:arrow-right-linear" width="15"></iconify-icon></a>
         </div>
-        <h3 class="font-display text-2xl font-semibold mb-3">Chief of Staff</h3>
-        <p class="text-white/60 text-sm leading-relaxed flex-1">
-          Every promise, priority and decision runs through your head, so you can't switch off. The Chief of Staff holds it all (your week, your inbox, your commitments) and hands you a daily brief. Step away and nothing falls apart.
-        </p>
-        <a href="reynolds-cos-dashboard.html" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-light hover:gap-3 transition-all">
-          Open the live dashboard<iconify-icon icon="solar:arrow-right-up-linear" width="15"></iconify-icon>
-        </a>
       </div>
 
-      <!-- Product 3: Board Pack -->
-      <div class="glass-card spotlight rounded-2xl p-7 reveal flex flex-col" style="transition-delay: 160ms;">
+      <div class="glass-card spotlight rounded-2xl p-8 reveal flex flex-col" style="transition-delay: 80ms;">
         <div class="flex items-start justify-between mb-5">
           <iconify-icon icon="solar:chart-square-linear" width="28" class="text-accent-light"></iconify-icon>
           <span class="mono-label">Control the numbers</span>
         </div>
-        <h3 class="font-display text-2xl font-semibold mb-3">Board Pack</h3>
-        <p class="text-white/60 text-sm leading-relaxed flex-1">
-          Your P&amp;L tells you what happened, not why or what to do next. The Board Pack gives you the numbers, the why behind every move, and early-warning signals in week two, not quarter three. Proactive, not reactive.
+        <h3 class="font-display text-2xl md:text-3xl font-semibold mb-3">AI Finance Director</h3>
+        <p class="text-white/60 leading-relaxed flex-1">
+          Your accounts say what happened. Every month, your AI Finance Director tells you why profit and cash moved, where you'll finish the year against budget, and what to decide now, with early warning while there's still time to act.
         </p>
-        <a href="reynolds-board-dashboard.html" target="_blank" rel="noopener" class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-light hover:gap-3 transition-all">
-          Open the live sample<iconify-icon icon="solar:arrow-right-up-linear" width="15"></iconify-icon>
-        </a>
+        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+          <a href="ai-finance-director.html" class="inline-flex items-center gap-2 text-sm font-semibold text-accent-light hover:gap-3 transition-all">How it works<iconify-icon icon="solar:arrow-right-linear" width="15"></iconify-icon></a>
+          <a href="ai-finance-director.html#check" class="inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white transition">Free Numbers Check<iconify-icon icon="solar:arrow-right-linear" width="15"></iconify-icon></a>
+        </div>
       </div>
 
     </div>
 
     <p class="mt-8 text-white/45 text-sm reveal flex items-start gap-2">
-      <iconify-icon icon="solar:layers-minimalistic-linear" width="16" class="text-accent-light/70 mt-0.5 shrink-0"></iconify-icon>
-      <span>Every module is optional. Pick the one that solves something real, ignore the rest, and add others only when they earn their place. Nobody has to take all three.
-      <a href="blueprint.html" class="text-white/70 hover:text-white underline underline-offset-2 ml-1">See how it works →</a></span>
+      <iconify-icon icon="solar:compass-linear" width="16" class="text-accent-light/70 mt-0.5 shrink-0"></iconify-icon>
+      <span>Not sure where to start? The AI Business Audit looks at the whole business and tells you where AI would actually help, and where it wouldn't.
+      <a href="blueprint.html" class="text-white/70 hover:text-white underline underline-offset-2 ml-1">See the audit →</a></span>
     </p>
   </div>
 </section>
@@ -255,17 +241,17 @@ body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-ser
 
   <div class="relative z-10 max-w-6xl mx-auto">
     <div class="flex items-center gap-3 mb-6 reveal">
-      <span class="mono-label">02 / The AI Foundation</span>
+      <span class="mono-label">02 / Underneath</span>
       <div class="h-px flex-1 bg-white/10 max-w-[120px]"></div>
     </div>
 
     <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-6xl leading-[0.95] max-w-3xl reveal">
-      The Foundation.
-      <span class="font-display font-light text-white/60">Your AI strategic partner, the brain all three share.</span>
+      Both run on one AI
+      <span class="font-display font-light text-white/60">that learns your business.</span>
     </h2>
 
     <p class="mt-6 text-white/55 text-lg max-w-2xl reveal">
-      This is the product under everything else, and a strategic partner in its own right, before a single module. <span class="text-white/80">Ask it anything and get an answer grounded in your real numbers, not generic advice.</span> And because all three products read from it, they act as one brain, not three disconnected tools.
+      We start by teaching an AI how your business works: your strategy, customers, numbers and how work flows. That's why the answers fit your business instead of sounding generic. <span class="text-white/80">And when you're ready for more, it's already there to build on.</span>
     </p>
 
     <div class="mt-14 reveal">
@@ -277,7 +263,7 @@ body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-ser
               <div class="mono-label">What it is</div>
             </div>
             <p class="text-white/75 text-base leading-relaxed">
-              You get <span class="text-white">an AI that already knows your business</span>: your strategy, your customers, your team, your numbers, and how work actually flows. No re-explaining yourself every time you open a chat. It reads all of that before it answers anything, which is why the advice lands where generic AI doesn't. Every module plugs into it, and on its own it's already a thinking partner worth having.
+              You get <span class="text-white">an AI that already knows your business</span>: your strategy, your customers, your team, your numbers, and how work actually flows. No re-explaining yourself every time you open a chat. It reads all of that before it answers anything, which is why the advice lands where generic AI doesn't. On its own it's already a thinking partner worth having, and anything you add later plugs into it.
             </p>
           </div>
           <div class="md:col-span-5 md:border-l md:border-white/8 md:pl-8">
@@ -304,30 +290,6 @@ body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-ser
 
 <div class="divider-hairline max-w-6xl mx-auto"></div>
 
-<!-- ===== START FREE: THE BLUEPRINT ===== -->
-<section id="blueprint" class="relative py-24 px-6 overflow-hidden">
-  <div class="glow-orb" style="width: 500px; height: 500px; background: #6366F1; opacity: 0.12; top: 30%; right: -200px;"></div>
-
-  <div class="relative z-10 max-w-4xl mx-auto">
-    <div class="glass spotlight rounded-3xl p-8 md:p-12 text-center reveal">
-      <div class="flex justify-center mb-5"><span class="mono-label">How you start · free</span></div>
-      <h2 class="font-display font-semibold tracking-tighter text-3xl md:text-5xl leading-[0.98]">
-        Begin with a free Blueprint.
-        <span class="font-display font-light text-white/60">No cost, no pitch, yours to keep.</span>
-      </h2>
-      <p class="mt-6 text-white/60 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-        Seven questions, about fifteen minutes. I read every one personally and send back your Blueprint: what's actually costing you, ranked, and the one thing to do first. It can come back saying you don't need AI yet. Some do. No call needed, though we'll walk it through with you and your team if you want the fuller version. Act on it with us, or without us.
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="btn-primary">Get your free Blueprint<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
-        <a href="sample-blueprint.html" target="_blank" rel="noopener" class="btn-ghost"><iconify-icon icon="solar:document-text-linear" width="16"></iconify-icon>Open the Reynolds sample</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider-hairline max-w-6xl mx-auto"></div>
-
 <!-- ===== WHO RUNS IT ===== -->
 <section class="relative py-28 px-6 overflow-hidden">
   <div class="relative z-10 max-w-4xl mx-auto">
@@ -346,22 +308,40 @@ body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-ser
 
 <div class="divider-hairline max-w-6xl mx-auto"></div>
 
-<!-- ===== BOOKING CTA ===== -->
-<section id="book" class="relative py-28 px-6 overflow-hidden">
+<!-- ===== START FREE ===== -->
+<section id="start" class="relative py-28 px-6 overflow-hidden">
   <div class="glow-orb" style="width: 800px; height: 800px; background: #4F46E5; opacity: 0.2; bottom: -400px; left: 50%; transform: translateX(-50%);"></div>
 
-  <div class="relative z-10 max-w-2xl mx-auto text-center">
-    <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-6xl leading-[0.98] reveal">
-      Seven questions.
-      <span class="font-display font-light text-white/60">Your free Blueprint.</span>
-    </h2>
-    <p class="mt-8 text-white/60 text-lg max-w-xl mx-auto reveal">
-      Seven questions, answered in your own words. A few minutes, no call to schedule. I read every one personally and send back your Blueprint: what's actually costing you, ranked, and the one thing to do first. If it's honestly not worth doing yet, it says that instead.
-    </p>
-
-    <div class="mt-12 flex flex-col items-center gap-4 reveal">
-      <a href="https://aigentic-discovery.up.railway.app/discovery/" target="_blank" rel="noopener" class="btn-primary text-base px-7 py-4">Start the seven questions<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
-      <p class="text-white/40 text-sm">Opens the questionnaire. Your answers save as you type, so you can stop and pick it up later.</p>
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="text-center">
+      <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-6xl leading-[0.98] reveal">
+        Start free.
+        <span class="font-display font-light text-white/60">Pick your question.</span>
+      </h2>
+      <p class="mt-6 text-white/60 text-lg max-w-xl mx-auto reveal">Each one is free and yours to keep. Act on it with us, or without us.</p>
+    </div>
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+      <a href="ai-visibility.html#book" class="glass-card spotlight rounded-2xl p-7 reveal flex flex-col text-left" style="transition-delay: 0ms;">
+        <span class="tag tag-free self-start">Free</span>
+        <p class="font-display text-lg text-white/85 mt-5 italic leading-snug">"Does AI recommend us?"</p>
+        <h3 class="font-display text-xl font-semibold text-white mt-5">AI Visibility Snapshot</h3>
+        <p class="text-white/55 text-sm leading-relaxed mt-2 flex-1">Four facts from you. We check you against a competitor across the main AI tools and send it back within 24 hours.</p>
+        <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-light">Get your Snapshot<iconify-icon icon="solar:arrow-right-linear" width="15"></iconify-icon></span>
+      </a>
+      <a href="ai-finance-director.html#check" class="glass-card spotlight rounded-2xl p-7 reveal flex flex-col text-left" style="transition-delay: 80ms;">
+        <span class="tag tag-free self-start">Free</span>
+        <p class="font-display text-lg text-white/85 mt-5 italic leading-snug">"Am I on top of my numbers?"</p>
+        <h3 class="font-display text-xl font-semibold text-white mt-5">Numbers Check</h3>
+        <p class="text-white/55 text-sm leading-relaxed mt-2 flex-1">Eight questions about how you track the business. No figures shared. Your result and your biggest gaps, on screen.</p>
+        <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-light">Take the Numbers Check<iconify-icon icon="solar:arrow-right-linear" width="15"></iconify-icon></span>
+      </a>
+      <a href="blueprint.html" class="glass-card spotlight rounded-2xl p-7 reveal flex flex-col text-left" style="transition-delay: 160ms;">
+        <span class="tag tag-free self-start">Free</span>
+        <p class="font-display text-lg text-white/85 mt-5 italic leading-snug">"Where would AI help us most?"</p>
+        <h3 class="font-display text-xl font-semibold text-white mt-5">AI Business Audit</h3>
+        <p class="text-white/55 text-sm leading-relaxed mt-2 flex-1">Seven questions about the whole business. I read every answer and send back your Blueprint: what's costing you, ranked, and what to do first.</p>
+        <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-light">Start the audit<iconify-icon icon="solar:arrow-right-linear" width="15"></iconify-icon></span>
+      </a>
     </div>
   </div>
 </section>
@@ -372,9 +352,7 @@ body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-ser
     <div class="flex items-center gap-2 font-display font-bold tracking-tight"><span class="w-2 h-2 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span><span>Aigentic</span></div>
     <div class="mono-label text-center">© 2026 Aigentic · Business first, AI second</div>
     <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-white/55">
-      <a href="ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
-      <span class="opacity-30">·</span>
-      <a href="mailto:rq@aigentic.co.uk" class="hover:text-white transition">rq@aigentic.co.uk</a>
+      <a href="/ai-visibility.html" class="hover:text-white transition">AI Visibility</a><span class="opacity-30">·</span><a href="/ai-finance-director.html" class="hover:text-white transition">AI Finance Director</a><span class="opacity-30">·</span><a href="/blueprint.html" class="hover:text-white transition">AI Business Audit</a><span class="opacity-30">·</span><a href="/articles" class="hover:text-white transition">Articles</a><span class="opacity-30">·</span><a href="mailto:rq@aigentic.co.uk" class="hover:text-white transition">rq@aigentic.co.uk</a>
     </div>
   </div>
 </footer>

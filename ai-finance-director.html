@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aigentic · AI Finance Director: know why your numbers moved</title>
+<meta name="description" content="Your management accounts tell you what happened. Your AI Finance Director tells you why, where you'll finish the year, and which decision to make now. Take the free Numbers Check.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter','sans-serif'], serif: ['Instrument Serif','serif'], display: ['Space Grotesk','sans-serif'], mono: ['JetBrains Mono','monospace'] },
+      colors: { ink: { 950:'#050505',900:'#0a0a0a',850:'#111827',800:'#1A2035' }, accent: { DEFAULT:'#4F46E5',light:'#6366F1',glow:'rgba(79,70,229,0.35)' } }
+    }
+  }
+}
+</script>
+
+<style>
+:root { --mouse-x: 0px; --mouse-y: 0px; }
+body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+.glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+.glass-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); transition: all 0.5s cubic-bezier(0.16,1,0.3,1); }
+.glass-card:hover { background: rgba(255,255,255,0.04); border-color: rgba(79,70,229,0.35); transform: translateY(-2px); }
+.spotlight { position: relative; overflow: hidden; }
+.spotlight::before { content: ''; position: absolute; inset: 0; background: radial-gradient(500px circle at var(--mouse-x) var(--mouse-y), rgba(99,102,241,0.12), transparent 40%); opacity: 0; transition: opacity 0.5s; pointer-events: none; z-index: 2; }
+.spotlight:hover::before { opacity: 1; }
+.section-grid { position: absolute; inset: 0; pointer-events: none; opacity: 0.18; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 40%, transparent 75%); }
+.glow-orb { position: absolute; border-radius: 9999px; filter: blur(120px); mix-blend-mode: screen; pointer-events: none; z-index: 0; }
+@keyframes grain { 0%,100% { transform: translate(0,0);} 10%{transform:translate(-5%,-10%);} 30%{transform:translate(7%,-25%);} 50%{transform:translate(-15%,10%);} 70%{transform:translate(0%,15%);} 90%{transform:translate(-10%,10%);} }
+.bg-grain::after { content:""; background-image:url("https://upload.wikimedia.org/wikipedia/commons/7/76/Noise.png"); height:300%; width:300%; position:fixed; top:-100%; left:-100%; opacity:0.04; animation:grain 8s steps(10) infinite; pointer-events:none; z-index:9998; }
+.reveal { opacity:0; filter:blur(4px); transform:translateY(20px); transition:all 0.9s cubic-bezier(0.16,1,0.3,1); }
+.reveal.active { opacity:1; filter:blur(0); transform:translateY(0); }
+.mono-label { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+.pill { display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:9999px; border:1px solid rgba(79,70,229,0.3); background:rgba(79,70,229,0.08); color:#A5B4FC; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; }
+.pill-dot { width:6px; height:6px; border-radius:9999px; background:#6366F1; box-shadow:0 0 8px #6366F1; animation:pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(0.8);} }
+.btn-primary { display:inline-flex; align-items:center; gap:12px; padding:16px 28px; border-radius:9999px; background:linear-gradient(135deg,#4F46E5,#6366F1); color:#fff; font-weight:600; font-size:15px; letter-spacing:-0.01em; box-shadow:0 18px 40px rgba(79,70,229,0.35), inset 0 1px 0 rgba(255,255,255,0.2); transition:all 0.3s cubic-bezier(0.16,1,0.3,1); }
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 24px 50px rgba(79,70,229,0.5), inset 0 1px 0 rgba(255,255,255,0.3); }
+.btn-ghost { display:inline-flex; align-items:center; gap:10px; padding:16px 24px; border-radius:9999px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.02); color:rgba(255,255,255,0.85); font-weight:500; font-size:14px; transition:all 0.3s ease; }
+.btn-ghost:hover { background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.25); color:#fff; }
+.tag-free { background:rgba(5,150,105,0.15); color:#34D399; border:1px solid rgba(5,150,105,0.35); }
+.tag-paid { background:rgba(79,70,229,0.15); color:#A5B4FC; border:1px solid rgba(79,70,229,0.4); }
+.tag-deliv { background:rgba(255,255,255,0.04); color:rgba(255,255,255,0.7); border:1px solid rgba(255,255,255,0.12); }
+.tag { display:inline-flex; align-items:center; padding:4px 10px; border-radius:9999px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; }
+.deco-num { font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; font-size:80px; line-height:1; color:rgba(255,255,255,0.08); letter-spacing:-0.04em; }
+.divider-hairline { height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); }
+::selection { background:#4F46E5; color:#fff; }
+/* Snapshot comparison rows */
+.snap-row { display:grid; grid-template-columns: 96px 1fr; gap:14px; align-items:center; padding:11px 0; border-top:1px solid #EceFf4; }
+.snap-row:first-of-type { border-top:none; }
+.snap-engine { font-weight:600; font-size:13px; color:#111827; display:flex; align-items:center; gap:7px; }
+.snap-bars { display:flex; flex-direction:column; gap:6px; }
+.snap-bar { display:flex; align-items:center; gap:9px; }
+.snap-bar .who { font-size:10px; width:74px; color:#6b7280; text-transform:uppercase; letter-spacing:0.06em; font-weight:600; }
+.snap-track { flex:1; height:8px; border-radius:99px; background:#EEF0F5; overflow:hidden; }
+.snap-track > span { display:block; height:100%; border-radius:99px; }
+.snap-fill-you { background:linear-gradient(90deg,#d23b3b,#ef6a6a); }
+.snap-fill-comp { background:linear-gradient(90deg,#1e9e5a,#36c97e); }
+.snap-val { font-size:11px; font-weight:700; min-width:64px; text-align:right; }
+.snap-val.bad { color:#d23b3b; } .snap-val.ok { color:#cf8a00; } .snap-val.good { color:#1e9e5a; }
+</style>
+</head>
+
+<body class="bg-grain antialiased">
+
+<!-- ===== NAV (same on every page, and in templates/base.html) ===== -->
+<header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
+  <div class="glass rounded-full px-5 py-3 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 font-display font-bold text-lg tracking-tight">
+      <span class="w-2.5 h-2.5 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span>
+      <span>Aigentic</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-6 text-sm text-white/70">
+      <a href="/" class="hover:text-white transition">Home</a>
+      <a href="/ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
+      <a href="/ai-finance-director.html" class="text-white transition">AI Finance Director</a>
+      <a href="/blueprint.html" class="hover:text-white transition">AI Business Audit</a>
+      <a href="/articles" class="hover:text-white transition">Articles</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="/#start" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-[1.02] transition">
+        Start free
+        <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+      </a>
+      <button id="menuBtn" class="lg:hidden text-white/80 hover:text-white" aria-label="Open menu">
+        <iconify-icon icon="solar:hamburger-menu-linear" width="24"></iconify-icon>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden mt-2 glass rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm text-white/80">
+    <a href="/" class="hover:text-white transition">Home</a>
+    <a href="/ai-visibility.html" class="hover:text-white transition">AI Visibility</a>
+    <a href="/ai-finance-director.html" class="text-white transition">AI Finance Director</a>
+    <a href="/blueprint.html" class="hover:text-white transition">AI Business Audit</a>
+    <a href="/articles" class="hover:text-white transition">Articles</a>
+    <a href="/#start" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Start free</a>
+  </div>
+</header>
+<script>(function(){var b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.add('hidden');});});}})();</script>
+
+<!-- ===== HERO ===== -->
+<section class="relative min-h-screen flex items-center pt-32 pb-24 px-6 overflow-hidden">
+  <div class="section-grid"></div>
+  <div class="glow-orb" style="width:600px;height:600px;background:#4F46E5;opacity:0.18;top:-200px;left:50%;transform:translateX(-50%);"></div>
+  <div class="glow-orb" style="width:400px;height:400px;background:#1A2035;opacity:0.5;bottom:-100px;right:-100px;"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto w-full">
+    <div class="flex justify-center mb-8 reveal"><span class="pill"><span class="pill-dot"></span>AI Finance Director</span></div>
+    <h1 class="font-display font-semibold tracking-tighter leading-[0.95] text-center text-[clamp(44px,7.5vw,90px)] reveal" style="transition-delay:100ms;">
+      Know why your numbers moved.<br><span class="font-display font-light text-white/70">And what to do next.</span>
+    </h1>
+    <p class="mt-8 text-center text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed reveal" style="transition-delay:200ms;">
+      Your management accounts tell you what happened. Your AI Finance Director tells you why, where you'll finish the year, and which decision to make now. Every month, from the accounts your accountant already produces.
+    </p>
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal" style="transition-delay:300ms;">
+      <a href="#check" class="btn-primary">Take the free Numbers Check<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></a>
+      <a href="reynolds-board-dashboard.html" target="_blank" rel="noopener" class="btn-ghost"><iconify-icon icon="solar:chart-2-linear" width="18"></iconify-icon>See a sample month</a>
+    </div>
+    <div class="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mono-label reveal" style="transition-delay:400ms;">
+      <span>Eight questions</span><span class="opacity-30">·</span><span>No figures shared</span><span class="opacity-30">·</span><span>Result on screen</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== THE PROBLEM ===== -->
+<section id="problem" class="relative py-24 px-6 overflow-hidden">
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <p class="font-display text-3xl md:text-5xl font-semibold tracking-tighter leading-tight text-white/90 reveal">
+      Your accounts look backwards.
+      <span class="font-display font-light text-white/60">Your decisions look forwards.</span>
+    </p>
+    <p class="mt-6 text-white/55 text-base md:text-lg leading-relaxed max-w-2xl mx-auto reveal" style="transition-delay:100ms;">
+      Most owners get last month's numbers weeks late, with no explanation and no view of what comes next. So the big calls, on price, on hiring, on which work to chase, get made on instinct.
+    </p>
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+      <div class="glass-card spotlight rounded-2xl p-6 reveal"><iconify-icon icon="solar:wallet-money-linear" width="26" class="text-accent-light"></iconify-icon><div class="font-display font-semibold text-white mt-4 mb-1.5">Profit isn't cash</div><p class="text-sm text-white/55 leading-relaxed">The accounts say you made money. The bank says otherwise. Nobody has connected the two.</p></div>
+      <div class="glass-card spotlight rounded-2xl p-6 reveal" style="transition-delay:80ms;"><iconify-icon icon="solar:calendar-linear" width="26" class="text-accent-light"></iconify-icon><div class="font-display font-semibold text-white mt-4 mb-1.5">The year-end surprise</div><p class="text-sm text-white/55 leading-relaxed">You find out you missed budget when it's too late to do anything about it.</p></div>
+      <div class="glass-card spotlight rounded-2xl p-6 reveal" style="transition-delay:160ms;"><iconify-icon icon="solar:alarm-linear" width="26" class="text-accent-light"></iconify-icon><div class="font-display font-semibold text-white mt-4 mb-1.5">No early warning</div><p class="text-sm text-white/55 leading-relaxed">By the time a slow month shows in the accounts, the cause is a quarter old.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== WHAT YOU GET ===== -->
+<section id="what" class="relative py-28 px-6 overflow-hidden">
+  <div class="glow-orb" style="width:500px;height:500px;background:#6366F1;opacity:0.12;top:30%;left:-200px;"></div>
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 reveal"><span class="mono-label">Every month</span><div class="h-px flex-1 bg-white/10 max-w-[120px]"></div></div>
+    <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-5xl leading-[0.95] max-w-3xl reveal">The answers a finance director <span class="font-display font-light text-white/60">would give you.</span></h2>
+    <p class="mt-6 text-white/55 text-lg max-w-2xl reveal">Not more numbers. The four answers that matter, in plain English, on one page.</p>
+
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="glass-card spotlight rounded-2xl p-7 reveal">
+        <iconify-icon icon="solar:question-circle-linear" width="26" class="text-accent-light"></iconify-icon>
+        <h3 class="font-display text-xl font-semibold mt-4 mb-2">The why behind the numbers</h3>
+        <p class="text-white/55 text-sm leading-relaxed">Why profit moved, why cash didn't follow, and which part of the business is actually making the money.</p>
+      </div>
+      <div class="glass-card spotlight rounded-2xl p-7 reveal" style="transition-delay:80ms;">
+        <iconify-icon icon="solar:graph-up-linear" width="26" class="text-accent-light"></iconify-icon>
+        <h3 class="font-display text-xl font-semibold mt-4 mb-2">Where you'll finish the year</h3>
+        <p class="text-white/55 text-sm leading-relaxed">The year carried forward against your budget, and what closes any gap: how many more contracts, by when, or what price change.</p>
+      </div>
+      <div class="glass-card spotlight rounded-2xl p-7 reveal">
+        <iconify-icon icon="solar:bell-linear" width="26" class="text-accent-light"></iconify-icon>
+        <h3 class="font-display text-xl font-semibold mt-4 mb-2">Early warnings</h3>
+        <p class="text-white/55 text-sm leading-relaxed">Leads, proposals and contracts won move months before sales do. When they drift from plan, you hear about it that month.</p>
+      </div>
+      <div class="glass-card spotlight rounded-2xl p-7 reveal" style="transition-delay:80ms;">
+        <iconify-icon icon="solar:checklist-minimalistic-linear" width="26" class="text-accent-light"></iconify-icon>
+        <h3 class="font-display text-xl font-semibold mt-4 mb-2">The decisions to make</h3>
+        <p class="text-white/55 text-sm leading-relaxed">Each lever priced up, so you can see what a price rise is worth against a cost cut, and decide.</p>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 reveal">
+      <a href="reynolds-board-dashboard.html" target="_blank" rel="noopener" class="btn-ghost"><iconify-icon icon="solar:chart-2-linear" width="16"></iconify-icon>Open a sample month</a>
+      <a href="/articles/the-why-behind-your-numbers" class="btn-ghost"><iconify-icon icon="solar:document-text-linear" width="16"></iconify-icon>Read: what one business found</a>
+    </div>
+    <p class="text-xs text-white/40 mt-4 text-center">The sample company is fictional and every figure is illustrative. The format is what you receive.</p>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section id="how" class="relative py-28 px-6 overflow-hidden">
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="flex items-center gap-3 mb-6 reveal"><span class="mono-label">How it works</span><div class="h-px flex-1 bg-white/10 max-w-[120px]"></div></div>
+    <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-5xl leading-[0.95] max-w-3xl reveal">Three steps. <span class="font-display font-light text-white/60">The first one's free.</span></h2>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="glass-card spotlight rounded-2xl p-7 reveal">
+        <div class="flex items-center justify-between mb-5"><span class="deco-num text-5xl">01</span><span class="tag tag-free">Free</span></div>
+        <div class="mono-label mb-2">Numbers Check</div>
+        <h3 class="font-display text-xl font-semibold mb-3 leading-snug">See how well you know your numbers</h3>
+        <p class="text-white/55 text-sm leading-relaxed">Eight questions about how you track the business. No figures shared. Your result and your three biggest gaps, on screen.</p>
+      </div>
+      <div class="glass-card spotlight rounded-2xl p-7 reveal" style="transition-delay:80ms;">
+        <div class="flex items-center justify-between mb-5"><span class="deco-num text-5xl">02</span><span class="tag tag-paid">Set up</span></div>
+        <div class="mono-label mb-2">Your model</div>
+        <h3 class="font-display text-xl font-semibold mb-3 leading-snug">We learn how your business makes money</h3>
+        <p class="text-white/55 text-sm leading-relaxed">About twelve questions on pricing, volumes, costs and cash. You talk, we build the model, and load the months already gone so it works from day one.</p>
+      </div>
+      <div class="glass-card spotlight rounded-2xl p-7 reveal" style="transition-delay:160ms;">
+        <div class="flex items-center justify-between mb-5"><span class="deco-num text-5xl">03</span><span class="tag tag-deliv">Monthly</span></div>
+        <div class="mono-label mb-2">Every month</div>
+        <h3 class="font-display text-xl font-semibold mb-3 leading-snug">Your accounts in, the answers out</h3>
+        <p class="text-white/55 text-sm leading-relaxed">Your accountant's monthly pack plus about ten numbers from your team. Back comes the month explained, the year-end view and the decisions to make.</p>
+      </div>
+    </div>
+    <p class="mt-8 text-white/45 text-sm reveal flex items-start gap-2">
+      <iconify-icon icon="solar:shield-check-linear" width="16" class="text-accent-light/70 mt-0.5 shrink-0"></iconify-icon>
+      <span>It works from the accounts your accountant already produces. It doesn't replace them. Every figure traces back to a source, estimates are labelled, and when two numbers disagree it asks rather than guesses.</span>
+    </p>
+  </div>
+</section>
+
+<div class="divider-hairline max-w-6xl mx-auto"></div>
+
+<!-- ===== NUMBERS CHECK ===== -->
+<section id="check" class="relative py-28 px-6 overflow-hidden">
+  <div class="glow-orb" style="width:800px;height:800px;background:#4F46E5;opacity:0.16;bottom:-400px;left:50%;transform:translateX(-50%);"></div>
+  <div class="relative z-10 max-w-2xl mx-auto">
+    <div class="text-center">
+      <div class="flex justify-center mb-6 reveal"><span class="pill"><span class="pill-dot"></span>Free · five minutes</span></div>
+      <h2 class="font-display font-semibold tracking-tighter text-4xl md:text-6xl leading-[0.95] reveal">How well do you<br><span class="font-display font-light text-white/60">know your numbers?</span></h2>
+      <p class="mt-6 text-white/55 text-lg reveal">Eight questions about how you run the business, not what the figures are. Your result appears on this page. Nothing is sent anywhere unless you choose to email it.</p>
+    </div>
+
+    <form id="nc-form" class="mt-12 glass rounded-2xl p-6 sm:p-8 space-y-8" onsubmit="return scoreCheck(event)"></form>
+
+    <div id="nc-result" class="hidden mt-8 glass rounded-2xl p-6 sm:p-8"></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="relative border-t border-white/8 py-12 px-6 mt-12">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2 font-display font-bold tracking-tight"><span class="w-2 h-2 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span><span>Aigentic</span></div>
+    <div class="mono-label text-center">© 2026 Aigentic · Business first, AI second</div>
+    <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-white/55">
+      <a href="/ai-visibility.html" class="hover:text-white transition">AI Visibility</a><span class="opacity-30">·</span><a href="/ai-finance-director.html" class="hover:text-white transition">AI Finance Director</a><span class="opacity-30">·</span><a href="/blueprint.html" class="hover:text-white transition">AI Business Audit</a><span class="opacity-30">·</span><a href="/articles" class="hover:text-white transition">Articles</a><span class="opacity-30">·</span><a href="mailto:rq@aigentic.co.uk" class="hover:text-white transition">rq@aigentic.co.uk</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+document.querySelectorAll('.spotlight').forEach(card => {
+  card.addEventListener('mousemove', (e) => { const rect = card.getBoundingClientRect(); card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`); card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`); });
+});
+const io = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); io.unobserve(entry.target); } }); }, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// The Numbers Check. Options are listed best first; the score is 3, 2, 1, 0 in that order.
+const QUESTIONS = [
+  { q: "When does last month's management accounts pack reach you?",
+    a: ["Within 10 working days", "Within the month", "Later than that", "We don't get one monthly"],
+    gap: "Your numbers arrive late",
+    fix: "Get the month closed within ten working days. A pack that arrives six weeks late describes a business you no longer run." },
+  { q: "Do you compare each month against a budget?",
+    a: ["Every month, line by line", "Yes, the headline numbers", "Only at year-end", "We don't have a budget"],
+    gap: "No budget to measure against",
+    fix: "Set a simple budget and compare every month. Without one, nothing tells you whether a month was good or bad." },
+  { q: "The last time profit and cash moved in different directions, could you explain why?",
+    a: ["Straight away", "After some digging", "Only with the accountant's help", "Not really"],
+    gap: "Profit and cash aren't connected",
+    fix: "Add a monthly cash view: profit against cash, and what's tied up in money owed to you, stock and bills." },
+  { q: "Do you know which part of the business makes the most profit after its own costs?",
+    a: ["Yes, with figures", "Roughly", "We know sales by area, not profit", "No"],
+    gap: "You can't see where the money is made",
+    fix: "Split profit by product, service or division after their own costs, with one fixed rule for shared costs." },
+  { q: "Do you know today where you'll finish the year against budget?",
+    a: ["Yes, from a forecast we update monthly", "A rough idea", "We'll find out at year-end", "No budget to compare with"],
+    gap: "No view of the year-end",
+    fix: "Carry the year forward every month, and turn any gap into a plan: how many more contracts, by when, or what price change." },
+  { q: "Do you track the numbers that move before sales, such as leads, proposals and contracts won, every month?",
+    a: ["Yes, against targets", "We track some of them", "Only sales", "No"],
+    gap: "No early warning",
+    fix: "Track leads, proposals and wins monthly against plan. They warn you a quarter before the accounts do." },
+  { q: "Do you know what a 5% price rise is worth to you over a year, compared with a 5% cut in your biggest cost?",
+    a: ["Yes", "Roughly", "Never worked it out", "Not sure where I'd start"],
+    gap: "Your levers aren't priced",
+    fix: "Work out what each lever is worth. In many businesses a price rise is worth far more than the same cut in costs." },
+  { q: "How much warning did you get before your last bad month?",
+    a: ["Weeks: we saw it coming", "A few days", "None: it showed up in the accounts", "We only noticed later"],
+    gap: "Bad months arrive as surprises",
+    fix: "Set warning triggers on the numbers that move first, so a bad month becomes a decision, not a surprise." }
+];
+
+const BANDS = [
+  { min: 18, name: "In control", text: "You run the business on its numbers. The gain now is time: the why and the year-end view every month, without the hours it takes to produce them." },
+  { min: 10, name: "Rear-view mirror", text: "You know what happened, mostly after the fact. What's missing is the why and the view forward, which is where the decisions are." },
+  { min: 0,  name: "Flying blind", text: "Big decisions are being made on instinct and old numbers. The good news: the first fixes are simple and need no new software." }
+];
+
+(function buildForm() {
+  const form = document.getElementById('nc-form');
+  form.innerHTML = QUESTIONS.map((item, i) => `
+    <fieldset>
+      <legend class="font-display font-semibold text-white leading-snug"><span class="mono-label mr-2">${String(i + 1).padStart(2, '0')}</span>${item.q}</legend>
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+        ${item.a.map((opt, j) => `
+          <label class="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-sm text-white/75 cursor-pointer hover:border-accent-light/50 has-[:checked]:border-accent-light has-[:checked]:bg-accent/10 transition">
+            <input type="radio" name="q${i}" value="${3 - j}" required class="mt-0.5 accent-indigo-500">
+            <span>${opt}</span>
+          </label>`).join('')}
+      </div>
+    </fieldset>`).join('') + `
+    <div class="pt-2 flex justify-center"><button type="submit" class="btn-primary">See my result<iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon></button></div>`;
+})();
+
+function scoreCheck(e) {
+  e.preventDefault();
+  const scores = QUESTIONS.map((_, i) => Number(new FormData(e.target).get('q' + i)));
+  const total = scores.reduce((a, b) => a + b, 0);
+  const band = BANDS.find(b => total >= b.min);
+  // The three weakest answers; ties keep question order.
+  const weakest = scores.map((s, i) => ({ s, i })).filter(x => x.s < 3).sort((a, b) => a.s - b.s || a.i - b.i).slice(0, 3);
+
+  const body = [`Hi Raph,`, ``, `I took the Numbers Check on your site.`, ``, `Score: ${total} / 24 (${band.name})`, ``]
+    .concat(QUESTIONS.map((item, i) => `${i + 1}. ${item.q} ${item.a[3 - scores[i]]}`))
+    .concat([``, `I'd like to talk it through.`, ``, `Name:`, `Company:`]).join('\n');
+  const mail = `mailto:rq@aigentic.co.uk?subject=${encodeURIComponent('Numbers Check: ' + total + '/24, ' + band.name)}&body=${encodeURIComponent(body)}`;
+
+  const r = document.getElementById('nc-result');
+  r.innerHTML = `
+    <div class="text-center">
+      <div class="mono-label">Your result</div>
+      <div class="font-display text-5xl font-bold text-white mt-3">${total}<span class="text-white/40 text-2xl"> / 24</span></div>
+      <div class="inline-block mt-3 px-4 py-1.5 rounded-full text-[11px] font-bold tracking-widest uppercase" style="background:rgba(99,102,241,0.15);color:#A5B4FC;border:1px solid rgba(99,102,241,0.35);">${band.name}</div>
+      <p class="text-white/65 mt-5 leading-relaxed max-w-lg mx-auto">${band.text}</p>
+    </div>
+    ${weakest.length ? `
+    <div class="mt-8">
+      <div class="mono-label mb-4">Your ${weakest.length === 1 ? 'one gap' : weakest.length + ' biggest gaps'}</div>
+      <div class="space-y-3">
+        ${weakest.map(w => `
+          <div class="rounded-xl border border-white/10 bg-white/[0.02] p-4">
+            <div class="font-display font-semibold text-white">${QUESTIONS[w.i].gap}</div>
+            <p class="text-sm text-white/60 mt-1 leading-relaxed">${QUESTIONS[w.i].fix}</p>
+          </div>`).join('')}
+      </div>
+    </div>` : ''}
+    <div class="mt-8 pt-6 border-t border-white/10 text-center">
+      <p class="text-white/70 leading-relaxed">Closing these gaps every month is what the AI Finance Director does. Want to talk through your result? Email it to me and I'll reply personally.</p>
+      <a href="${mail}" class="btn-primary mt-6">Email me my result<iconify-icon icon="solar:letter-linear" width="18"></iconify-icon></a>
+      <p class="text-white/40 text-xs mt-3">Opens your email with your answers filled in. Or write to rq@aigentic.co.uk.</p>
+    </div>`;
+  r.classList.remove('hidden');
+  r.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  return false;
+}
+</script>
+
+</body>
+</html>

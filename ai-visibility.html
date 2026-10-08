@@ -71,32 +71,37 @@ body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-ser
 
 <body class="bg-grain antialiased">
 
-<!-- ===== NAV ===== -->
+<!-- ===== NAV (same on every page, and in templates/base.html) ===== -->
 <header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
   <div class="glass rounded-full px-5 py-3 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-2 font-display font-bold text-lg tracking-tight">
-      <span class="w-2.5 h-2.5 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span><span>Aigentic</span>
+    <a href="/" class="flex items-center gap-2 font-display font-bold text-lg tracking-tight">
+      <span class="w-2.5 h-2.5 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span>
+      <span>Aigentic</span>
     </a>
-    <nav class="hidden md:flex items-center gap-7 text-sm text-white/70">
-      <a href="index.html" class="hover:text-white transition">Home</a>
-      <a href="ai-visibility.html" class="text-white transition">AI Visibility</a>
-      <a href="blueprint.html" class="hover:text-white transition">How it works</a>
+    <nav class="hidden lg:flex items-center gap-6 text-sm text-white/70">
+      <a href="/" class="hover:text-white transition">Home</a>
+      <a href="/ai-visibility.html" class="text-white transition">AI Visibility</a>
+      <a href="/ai-finance-director.html" class="hover:text-white transition">AI Finance Director</a>
+      <a href="/blueprint.html" class="hover:text-white transition">AI Business Audit</a>
       <a href="/articles" class="hover:text-white transition">Articles</a>
     </nav>
     <div class="flex items-center gap-3">
-      <a href="#book" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-[1.02] transition">Get your Snapshot<iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></a>
-      <button id="menuBtn" class="md:hidden text-white/80 hover:text-white" aria-label="Open menu">
+      <a href="/#start" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-[1.02] transition">
+        Start free
+        <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+      </a>
+      <button id="menuBtn" class="lg:hidden text-white/80 hover:text-white" aria-label="Open menu">
         <iconify-icon icon="solar:hamburger-menu-linear" width="24"></iconify-icon>
       </button>
     </div>
   </div>
-  <!-- Mobile menu -->
-  <div id="mobileMenu" class="md:hidden hidden mt-2 glass rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm text-white/80">
-    <a href="index.html" class="hover:text-white transition">Home</a>
-    <a href="ai-visibility.html" class="text-white transition">AI Visibility</a>
-    <a href="blueprint.html" class="hover:text-white transition">How it works</a>
+  <div id="mobileMenu" class="lg:hidden hidden mt-2 glass rounded-2xl px-5 py-4 flex flex-col gap-3 text-sm text-white/80">
+    <a href="/" class="hover:text-white transition">Home</a>
+    <a href="/ai-visibility.html" class="text-white transition">AI Visibility</a>
+    <a href="/ai-finance-director.html" class="hover:text-white transition">AI Finance Director</a>
+    <a href="/blueprint.html" class="hover:text-white transition">AI Business Audit</a>
     <a href="/articles" class="hover:text-white transition">Articles</a>
-    <a href="#book" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Get your Snapshot</a>
+    <a href="/#start" class="mt-1 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-white text-black font-semibold">Start free</a>
   </div>
 </header>
 <script>(function(){var b=document.getElementById('menuBtn'),m=document.getElementById('mobileMenu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.add('hidden');});});}})();</script>
@@ -222,16 +227,16 @@ body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-ser
       </div>
       <div class="glass-card spotlight rounded-2xl p-7 reveal" style="transition-delay:80ms;">
         <div class="flex items-center justify-between mb-5"><span class="deco-num text-5xl">02</span><span class="tag tag-paid">The fix</span></div>
-        <div class="mono-label mb-2">AI Search Audit</div>
-        <h3 class="font-display text-xl font-semibold mb-3 leading-snug">The full picture, and the 90-day plan</h3>
-        <p class="text-white/55 text-sm leading-relaxed">A complete read on why AI does or doesn't recommend you, plus the last page of your Snapshot made real: a dated, prioritised 90-day plan to close the gap.</p>
+        <div class="mono-label mb-2">Brief + Plan</div>
+        <h3 class="font-display text-xl font-semibold mb-3 leading-snug">Why AI skips you, and the 90-day plan</h3>
+        <p class="text-white/55 text-sm leading-relaxed">We agree the questions your buyers really ask, then put every one to the four main AI tools, in each language you sell in. You get a short Brief to decide from and a Plan to work from: what to fix on your profile, the pages to write, and the sites to get mentioned on. About two weeks.</p>
         <a href="reynolds-visibility-report.html" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-accent-light hover:text-white transition">See a sample Report<iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></a>
       </div>
       <div class="glass-card spotlight rounded-2xl p-7 reveal" style="transition-delay:160ms;">
         <div class="flex items-center justify-between mb-5"><span class="deco-num text-5xl">03</span><span class="tag tag-deliv">Ongoing</span></div>
-        <div class="mono-label mb-2">Stay visible</div>
-        <h3 class="font-display text-xl font-semibold mb-3 leading-snug">Keep your place at the front</h3>
-        <p class="text-white/55 text-sm leading-relaxed">Monitor your visibility month to month. If you want, we also produce the content that does the work of keeping you there.</p>
+        <div class="mono-label mb-2">Make it happen</div>
+        <h3 class="font-display text-xl font-semibold mb-3 leading-snug">We do the work, then prove it moved</h3>
+        <p class="text-white/55 text-sm leading-relaxed">We write the pages, prepare the profile fixes and draft the approaches to the sites that matter. Six and twelve weeks after the pages go live, we ask the same questions again, so you can see the number move. Rolling monthly, with 30 days' notice to stop.</p>
       </div>
     </div>
   </div>
@@ -268,7 +273,7 @@ body { background-color: #050505; color: #e5e5e5; font-family: 'Inter', sans-ser
     <div class="flex items-center gap-2 font-display font-bold tracking-tight"><span class="w-2 h-2 rounded-sm bg-gradient-to-br from-accent to-accent-light"></span><span>Aigentic</span></div>
     <div class="mono-label text-center">© 2026 Aigentic · Business first, AI second</div>
     <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-white/55">
-      <a href="index.html" class="hover:text-white transition">For founders</a><span class="opacity-30">·</span><a href="mailto:rq@aigentic.co.uk" class="hover:text-white transition">rq@aigentic.co.uk</a>
+      <a href="/ai-visibility.html" class="hover:text-white transition">AI Visibility</a><span class="opacity-30">·</span><a href="/ai-finance-director.html" class="hover:text-white transition">AI Finance Director</a><span class="opacity-30">·</span><a href="/blueprint.html" class="hover:text-white transition">AI Business Audit</a><span class="opacity-30">·</span><a href="/articles" class="hover:text-white transition">Articles</a><span class="opacity-30">·</span><a href="mailto:rq@aigentic.co.uk" class="hover:text-white transition">rq@aigentic.co.uk</a>
     </div>
   </div>
 </footer>
