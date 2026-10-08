@@ -267,42 +267,56 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 const QUESTIONS = [
   { q: "When does last month's management accounts pack reach you?",
     a: ["Within 10 working days", "Within the month", "Later than that", "We don't get one monthly"],
-    gap: "Your numbers arrive late",
+    area: "Month-end speed", gap: "Your numbers arrive late",
     fix: "Get the month closed within ten working days. A pack that arrives six weeks late describes a business you no longer run." },
   { q: "Do you compare each month against a budget?",
     a: ["Every month, line by line", "Yes, the headline numbers", "Only at year-end", "We don't have a budget"],
-    gap: "No budget to measure against",
+    area: "Budget", gap: "No budget to measure against",
     fix: "Set a simple budget and compare every month. Without one, nothing tells you whether a month was good or bad." },
   { q: "The last time profit and cash moved in different directions, could you explain why?",
     a: ["Straight away", "After some digging", "Only with the accountant's help", "Not really"],
-    gap: "Profit and cash aren't connected",
+    area: "Profit and cash", gap: "Profit and cash aren't connected",
     fix: "Add a monthly cash view: profit against cash, and what's tied up in money owed to you, stock and bills." },
   { q: "Do you know which part of the business makes the most profit after its own costs?",
     a: ["Yes, with figures", "Roughly", "We know sales by area, not profit", "No"],
-    gap: "You can't see where the money is made",
+    area: "Profit by area", gap: "You can't see where the money is made",
     fix: "Split profit by product, service or division after their own costs, with one fixed rule for shared costs." },
   { q: "Do you know today where you'll finish the year against budget?",
     a: ["Yes, from a forecast we update monthly", "A rough idea", "We'll find out at year-end", "No budget to compare with"],
-    gap: "No view of the year-end",
+    area: "Year-end view", gap: "No view of the year-end",
     fix: "Carry the year forward every month, and turn any gap into a plan: how many more contracts, by when, or what price change." },
   { q: "Do you track the numbers that move before sales, such as leads, proposals and contracts won, every month?",
     a: ["Yes, against targets", "We track some of them", "Only sales", "No"],
-    gap: "No early warning",
+    area: "Leading numbers", gap: "No early warning",
     fix: "Track leads, proposals and wins monthly against plan. They warn you a quarter before the accounts do." },
   { q: "Do you know what a 5% price rise is worth to you over a year, compared with a 5% cut in your biggest cost?",
     a: ["Yes", "Roughly", "Never worked it out", "Not sure where I'd start"],
-    gap: "Your levers aren't priced",
+    area: "Pricing levers", gap: "Your levers aren't priced",
     fix: "Work out what each lever is worth. In many businesses a price rise is worth far more than the same cut in costs." },
   { q: "How much warning did you get before your last bad month?",
     a: ["Weeks: we saw it coming", "A few days", "None: it showed up in the accounts", "We only noticed later"],
-    gap: "Bad months arrive as surprises",
+    area: "Early warning", gap: "Bad months arrive as surprises",
     fix: "Set warning triggers on the numbers that move first, so a bad month becomes a decision, not a surprise." }
 ];
 
+// Each band says honestly whether we're worth talking to. A top score is told it probably doesn't need us.
 const BANDS = [
-  { min: 18, name: "In control", text: "You run the business on its numbers. The gain now is time: the why and the year-end view every month, without the hours it takes to produce them." },
-  { min: 10, name: "Rear-view mirror", text: "You know what happened, mostly after the fact. What's missing is the why and the view forward, which is where the decisions are." },
-  { min: 0,  name: "Flying blind", text: "Big decisions are being made on instinct and old numbers. The good news: the first fixes are simple and need no new software." }
+  { min: 22, name: "In control",
+    text: "Well done. You're doing what most owners don't: you know your numbers, why they move and where the year is heading. Honestly, you probably don't need us.",
+    next: "The one thing we might add is time. If pulling all this together takes you or your team days every month, AI can do it in hours. If that's worth a conversation, email me. If not, good luck, and keep going.",
+    button: "Email me about saving time" },
+  { min: 18, name: "Nearly there",
+    text: "You run the business on its numbers, and most of the picture is there. Below are the few places it could be sharper.",
+    next: "If you'd like help with just those, or with producing the whole picture faster each month, email me and we'll talk it through. No obligation.",
+    button: "Email me my result" },
+  { min: 10, name: "Rear-view mirror",
+    text: "You know what happened, mostly after the fact. What's missing is the why and the view forward, which is where the decisions are.",
+    next: "Closing these gaps every month is what the AI Finance Director does. Want to talk through your result? Email it to me and I'll reply personally.",
+    button: "Email me my result" },
+  { min: 0, name: "Flying blind",
+    text: "Big decisions are being made on instinct and old numbers. The good news: the first fixes are simple and need no new software.",
+    next: "This is exactly what the AI Finance Director fixes. Email me your result and I'll reply personally with where I'd start.",
+    button: "Email me my result" }
 ];
 
 (function buildForm() {
@@ -333,6 +347,7 @@ function scoreCheck(e) {
     .concat(QUESTIONS.map((item, i) => `${i + 1}. ${item.q} ${item.a[3 - scores[i]]}`))
     .concat([``, `I'd like to talk it through.`, ``, `Name:`, `Company:`]).join('\n');
   const mail = `mailto:rq@aigentic.co.uk?subject=${encodeURIComponent('Numbers Check: ' + total + '/24, ' + band.name)}&body=${encodeURIComponent(body)}`;
+  const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=rq@aigentic.co.uk&su=${encodeURIComponent('Numbers Check: ' + total + '/24, ' + band.name)}&body=${encodeURIComponent(body)}`;
 
   const r = document.getElementById('nc-result');
   r.innerHTML = `
@@ -344,19 +359,22 @@ function scoreCheck(e) {
     </div>
     ${weakest.length ? `
     <div class="mt-8">
-      <div class="mono-label mb-4">Your ${weakest.length === 1 ? 'one gap' : weakest.length + ' biggest gaps'}</div>
+      <div class="mono-label mb-4">${weakest.some(w => w.s <= 1) ? "Where you'd gain most" : 'Where you could sharpen up'}</div>
       <div class="space-y-3">
         ${weakest.map(w => `
           <div class="rounded-xl border border-white/10 bg-white/[0.02] p-4">
-            <div class="font-display font-semibold text-white">${QUESTIONS[w.i].gap}</div>
+            <div class="font-display font-semibold text-white">${w.s <= 1 ? QUESTIONS[w.i].gap : QUESTIONS[w.i].area + ': could be sharper'}</div>
             <p class="text-sm text-white/60 mt-1 leading-relaxed">${QUESTIONS[w.i].fix}</p>
           </div>`).join('')}
       </div>
     </div>` : ''}
     <div class="mt-8 pt-6 border-t border-white/10 text-center">
-      <p class="text-white/70 leading-relaxed">Closing these gaps every month is what the AI Finance Director does. Want to talk through your result? Email it to me and I'll reply personally.</p>
-      <a href="${mail}" class="btn-primary mt-6">Email me my result<iconify-icon icon="solar:letter-linear" width="18"></iconify-icon></a>
-      <p class="text-white/40 text-xs mt-3">Opens your email with your answers filled in. Or write to rq@aigentic.co.uk.</p>
+      <p class="text-white/70 leading-relaxed">${band.next}</p>
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="${mail}" class="btn-primary">${band.button}<iconify-icon icon="solar:letter-linear" width="18"></iconify-icon></a>
+        <a href="${gmail}" target="_blank" rel="noopener" class="btn-ghost">Open in Gmail</a>
+      </div>
+      <p class="text-white/40 text-xs mt-3">Both open an email with your answers filled in. Or write to rq@aigentic.co.uk.</p>
     </div>`;
   r.classList.remove('hidden');
   r.scrollIntoView({ behavior: 'smooth', block: 'start' });
