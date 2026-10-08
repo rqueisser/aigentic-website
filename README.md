@@ -36,4 +36,4 @@ Edit the HTML here, commit, push. Railway auto-redeploys.
 
 There is no second copy. A `outputs/website/` folder in the Aigentic workspace used to hold a duplicate, and this README used to call it the source and this repo "the deploy copy". That was wrong and it cost real time: the duplicate silently fell behind, so edits made there shipped nothing, while anyone following the old "copy the HTML in" instruction would have reverted this repo to the stale version. The duplicate was deleted on 2026-07-17. Don't recreate it.
 
-The `sample-blueprint.html` in here is generated from the `audit` plugin's `strategy-blueprint` skill, which lives in a separate repo. If the Blueprint format changes, change it there and regenerate this file. Hand-editing it re-creates the same drift problem.
+`sample-blueprint.html` was rebuilt by hand on 8 Oct 2026 in the current Blueprint format (Verdict, What We Found, What It Is Worth, Next steps), with fictional Reynolds content. The audit skill's template on the shelf is still the older format; when it is updated, regenerate this file from it instead of hand-editing.

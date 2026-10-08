@@ -234,16 +234,82 @@
   .pp-label { font-weight: 700; color: var(--heading); }
   .page-break { page-break-before: always; }
   .muted-line { font-size: 8.7pt; color: var(--text-muted); margin-top: 2mm; }
+
+  /* Current Blueprint format (Sept 2026) */
+  .verdict-hero { background: #1A2035; color: #E5E7EB; border-radius: 8px; padding: 7mm 7mm; margin-bottom: 8mm; page-break-inside: avoid; }
+  .lead { font-size: 10pt; color: var(--body-text); margin-bottom: 4mm; }
+  .note-box {
+    background: var(--light-bg); border-left: 3pt solid var(--accent);
+    padding: 4mm 5mm; margin: 1mm 0 3mm; font-size: 9.7pt;
+    page-break-inside: avoid;
+  }
+  .note-box .nb-tag {
+    font-size: 7.5pt; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; color: var(--accent); display: block;
+    margin-bottom: 1.5mm;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm; font-size: 9pt; }
+  th {
+    background: var(--accent); color: var(--white);
+    text-align: left; padding: 3mm 3.5mm; font-weight: 700; font-size: 8.5pt;
+  }
+  td { padding: 3mm 3.5mm; border: 0.5pt solid var(--border-lt); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--light-bg); }
+  thead { display: table-header-group; }
+  .tag-low { background: #F3F4F6; color: #6B7280; }
+  /* urgency flag — replaces the old standalone "Why Act Now" section (max 2) */
+  .urgency {
+    display: inline-block; background: #FEF2F2; color: var(--red);
+    border: 0.75pt solid #FECACA; border-radius: 4px;
+    font-size: 8pt; font-weight: 700; padding: 1.6mm 3mm; margin: 0.5mm 0 2.5mm;
+  }
+  .verdict-hero .vh-label {
+    font-size: 8pt; font-weight: 700; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--accent-lt); margin-bottom: 2.5mm;
+  }
+  .verdict-hero .vh-head {
+    font-size: 15pt; font-weight: 700; color: var(--white);
+    line-height: 1.25; margin-bottom: 3mm;
+  }
+  .verdict-hero p { color: #D1D5DB; font-size: 10pt; margin-bottom: 2mm; }
+  .verdict-hero p:last-child { margin-bottom: 0; }
+  .verdict-hero strong { color: var(--white); }
+  .verdict-hero em { color: #C7CBD6; }
+  .move .step { font-size: 9.6pt; margin: 0; padding: 2.6mm 0 0; }
+  .move .step-body { margin-top: 0; }
+  /* rev 6 — findings carry their own fix */
+  .card { page-break-inside: auto; }
+  .fix {
+    background: var(--light-bg); border-radius: 5px;
+    padding: 4mm 4.5mm; margin-top: 3.5mm;
+    page-break-inside: avoid;
+  }
+  .fix-label {
+    font-size: 7.5pt; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 1mm;
+  }
+  .fix .step { font-size: 9.5pt; margin: 0; padding: 2.4mm 0 0; }
+  .fix .step-body { margin-top: 0; }
+  table.inner { font-size: 8.6pt; margin: 2.5mm 0 1mm; }
+  table.inner th { padding: 2mm 2.6mm; font-size: 7.8pt; }
+  table.inner td { padding: 2mm 2.6mm; }
+  .fix { padding: 3mm 3.6mm; margin-top: 2.4mm; page-break-inside: auto; }
+  .fix .step { font-size: 8.9pt; padding: 1.8mm 0 0; page-break-inside: avoid; }
+  .fix-label { page-break-after: avoid; }
+  .lead { margin-bottom: 3mm; }
+  .verdict-hero { padding: 5.4mm 5.6mm; margin-bottom: 4.5mm; }
+  .verdict-hero .vh-head { font-size: 14pt; margin-bottom: 2.4mm; }
+  .verdict-hero p { font-size: 9.4pt; }
+  .note-box { font-size: 9pt; padding: 3.4mm 4.2mm; }
+  table { font-size: 8.6pt; margin: 2.4mm 0 3mm; }
+  th { padding: 2.4mm 3mm; font-size: 8pt; }
+  td { padding: 2.4mm 3mm; }
 </style>
 </head>
 <body>
 
-<div class="ribbon">
-  <span>Sample Blueprint · fictional client, real format</span>
-  <a href="blueprint.html">← Back to Aigentic</a>
-</div>
+<div class="ribbon"><span>Sample Blueprint · fictional client, real format</span><a href="/blueprint.html">← Back to Aigentic</a></div>
 
-<!-- ============ COVER ============ -->
 <div class="sheet cover-sheet">
 <div class="cover">
   <div class="cover-top">
@@ -251,9 +317,9 @@
     <div class="cover-date">Sample · 2026</div>
   </div>
   <div class="cover-mid">
-    <div class="cover-label">Blueprint</div>
+    <div class="cover-label">Strategy Blueprint</div>
     <div class="cover-title">Reynolds &amp; Co</div>
-    <div class="cover-sub">What the MD's own answers reveal about where the margin is leaking, on work the business has already won.</div>
+    <div class="cover-sub">Where AI fits at a structural-steel fabricator, and what is worth doing first.</div>
     <div class="cover-bar"></div>
     <div class="cover-meta">
       <div><div class="m-label">Prepared for</div><div class="m-value">Jane Reynolds, MD</div></div>
@@ -265,222 +331,141 @@
     <div class="c-name">Raphael Queisser</div>
     <div class="c-line">rq@aigentic.co.uk</div>
     <div class="c-line">aigentic.co.uk</div>
-  </div>
-  <div class="cover-note">
-    Illustrative sample. Reynolds &amp; Co is a fictional structural-steel fabricator, used to show the exact format and depth of a real Blueprint without exposing a client's numbers. Yours is built entirely from your own answers.
+    <div class="c-line" style="margin-top:4mm;max-width:120mm;">Illustrative sample. Reynolds &amp; Co is a fictional company, used to show the exact format of a real Blueprint without exposing anyone's numbers. Yours is built entirely from your own answers.</div>
   </div>
 </div>
 </div>
 
-<!-- ============ PAGE 1 ============ -->
 <div class="sheet">
-
-<!-- THE VERDICT -->
-<div class="section">
-  <h1 class="sec">The verdict: does AI fit Reynolds &amp; Co?</h1>
-  <div class="sec-bar"></div>
-
-  <div class="verdict-lead">Yes, but not where you're looking.</div>
-
-  <p>You told us the problem is <strong>the pipeline</strong>: too much of the work coming from too few contractors, and a need for more of it. Your own answers describe a business that is winning plenty. The margin leaks <em>after</em> you win. Price the same steel package through two of your estimators and it comes out about eight per cent apart, because each one prices off their own spreadsheet. Then jobs run over on the floor, and nobody sees the hit until the year-end accounts land.</p>
-
-  <p>The highest-value thing AI can do for Reynolds this year is <strong>make a job cost the same whoever prices it, and show you the margin while the job is still running</strong> rather than a year after it finished. Fixing what you keep is faster and cheaper than chasing more of what you win.</p>
-
-  <p><em>You are not short of work. You are short of a way to see the money leaving.</em></p>
+<div class="verdict-hero">
+  <div class="vh-label">The Verdict &nbsp;/&nbsp; Yes, AI can help here</div>
+  <div class="vh-head">You are not short of work. You are short of a way to see the money leaving.</div>
+  <p>You told us the problem is the pipeline. Your own answers describe a business that wins plenty of work and loses margin after it wins it:</p>
+  <ul style="margin:2mm 0 3mm 5mm; color:#D1D5DB; font-size:10pt;">
+    <li style="margin-bottom:1.4mm;"><strong>The same job prices two ways.</strong> Two estimators, two spreadsheets, about eight per cent apart.</li>
+    <li style="margin-bottom:1.4mm;"><strong>No job's real margin is visible</strong> until the year-end accounts, long after anything can be done about it.</li>
+    <li><strong>Cash you have already earned</strong> sits in retentions that nobody is chasing.</li>
+  </ul>
+  <p>Fixing what you keep is faster and cheaper than chasing more of what you win. Everything below sits on an <strong>AI Foundation</strong>: the business written down in a form AI can use, so the answers are yours rather than generic.</p>
 </div>
 
-<!-- 1. EXECUTIVE SUMMARY -->
 <div class="section">
-  <h1 class="sec"><span class="sec-num">01</span>&nbsp;&nbsp;Executive Summary</h1>
+  <h1 class="sec"><span class="sec-num">01</span>&nbsp;&nbsp;What We Found</h1>
   <div class="sec-bar"></div>
+  <p class="lead">Drawn from your own answers. Each function is scored for how much it hurts, how repetitive the work is, and how much could go wrong if AI got it wrong.</p>
 
-  <div class="exec-item">
-    <div class="exec-num">1</div>
-    <div class="exec-text"><strong>Your diagnosis and your evidence disagree.</strong> You named the referral-only pipeline as the thing to fix. Across the rest of your answers you described an eight per cent spread between estimators on the same package, and jobs whose real margin nobody sees until year-end. Those are margin failures on work you already won, not a shortage of enquiries.</div>
-  </div>
-  <div class="exec-item">
-    <div class="exec-num">2</div>
-    <div class="exec-text"><strong>One priority is triggered: margin erosion.</strong> On £8.5M of turnover at a thin fabrication margin, a couple of points of drift across a year of jobs is roughly £170K. It compounds quietly, because nothing measures it. This overrides normal sequencing.</div>
-  </div>
-  <div class="exec-item">
-    <div class="exec-num">3</div>
-    <div class="exec-text"><strong>The risks you carry today.</strong> Pricing lives in spreadsheets and two estimators' habits, so a departure takes real margin judgement with it. Job costing only resolves at year-end, far too late to act on. And your top three contractors are a large share of revenue, so the pipeline you named is also a concentration risk.</div>
-  </div>
-  <div class="exec-item">
-    <div class="exec-num">4</div>
-    <div class="exec-text"><strong>What AI should do here, in order, and the free fixes underneath it.</strong> Make pricing consistent, so a package costs the same whoever quotes it. Make job margin visible every month, so an overrun surfaces while you can still act on it. Then build a second channel beyond referrals. Two of those have a free first step you can start this week: one rate card, and a job margin someone actually reviews each month.</div>
-  </div>
-</div>
-
-</div>
-
-<!-- ============ PAGE 2 ============ -->
-<div class="sheet">
-
-<!-- 2. THE NEXT THREE YEARS -->
-<div class="section">
-  <h1 class="sec"><span class="sec-num">02</span>&nbsp;&nbsp;The Next Three Years: AI moves into structural steel</h1>
-  <div class="sec-bar"></div>
-
-  <p><strong>1. Buyers shortlist through AI before they call.</strong><br>
-  Main contractors and structural engineers are starting to scope steel packages and shortlist fabricators with an AI assistant before anyone picks up a phone. If the assistant doesn't name Reynolds when someone asks who fabricates structural steelwork in your region, you are not on the list, and you never find out you were dropped. Most fabricators have no presence there yet, which is exactly why it is winnable now.</p>
-
-  <p><strong>2. Estimating stops being a craft and becomes a system.</strong><br>
-  The pricing judgement in an experienced estimator's head, how a connection detail drives labour hours, what steel-price movement does to a job priced today and delivered in three months, which packages are quietly unprofitable, is exactly what AI is now good at encoding. The firms that hold their margin through the next few years are the ones that captured that judgement instead of leaving it in two people's spreadsheets.</p>
-
-  <p><strong>3. Job costing goes real-time.</strong><br>
-  Knowing a job's true margin while it is still on the floor, not at year-end, is about to become normal. That changes which work you chase and which you decline, because the thin jobs stop hiding inside a healthy-looking annual number.</p>
-
+  <table>
+    <thead>
+      <tr><th style="width:26%;">Function</th><th style="width:8%;">Pain</th><th style="width:11%;">Repetitive</th><th style="width:10%;">AI Risk</th><th>What your answers show</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><b>Estimating &amp; pricing</b></td><td>5</td><td>4</td><td>2</td><td>Two estimators, two spreadsheets, an eight per cent spread on the same package.</td></tr>
+      <tr><td><b>Finance &amp; job costing</b></td><td>5</td><td>4</td><td>3</td><td>A job's real margin only appears at year-end.</td></tr>
+      <tr><td><b>Applications &amp; retentions</b></td><td>4</td><td>5</td><td>2</td><td>Retentions chased late, sometimes a year late.</td></tr>
+      <tr><td><b>Sales &amp; new business</b></td><td>3</td><td>2</td><td>3</td><td>Referral-only; three contractors bring in most of the work.</td></tr>
+      <tr><td><b>Shop floor</b></td><td>2</td><td>3</td><td>4</td><td>Not enough in the answers to size. Half an hour on the floor would fix that.</td></tr>
+    </tbody>
+  </table>
   <div class="note-box">
-    <span class="nb-tag">Where you fit</span>
-    Where Reynolds sits inside each of these shifts, and the specific moves that follow, is exactly what the AI Foundation maps in detail.
+    <span class="nb-tag">Reading the map</span>
+    <b>High pain, high repetition and low risk moves first.</b> That puts pricing at the top, with job costing straight after it.
   </div>
 </div>
-
-<!-- 3. WHAT WE FOUND -->
-<div class="section">
-  <h1 class="sec"><span class="sec-num">03</span>&nbsp;&nbsp;What We Found</h1>
-  <div class="sec-bar"></div>
-  <p class="muted-line">Drawn from your own answers. Single-respondent engagement (MD only), so this is the founder's view, not a triangulated cross-role synthesis.</p>
-
-  <h2 class="sub">Where the margin leaks</h2>
-
-  <div class="card">
-    <div class="card-head"><span class="tag tag-crit">Critical</span><span class="card-title">1. The same job prices two ways</span></div>
-    <div class="field"><b>What's happening.</b> Each estimator builds a quote from their own spreadsheet and their own judgement. Price the same steel package through two of them and it lands about eight per cent apart. Nobody can say which number was right.</div>
-    <div class="field"><b>Root cause.</b> Pricing knowledge lives in two people's heads and a folder of old spreadsheets. No single rate card, no standard build-up, so the price depends on who happens to pick up the enquiry.</div>
-    <div class="field"><b>Cost of leaving it.</b> Direct margin, given away one quote at a time and invisibly. On a thin fabrication margin, the difference between the high and low estimator is the difference between a job worth taking and one that loses money.</div>
-  </div>
-
-  <div class="card">
-    <div class="card-head"><span class="tag tag-crit">Critical</span><span class="card-title">2. You can't see a job's margin until it's over</span></div>
-    <div class="field"><b>What's happening.</b> Jobs run over on labour hours and steel wastage, and the real margin only resolves when the year-end accounts are assembled. By then the job is long finished and the money is gone.</div>
-    <div class="field"><b>Root cause.</b> No monthly job-costing view. The numbers exist, scattered across the accounts and the job records, but nobody pulls them together while there is still time to act.</div>
-    <div class="field"><b>Cost of leaving it.</b> You learn which jobs made money a year too late to change anything, and the thin ones hide inside a healthy-looking annual figure until they don't.</div>
-  </div>
-
-  <div class="card">
-    <div class="card-head"><span class="tag tag-high">High</span><span class="card-title">3. Cash is tied up in applications and retentions</span></div>
-    <div class="field">Applications for payment and retention release sit on a spreadsheet only the bookkeeper fully understands. Retentions get forgotten and chased late, sometimes a year late. That is your own money, already earned, sitting unclaimed on a business where a couple of margin points matter.</div>
-  </div>
-
-  <h2 class="sub">Risk</h2>
-  <ul>
-    <li><strong>Pricing knowledge undocumented.</strong> If either estimator leaves, a chunk of margin judgement leaves with them, and the eight per cent spread says nobody could reconstruct it.</li>
-    <li><strong>Customer concentration.</strong> The top three contractors are a large share of revenue. Losing one would hurt more than the pipeline problem you named.</li>
-  </ul>
-
-  <h2 class="sub">What we couldn't size yet</h2>
-  <p>Your enquiry-to-despatch chain is full of repetitive, rules-based work, and some of it is a candidate for removal. But seven questions surface where a business hurts, not a stopwatch walk of the floor, so nobody captured how many hours a week each task eats. We won't invent the number. Half an hour on the floor fixes that.</p>
 </div>
 
-</div>
-
-<!-- ============ PAGE 3 ============ -->
 <div class="sheet">
-
-<!-- 4. WHY ACT NOW -->
 <div class="section">
-  <h1 class="sec"><span class="sec-num">04</span>&nbsp;&nbsp;Why Act Now</h1>
-  <div class="sec-bar"></div>
-  <p class="muted-line">One priority passed the test. We looked hard for a second and did not find one that met the bar. Padding this section would waste your attention.</p>
+  <div class="card">
+    <div class="card-head"><span class="tag tag-crit">Priority 1</span><span class="card-title">The same job prices two ways</span></div>
+    <ul style="margin-top:0;">
+      <li>Each estimator builds a quote from their own spreadsheet. Price the same steel package through both and it lands about eight per cent apart.</li>
+      <li>Asked which number would have been right, nobody could say.</li>
+    </ul>
+    <div class="field"><b>Root cause.</b> Pricing lives in two people's heads and a folder of old spreadsheets. There is no single rate card, so the price depends on who picks up the enquiry.</div>
+    <div class="field"><b>What it costs.</b> On £8.5 million of turnover, a couple of points of drift is roughly <b>£170,000 a year</b>, given away one quote at a time. And if either estimator leaves, the judgement leaves with them.</div>
+    <div class="fix">
+      <div class="fix-label">Our recommendation</div>
+      <div class="step"><div class="step-body"><b>Do it yourself, this week.</b> Put both estimators in a room and write one rate card and one standard build-up. It's free, needs no AI, and removes most of the spread on its own.</div></div>
+      <div class="step"><div class="step-body"><b>Then an estimating assistant.</b> It reads the drawings, produces a first-pass take-off and prices it against that rate card, so the estimator checks a draft instead of starting from a blank sheet.</div></div>
+    </div>
+  </div>
 
   <div class="card">
-    <div class="card-head"><span class="tag tag-crit">Priority 1</span><span class="card-title">Margin erosion, from pricing you can't standardise and jobs you can't see</span></div>
-    <div class="field"><b>The trigger: a direct profit leak on a thin-margin business.</b> A couple of points of drift across a year of jobs is roughly £170K at £8.5M of turnover, and it compounds quietly because nothing measures it. You told us you suspect you are losing "a few points". Nothing you have today can tell you where.</div>
-    <div class="field"><b>Why scoring alone would miss it.</b> Mechanical task-scoring ranks work by hours and repeatability. Estimating and job costing look unremarkable on that basis: a few people, a few days a week, nothing alarming. It cannot see that those same quiet tasks are silently setting the margin on every job in the business.</div>
-    <div class="field"><b>The decision behind it.</b> Reynolds has to decide whether pricing and job costing become documented, system-supported functions, or stay a matter of which estimator was free that week and which numbers surfaced at year-end. Doing neither means hoping the next thin job is the last one, which it will not be.</div>
+    <div class="card-head"><span class="tag tag-high">Priority 2</span><span class="card-title">You can't see a job's margin until it's over</span></div>
+    <ul style="margin-top:0;">
+      <li>Jobs run over on labour hours and steel wastage.</li>
+      <li>The real margin only appears when the year-end accounts land.</li>
+    </ul>
+    <div class="field"><b>Root cause.</b> No monthly job-costing view. The numbers exist, spread across the accounts and the job records, but nobody pulls them together in time to act.</div>
+    <div class="field"><b>What it costs.</b> You find out which jobs made money a year too late to change anything, and the thin ones hide inside a healthy-looking annual figure.</div>
+    <div class="fix">
+      <div class="fix-label">Our recommendation</div>
+      <div class="step"><div class="step-body"><b>Do it yourself, now.</b> Take the three biggest live jobs and check actual cost against the quote this month, by hand. Rough, but it shows you the leak.</div></div>
+      <div class="step"><div class="step-body"><b>Then an AI Finance Director.</b> Margin by job and by month, where you'll finish the year, and an early warning when a job starts running thin, on the same date every month.</div></div>
+    </div>
   </div>
 </div>
-
-<!-- 5. WHAT TO DO -->
-<div class="section">
-  <h1 class="sec"><span class="sec-num">05</span>&nbsp;&nbsp;What To Do</h1>
-  <div class="sec-bar"></div>
-
-  <div class="verdict">Verdict: YES. The fastest return is on work you already have.</div>
-
-  <p>Three moves, in the order they matter to Reynolds. Each one starts with something free you can do this week, then the AI that makes it stick.</p>
-
-  <h2 class="sub">The base: your AI Foundation</h2>
-  <div class="card" style="border-left:3pt solid var(--accent);">
-    <div class="field">The AI Foundation is simply <b>the business, written down in a form AI can use</b>: your numbers, your customers, your rate card, how a job actually flows from enquiry to final account. Without it, every AI answer is generic. With it, the answers are <em>yours</em>. All three moves sit on top of it, and it earns its place on its own as a thinking partner you can ask anything about the business. <em>(~30 days, kickoff to handover.)</em></div>
-  </div>
-
-  <h3 class="rec">Move 1. Price every job the same way</h3>
-  <div class="rec-meta">The biggest single move available</div>
-  <div class="rec-free"><b>Do it yourself, this week:</b> put both estimators in a room and write one rate card and one standard build-up. Free, and it removes most of the eight per cent spread on its own.</div>
-  <p><b>Then the AI.</b> An estimating assistant that reads the fabrication drawings, produces a first-pass take-off, and prices it against that single rate card, so the estimator checks a draft instead of starting from a blank sheet, and the number no longer depends on who picked up the enquiry.</p>
-  <p><b>Why it's first.</b> It attacks the margin leak at the point the price is set. Every other move measures or reports the problem; this one removes its cause. It is also a genuine bet worth naming: nobody has written down how your estimators build a price, so the first month is capture and the second is build. We don't start building before we know what it has to do.</p>
-
-  <h3 class="rec">Move 2. See the margin while you can still act on it</h3>
-  <div class="rec-meta">Monthly job costing, P&amp;L and cash · an AI finance director</div>
-  <div class="rec-free"><b>Do it yourself, now:</b> pick the three biggest live jobs and have someone reconcile their actual cost against the quote this month, by hand. Rough, but it shows you the leak before anything is built.</div>
-  <p><b>Then the AI.</b> Margin by job and by month, the drivers underneath the numbers, a pack built automatically on a fixed date, and a live view of what you're owed, including which retentions fall due.</p>
-  <p><b>Why AI does this better than a person.</b> The pack isn't late through incompetence. Assembling it is a manual job that always loses to whatever is on fire. AI produces it on the same date every month whether anyone chases it or not, and it tracks the drivers, so a job running thin surfaces while you can still act on it rather than a year later when you can only regret it.</p>
-
-  <h3 class="rec">Move 3. Get found when buyers ask an AI</h3>
-  <div class="rec-meta">Content and AI visibility · an AI marketing manager · starts quietly now</div>
-  <div class="rec-free"><b>Do it yourself, now:</b> ask an AI assistant who fabricates structural steel in your region, and see whether Reynolds is named. That's your baseline, and it costs a minute.</div>
-  <p><b>Then the AI.</b> It plans and writes content in your voice on a schedule, and runs AEO (Answer Engine Optimisation): making sure Reynolds is named when a contractor asks an assistant for a steel fabricator. The new version of showing up first on Google, except the buyer now asks an AI and acts on the two or three names it returns.</p>
-  <p><b>Why not first.</b> AI visibility takes months to move, so the baseline starts now. But it does not fix this year's margin, and it shouldn't take your attention while the same job still prices two ways. The pipeline you named gets solved here, once the leaks above are closed.</p>
 </div>
 
-</div>
-
-<!-- ============ PAGE 4 ============ -->
 <div class="sheet">
-
-<!-- 6. EXPECTED IMPACT -->
 <div class="section">
-  <h1 class="sec"><span class="sec-num">06</span>&nbsp;&nbsp;Expected Impact</h1>
+  <div class="card">
+    <div class="card-head"><span class="tag tag-med">Priority 3</span><span class="card-title">Cash is sitting in retentions nobody is chasing</span></div>
+    <div class="field">Applications for payment and retention release sit on a spreadsheet only the bookkeeper fully understands. Retentions get chased late, sometimes a year late. That's money already earned.</div>
+    <div class="fix">
+      <div class="fix-label">Our recommendation</div>
+      <div class="step"><div class="step-body"><b>Do it yourself.</b> List every retention with its release date and put the dates in the diary. A list and a date, not a project.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><span class="tag tag-low">Priority 4</span><span class="card-title">Most of the work comes from three contractors</span></div>
+    <div class="field">It feels like a pipeline problem, and that's what you named. It is also a concentration risk: losing one of the three would hurt more than a slow quarter.</div>
+    <div class="fix">
+      <div class="fix-label">Our recommendation</div>
+      <div class="step"><div class="step-body"><b>Not first.</b> Once the margin leaks are closed, make sure Reynolds is named when a contractor asks an AI assistant who fabricates steel in your region. Ask one yourself today to see where you stand. It takes a minute.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h1 class="sec"><span class="sec-num">02</span>&nbsp;&nbsp;What It Is Worth</h1>
   <div class="sec-bar"></div>
-
-  <p>This section would normally put a number of hours a week against each move. <strong>We can't do that yet, so we haven't.</strong></p>
-
-  <ul>
-    <li><strong>Why not.</strong> Seven questions surface where a business hurts, not a stopwatch walk of the floor, so any hours-per-week figure here would be invented. Half an hour on the floor fixes it permanently.</li>
-    <li><strong>What we can say, from your own numbers.</strong> At £8.5M of turnover, the couple of points you suspect you're losing is roughly £170K a year. Most of it is avoidable, and the rate card alone, which costs you a day and nothing else, recovers a meaningful slice of it.</li>
-    <li><strong>Pricing consistency.</strong> Directionally the highest-leverage change available, because it acts on the margin of every job you win.</li>
-    <li><strong>Monthly job costing.</strong> Changes which work you chase, away from busy-but-thin and toward jobs that actually pay.</li>
-    <li><strong>Retentions.</strong> Cash you have already earned, currently ageing on a spreadsheet. Claiming it on time is a list and a date, not a project.</li>
-  </ul>
-
-  <p class="muted-line">Figures are directional and use Reynolds' own estimates where their answers captured them. Where hours could not be captured, we have said so rather than estimated.</p>
+  <p class="lead">What this document describes is the output of three jobs. Priced as hires, before employer costs:</p>
+  <table>
+    <thead>
+      <tr><th style="width:44%;">What the work actually is</th><th style="width:28%;">The hire it would take</th><th>Cost of that hire</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Consistent pricing and a first-pass take-off on every enquiry</td><td>Estimator</td><td>&pound;40,000&ndash;&pound;50,000</td></tr>
+      <tr><td>Monthly job costing, margin and cash, read at owner level</td><td>Fractional Finance Director</td><td>&pound;25,000&ndash;&pound;40,000</td></tr>
+      <tr><td>Applications, retentions and the paperwork around them</td><td>Commercial Assistant</td><td>&pound;28,000&ndash;&pound;35,000</td></tr>
+      <tr style="background:#F9FAFB;"><td><b>All three</b></td><td></td><td><b>&pound;93,000&ndash;&pound;125,000 a year</b></td></tr>
+    </tbody>
+  </table>
+  <p>The point is not that you would hire all three. It is that <b>you could not justify hiring any of them</b>, so the work stays with you and two estimators, and the margin leaks in the gaps.</p>
 
   <div class="callout">
-    <div class="co-label">Recommended next step</div>
-    <p>Three things, in this order. <strong>One:</strong> write the rate card, a day with both estimators, no AI, and it removes most of the spread on its own. <strong>Two:</strong> give us half an hour on the floor about volumes, so the next version of this document puts real numbers where the gaps currently are. <strong>Three:</strong> build the AI Foundation, then the estimating assistant and the monthly job-costing view run on our side.</p>
+    <div class="co-label">Next steps</div>
+    <p><b>The first step is a conversation.</b> Whether this reads accurately, what we have got wrong, and which finding matters most from where you sit.</p>
+    <p style="margin-top:2mm;"><b>Two things are worth doing whatever you decide</b>, because they cost nothing and don't need us: write the rate card, and put every retention date in the diary.</p>
+    <p style="margin-top:2mm;">If you want to take it further, the <b>AI Foundation</b> is where it starts, then the estimating assistant and the monthly job-costing view, in that order.</p>
   </div>
 </div>
-
-<!-- 7. SNAPSHOT -->
-<div class="section">
-  <h1 class="sec"><span class="sec-num">07</span>&nbsp;&nbsp;Snapshot</h1>
-  <div class="sec-bar"></div>
-
-  <div class="card">
-    <div class="card-head"><span class="card-title">Jane Reynolds · Managing Director</span></div>
-    <div class="field"><b>Where it's stuck:</b> the same steel package prices about eight per cent apart depending which estimator quotes it, and no job's real margin is visible until the year-end accounts.</div>
-    <div class="field"><b>Risk:</b> margin leaking through pricing she cannot standardise and jobs she cannot see, on a business where a couple of points is £170K. Every commercial decision sits with her, and none of them is currently evidenced.</div>
-    <div class="field"><b>Opportunity:</b> she is losing margin on work she has already won. That is cheaper to fix than chasing more of it, and one of the fixes costs a day and a rate card.</div>
-  </div>
-
-  <p class="muted-line">One interview (MD). Single-voice engagement, so no cross-checking against other roles was possible, and no cross-cutting themes have been invented from one account. Where Jane's diagnosis and her evidence disagree, we have surfaced the disagreement rather than resolved it. That is her call, and it is the first question we would like her to answer.</p>
 </div>
 
-<!-- APPENDIX -->
+<div class="sheet">
 <div class="section">
-  <h1 class="sec">Appendix: About this sample</h1>
+  <h1 class="sec">About this sample</h1>
   <div class="sec-bar"></div>
-  <p>Reynolds &amp; Co is invented. The numbers, the names and the situation are illustrative, chosen to show a typical SME shape: a sound operation with money leaking through processes nobody has had time to fix.</p>
-  <p>What is real is the format. Every Blueprint follows this structure: a straight verdict, an executive summary, where the industry is heading, what we found, why to act now, what to do in the order that matters to you, the expected impact, and a per-person view. It is built entirely from your own answers, and it is yours to keep whether or not you go further.</p>
+  <p>Reynolds &amp; Co is invented. The names, numbers and situation are illustrative, chosen to show a typical owner-run business: a sound operation with money leaking through processes nobody has had time to fix.</p>
+  <p>What is real is the format. Every Blueprint gives you a straight verdict, what we found ranked with its root cause, cost and our recommendation, what the work is worth, and the next steps. It is built entirely from your own answers, and it is yours to keep whether or not you go further.</p>
   <div class="callout">
     <div class="co-label">Want one for your business?</div>
-    <p>Seven questions, about fifteen minutes. You get back a Blueprint like this one, built on your business, not a fictional one. <strong>rq@aigentic.co.uk</strong></p>
+    <p>Seven questions, about fifteen minutes. You get back a Blueprint like this one, built on your business.</p>
+    <p style="margin-top:2mm;"><a href="/blueprint.html#book" style="color:#A5B4FC;font-weight:600;">Start the seven questions</a> &nbsp;·&nbsp; rq@aigentic.co.uk</p>
   </div>
 </div>
-
 </div>
 
 </body>
