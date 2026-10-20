@@ -1,7 +1,7 @@
 import os
 import re
 from datetime import date
-from flask import Flask, send_from_directory, abort, render_template
+from flask import Flask, send_from_directory, abort, render_template, redirect
 import markdown
 
 app = Flask(__name__)
@@ -45,7 +45,7 @@ def articles():
     items = [a for a in map(load_article, slugs) if visible(a)]
     items.sort(key=lambda a: a["date"], reverse=True)
     # One heading per section, in a fixed order; any new section goes last.
-    order = ["AI Visibility", "AI Finance Director"]
+    order = ["AI Visibility", "AI Finance"]
     names = sorted({a["section"] for a in items}, key=lambda n: (order.index(n) if n in order else len(order), n))
     sections = [(n, [a for a in items if a["section"] == n]) for n in names]
     return render_template("articles.html", sections=sections)
@@ -73,6 +73,12 @@ def home():
 @app.route("/health")
 def health():
     return "ok", 200
+
+
+@app.route("/ai-finance-director.html")
+def old_finance_page():
+    # Renamed to AI Finance on 20 Oct 2026; keep links already sent working.
+    return redirect("/ai-finance.html", code=301)
 
 
 @app.route("/<path:page>")
